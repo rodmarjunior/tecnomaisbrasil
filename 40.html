@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Arsenal de IA - Projeto Tecno Mais Brasil</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f1f5f9; }
+        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .slide-container { 
+            width: 1280px; height: 720px; 
+            background-color: #ffffff; 
+            position: relative; overflow: hidden; display: flex; flex-direction: column; 
+            box-shadow: 0 0 50px rgba(0,0,0,0.1); 
+            padding-top: 40px; /* Desce o conteúdo para não cortar o topo */
+            padding-bottom: 100px; /* Espaço para o menu de navegação */
+        }
+        
+        .ia-card {
+            background: white; border-radius: 16px; padding: 12px 24px;
+            border: 2px solid #e2e8f0; transition: all 0.4s ease;
+            display: flex; align-items: center; gap: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); height: 110px;
+        }
+        .ia-card:hover { 
+            transform: translateY(-3px); 
+            border-color: #6366f1; 
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15); 
+        }
+        
+        .ia-logo-box {
+            width: 65px; height: 65px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            background: #f8fafc; flex-shrink: 0; overflow: hidden;
+            border: 1px solid #edf2f7; padding: 8px;
+        }
+        .ia-logo-box img { width: 100%; height: 100%; object-fit: contain; }
+
+        .qr-box { 
+            width: 85px; height: 85px; 
+            background: #f8fafc; padding: 6px; border-radius: 10px; 
+            border: 1px solid #e2e8f0; flex-shrink: 0;
+        }
+        .qr-box img { width: 100%; height: 100%; object-fit: contain; }
+
+        .status-badge { 
+            background: #1e293b; color: #10b981; 
+            padding: 2px 10px; border-radius: 6px; 
+            font-weight: 900; font-size: 0.65rem; text-transform: uppercase; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container">
+        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-600 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.3)]"></div>
+
+        <div class="w-full h-full flex flex-col justify-center px-24 z-20">
+            <div class="flex items-center mb-2">
+                <span class="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 uppercase rounded-sm shadow-md">Ferramentas Oficiais</span>
+                <span class="text-gray-400 text-[10px] font-bold ml-4 tracking-[0.3em] uppercase">Ação Imediata</span>
+            </div>
+
+            <h1 class="text-[#1e293b] text-5xl font-black uppercase leading-tight mb-2">
+                ACESSE SUA <br><span class="text-indigo-600">INTELIGÊNCIA</span>
+            </h1>
+            <p class="text-gray-500 text-lg font-bold italic mb-6 border-l-4 border-indigo-600 pl-6">
+                Escolha o seu copiloto digital para a missão de hoje.
+            </p>
+
+            <div class="grid grid-cols-1 gap-4 max-w-4xl">
+                
+                <div class="ia-card border-l-8 border-[#25D366]">
+                    <div class="ia-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1024px-WhatsApp.svg.png" alt="WhatsApp">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-1">
+                            <h3 class="text-[#1e293b] font-black text-xl uppercase">WHATSAPP (Meta AI)</h3>
+                            <span class="status-badge">Nativo no Celular</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Abra seu WhatsApp e procure pelo <strong>círculo colorido</strong> no topo.</p>
+                    </div>
+                </div>
+
+                <div class="ia-card border-l-8 border-[#10a37f]">
+                    <div class="ia-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png" alt="ChatGPT">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-1">
+                            <h3 class="text-[#1e293b] font-black text-xl uppercase">CHAT GPT</h3>
+                            <span class="status-badge" style="color: #10a37f;">Padrão Mundial</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Acesse <strong>chat.com</strong> ou abra o aplicativo oficial.</p>
+                    </div>
+                    <div class="qr-box">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://chat.openai.com" alt="QR ChatGPT">
+                    </div>
+                </div>
+
+                <div class="ia-card border-l-8 border-[#4285f4]">
+                    <div class="ia-logo-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/2560px-Google_Gemini_logo.svg.png" alt="Gemini">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-1">
+                            <h3 class="text-[#1e293b] font-black text-xl uppercase">GOOGLE GEMINI</h3>
+                            <span class="status-badge" style="color: #4285f4;">Conectado ao Google</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Acesse <strong>gemini.google.com</strong> direto no navegador.</p>
+                    </div>
+                    <div class="qr-box">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://gemini.google.com" alt="QR Gemini">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-6 bg-indigo-50 border-2 border-dashed border-indigo-200 p-5 rounded-xl shadow-sm">
+                <p class="text-indigo-900 text-[10px] font-black uppercase mb-1"><i class="fas fa-terminal mr-2"></i>Comando:</p>
+                <p class="text-indigo-700 text-base font-bold italic leading-snug">
+                    "Vou vender meu [MODELO DO CELULAR] para comprar um melhor. Crie uma oferta irresistível e curta para eu postar agora no meu Status e Instagram."
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

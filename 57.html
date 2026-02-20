@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Slide 41 - O Começo de Tudo</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #0F172A;
+        }
+
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        .final-quote {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 999px;
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-pill:hover {
+            background: #6366f1;
+            transform: translateY(-3px);
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container items-center justify-center text-center">
+        <div class="glow-effect" style="top: -100px; right: -100px;"></div>
+        <div class="glow-effect" style="bottom: -100px; left: -100px;"></div>
+
+        <div class="z-10 px-24">
+            <span class="text-indigo-500 font-black uppercase tracking-[0.5em] text-sm mb-6 block">O futuro pertence aos que executam</span>
+            
+            <h1 class="text-white text-7xl font-black mb-12 leading-tight">
+                OBRIGADO POR <br><span class="text-indigo-500">ACREDITAR.</span>
+            </h1>
+
+            <div class="max-w-4xl mx-auto mb-16">
+                <p class="final-quote font-black italic">
+                    "O medo de começar é o único obstáculo real entre você e a liberdade. A inteligência artificial já te deu as ferramentas, agora só falta a sua coragem."
+                </p>
+            </div>
+
+            <div class="flex justify-center gap-6">
+                <div class="contact-pill flex items-center gap-3">
+                    <i class="fab fa-instagram text-pink-500"></i>
+                    <span></span>
+                </div>
+                <div class="contact-pill flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-green-500"></i>
+                    <span></span>
+                </div>
+                <div class="contact-pill flex items-center gap-3">
+                    <i class="fas fa-globe text-blue-500"></i>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-0 w-full text-center">
+            <p class="text-gray-500 text-xs font-black uppercase tracking-[0.4em]">
+                Projeto Tecno Mais Brasil • O Começo é Hoje
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

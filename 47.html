@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>O Poder do Networking</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+    <style>
+        .net-bg { background: radial-gradient(circle at 80% 20%, #2e1065 0%, #0f172a 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; }
+        .network-line { stroke: #8b5cf6; stroke-dasharray: 1000; animation: draw 5s infinite; }
+        @keyframes draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+    </style>
+</head>
+<body class="net-bg overflow-hidden">
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col justify-center px-24 relative">
+        <div class="absolute right-0 top-0 h-full w-3 bg-purple-600 z-30 shadow-[-5px_0_20px_rgba(139,92,246,0.5)]"></div>
+
+        <div class="flex items-center gap-16 z-20">
+            <div class="w-1/2">
+                <span class="text-purple-400 font-black uppercase tracking-[0.5em] mb-4 block">Ecossistema Humano</span>
+                <h1 class="text-white text-7xl font-black uppercase leading-none mb-10">
+                    O PODER DO <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">NETWORKING</span>
+                </h1>
+                <p class="text-gray-400 text-2xl leading-relaxed italic border-l-4 border-purple-600 pl-8">
+                    "Você é a média das 5 pessoas com quem mais convive."
+                </p>
+            </div>
+
+            <div class="w-1/2 glass-card p-12">
+                <h3 class="text-white font-black text-2xl mb-8 uppercase tracking-widest text-center border-b border-white/10 pb-4">O que é de verdade?</h3>
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg shadow-purple-900/40"><i class="fas fa-handshake"></i></div>
+                        <div>
+                            <h4 class="text-white font-black text-lg">Troca de Valor</h4>
+                            <p class="text-gray-500 text-sm">Não é sobre "pedir favores", é sobre como você pode ajudar o outro para crescerem juntos.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg shadow-indigo-900/40"><i class="fas fa-project-diagram"></i></div>
+                        <div>
+                            <h4 class="text-white font-black text-lg">Teia de Oportunidades</h4>
+                            <p class="text-gray-500 text-sm">Estar no radar das pessoas certas quando elas precisarem de uma solução que você domina.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

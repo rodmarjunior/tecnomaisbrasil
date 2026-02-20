@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Analítico: Renda com Estratégia</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+    <style>
+        .analytic-bg { background: radial-gradient(circle at top left, #1e3a8a, #0f172a); }
+        .data-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(59, 130, 246, 0.3); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .data-card:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
+        .badge-blue { background: #3b82f6; color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 800; }
+    </style>
+</head>
+<body>
+<div class="slide-wrapper">
+    <div class="slide-container analytic-bg flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 z-30 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+        
+        <div class="px-20 pt-12 pb-6 z-20">
+            <span class="bg-blue-600 text-white text-xs font-black px-3 py-1 uppercase rounded-sm">Estratégia & Lucro</span>
+            <h1 class="text-white text-5xl font-black uppercase mt-2">ANALÍTICO: <span class="text-blue-400">O Mestre dos Dados</span></h1>
+            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-blue-500 pl-4 mt-2">Transformando cliques e números em dinheiro real.</p>
+        </div>
+
+        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
+            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-chart-line text-xl"></i></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Configurador de Anúncios</h3>
+                    <span class="badge-blue">Freelance</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Muitas lojas de bairro não sabem usar o botão "Impulsionar" corretamente. Você configura o público certo e mede o retorno.</p>
+                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Ferramenta: Meta Ads (Celular)</div>
+            </div>
+
+            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-search-dollar text-xl"></i></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Analista de Concorrência</h3>
+                    <span class="badge-blue">R$ 300+ /estudo</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Você pesquisa o que os concorrentes de um cliente estão vendendo e quais anúncios estão ativos (Biblioteca de Anúncios do Meta).</p>
+                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Foco: Inteligência de Mercado</div>
+            </div>
+
+            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-file-invoice-dollar text-xl"></i></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Gestor de Orçamentos</h3>
+                    <span class="badge-blue">Mensal</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Organiza as planilhas de gastos de pequenos criadores de conteúdo para garantir que eles não gastem mais do que ganham.</p>
+                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Ferramenta: Google Sheets</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

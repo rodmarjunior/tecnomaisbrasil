@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Economia Digital no Brasil 2025-2026</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        .card-kpi {
+            background-color: #1E293B;
+            border-top: 4px solid transparent;
+            height: 230px; /* Altura fixa para evitar transbordamento */
+        }
+        .border-t-green { border-top-color: #10B981; }
+        .border-t-blue { border-top-color: #3B82F6; }
+        .border-t-purple { border-top-color: #8B5CF6; }
+        .border-t-yellow { border-top-color: #F59E0B; }
+        
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col">
+        <div class="absolute inset-0 bg-grid z-0"></div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+
+        <div class="p-10 pl-20 pb-4 z-10">
+            <div class="flex items-center mb-2">
+                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm">Dados de Mercado</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-widest uppercase">Estatísticas 2025-2026</span>
+            </div>
+            <h1 class="text-white text-4xl font-black uppercase tracking-tight">
+                Economia Digital <span class="text-yellow-500">Brasil</span>
+            </h1>
+            <p class="text-gray-400 text-base mt-1 font-['Open_Sans'] border-l-4 border-gray-600 pl-4">
+                Números que comprovam a aceleração do mercado e novas oportunidades de renda.
+            </p>
+        </div>
+
+        <div class="px-20 z-10 grid grid-cols-2 gap-6">
+            <div class="card-kpi border-t-green rounded-lg p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-cart-shopping text-7xl text-green-500"></i></div>
+                <div class="flex items-center mb-2">
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">E-commerce 2025</p>
+                </div>
+                <p class="text-white text-5xl font-black mb-1">R$ 234 <span class="text-2xl text-gray-500">bi</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-3">
+                    <div class="bg-green-500 h-full w-11/12"></div>
+                </div>
+                <p class="text-gray-300 text-xs leading-relaxed">Faturamento recorde impulsionado por marketplaces e social commerce no Brasil.</p>
+            </div>
+
+            <div class="card-kpi border-t-blue rounded-lg p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-laptop-code text-7xl text-blue-500"></i></div>
+                <div class="flex items-center mb-2">
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Mercado Digital</p>
+                </div>
+                <p class="text-white text-5xl font-black mb-1">+ R$ 14 <span class="text-2xl text-gray-500">bi</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-3">
+                    <div class="bg-blue-500 h-full w-3/4"></div>
+                </div>
+                <p class="text-gray-300 text-xs leading-relaxed">Movimentação anual em infoprodutos, serviços digitais e ferramentas SaaS.</p>
+            </div>
+
+            <div class="card-kpi border-t-purple rounded-lg p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-layer-group text-7xl text-purple-500"></i></div>
+                <div class="flex items-center mb-2">
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Plataformas Digitais</p>
+                </div>
+                <p class="text-white text-5xl font-black mb-1">R$ 60 <span class="text-2xl text-gray-500">bi</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-3">
+                    <div class="bg-purple-500 h-full w-4/5"></div>
+                </div>
+                <p class="text-gray-300 text-xs leading-relaxed">Faturamento conjunto das grandes plataformas operando no ecossistema brasileiro.</p>
+            </div>
+
+            <div class="card-kpi border-t-yellow rounded-lg p-6 shadow-xl flex flex-col justify-center">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 mr-4">
+                        <i class="fas fa-eye text-lg"></i>
+                    </div>
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Tendência 2026</p>
+                </div>
+                <h3 class="text-white text-xl font-black uppercase mb-2">Pagamentos <span class="text-yellow-500">Invisíveis</span></h3>
+                <ul class="text-gray-300 text-xs space-y-1">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Experiência sem fricção (Uber style)</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Crescimento do Live Shopping</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="absolute bottom-4 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-2 z-20">
+            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans']">
+                <i class="fas fa-info-circle mr-2"></i>
+                <span>Fonte: ABComm, E-commerce Brasil, Teletime (Estudos de Mercado 2024-2025)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

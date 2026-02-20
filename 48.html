@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Atividade Networking Interativa</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        .connect-bg { 
+            background: radial-gradient(circle at center, #1e1b4b 0%, #030712 100%); 
+        }
+        .task-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(10px);
+            border-radius: 25px; 
+            padding: 30px; 
+            transition: 0.4s; 
+            border: 1px solid rgba(139, 92, 246, 0.2); 
+        }
+        .task-card:hover { 
+            border-color: #8b5cf6; 
+            background: rgba(139, 92, 246, 0.05);
+            transform: translateY(-5px);
+        }
+        .timer-glow {
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body class="connect-bg overflow-hidden">
+
+<audio id="audioLocal" src="musica.mp3" preload="auto" loop></audio>
+
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col p-20 justify-center relative">
+        <div class="absolute w-96 h-96 bg-purple-600/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+        <div class="z-10">
+            <h1 class="text-white text-6xl font-black uppercase mb-2 text-center">AGORA É COM <span class="text-purple-500">VOCÊS!</span></h1>
+            <p class="text-gray-400 text-center text-xl mb-12 font-bold uppercase tracking-[0.4em]">O Poder da Tribo: Dinâmica de Conexão</p>
+            
+            <div class="grid grid-cols-3 gap-8 mb-12">
+                <div class="task-card text-center">
+                    <div class="w-16 h-16 bg-purple-900/40 rounded-2xl flex items-center justify-center text-purple-400 mx-auto mb-6">
+                        <i class="fas fa-id-card text-3xl"></i>
+                    </div>
+                    <h4 class="text-white font-black text-xl mb-3 uppercase font-black">QUEM É VOCÊ?</h4>
+                    <p class="text-gray-500 text-sm italic">O que você ama fazer e qual o seu maior talento hoje?</p>
+                </div>
+                
+                <div class="task-card text-center">
+                    <div class="w-16 h-16 bg-indigo-900/40 rounded-2xl flex items-center justify-center text-indigo-400 mx-auto mb-6">
+                        <i class="fas fa-gift text-3xl"></i>
+                    </div>
+                    <h4 class="text-white font-black text-xl mb-3 uppercase font-black">O QUE OFERECE?</h4>
+                    <p class="text-gray-500 text-sm italic">Como você pode ajudar alguém da sala com o que sabe?</p>
+                </div>
+
+                <div class="task-card text-center">
+                    <div class="w-16 h-16 bg-blue-900/40 rounded-2xl flex items-center justify-center text-blue-400 mx-auto mb-6">
+                        <i class="fas fa-bullseye text-3xl"></i>
+                    </div>
+                    <h4 class="text-white font-black text-xl mb-3 uppercase font-black">O QUE PRECISA?</h4>
+                    <p class="text-gray-500 text-sm italic">O que você quer aprender ou qual ferramenta precisa dominar?</p>
+                </div>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 p-8 rounded-[40px] flex items-center justify-between mx-auto max-w-5xl w-full backdrop-blur-sm">
+                <div class="flex items-center gap-8">
+                    <button id="startBtn" onclick="toggleAtividade()" class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg shadow-purple-600/30 transition-transform hover:scale-110">
+                        <i id="playIcon" class="fas fa-play ml-1"></i>
+                    </button>
+                    <div>
+                        <p class="text-white text-2xl font-black italic leading-tight">INICIAR CONEXÕES</p>
+                        <p class="text-gray-500 text-sm uppercase font-bold tracking-widest">Grandes negócios nasceram em momentos iguais a esse.</p>
+                    </div>
+                </div>
+                <div id="display" class="text-white font-black text-7xl timer-glow">05:00</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let tempoSegundos = 300;
+    let intervalo;
+    let rodando = false;
+    const audio = document.getElementById('audioLocal');
+
+    function toggleAtividade() {
+        const icon = document.getElementById('playIcon');
+        
+        if (!rodando) {
+            rodando = true;
+            icon.classList.replace('fa-play', 'fa-pause');
+            
+            // Inicia Áudio
+            audio.play().catch(e => console.log("Erro ao iniciar áudio: ", e));
+            
+            intervalo = setInterval(() => {
+                tempoSegundos--;
+                const min = Math.floor(tempoSegundos / 60);
+                const seg = tempoSegundos % 60;
+                document.getElementById('display').innerText = 
+                    `${min.toString().padStart(2, '0')}:${seg.toString().padStart(2, '0')}`;
+                
+                if (tempoSegundos <= 0) finalizarAtividade();
+            }, 1000);
+        } else {
+            rodando = false;
+            icon.classList.replace('fa-pause', 'fa-play');
+            audio.pause();
+            clearInterval(intervalo);
+        }
+    }
+
+    function finalizarAtividade() {
+        clearInterval(intervalo);
+        audio.pause();
+        audio.currentTime = 0;
+        rodando = false;
+        document.getElementById('playIcon').classList.replace('fa-pause', 'fa-play');
+        alert("O tempo de networking acabou!");
+    }
+</script>
+</body>
+</html>

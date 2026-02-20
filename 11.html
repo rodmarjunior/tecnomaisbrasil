@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Slide 8 - A Anatomia do Prompt</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        .prompt-bg { background: radial-gradient(circle at top left, #1e293b, #020617); }
+        .code-window { 
+            background: #0f172a; 
+            border-radius: 20px; 
+            border: 1px solid #334155; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .code-header { background: #1e293b; padding: 10px 20px; display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .part-tag { font-size: 10px; font-weight: 900; padding: 2px 8px; border-radius: 4px; margin-right: 8px; }
+    </style>
+</head>
+<body class="prompt-bg overflow-hidden text-white">
+
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col justify-center px-24">
+        <div class="mb-10">
+            <h1 class="text-6xl font-black uppercase leading-tight">COMO FALAR COM <br><span class="text-blue-500">AS MÁQUINAS?</span></h1>
+            <p class="text-gray-400 text-2xl font-bold italic border-l-4 border-blue-600 pl-6 mt-4">
+                O segredo não é o que você pede, é **como** você pede.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-12 items-center">
+            <div class="code-window">
+                <div class="code-header">
+                    <div class="dot bg-red-500"></div>
+                    <div class="dot bg-yellow-500"></div>
+                    <div class="dot bg-green-500"></div>
+                </div>
+                <div class="p-8 font-mono text-lg leading-relaxed">
+                    <p class="mb-4"><span class="part-tag bg-blue-600 text-white uppercase">Contexto</span> "Atue como um Professor de História..."</p>
+                    <p class="mb-4"><span class="part-tag bg-purple-600 text-white uppercase">Tarefa</span> "...explique a Revolução Industrial..."</p>
+                    <p class="mb-4"><span class="part-tag bg-green-600 text-white uppercase">Formato</span> "...em 3 parágrafos curtos..."</p>
+                    <p><span class="part-tag bg-yellow-600 text-white uppercase">Tom</span> "...usando gírias de gamer."</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <h3 class="text-2xl font-black uppercase text-blue-400">A FÓRMULA MÁGICA:</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all">
+                        <span class="text-3xl font-black text-blue-600 opacity-50">01</span>
+                        <p class="text-gray-300"><strong>Dê um papel:</strong> Diga quem a IA deve ser (Expert, Vendedor, Mentor).</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all">
+                        <span class="text-3xl font-black text-purple-600 opacity-50">02</span>
+                        <p class="text-gray-300"><strong>Dê limites:</strong> Quantas palavras? Qual o público? Qual o tom?</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-green-500/50 transition-all">
+                        <span class="text-3xl font-black text-green-600 opacity-50">03</span>
+                        <p class="text-gray-300"><strong>Peça exemplos:</strong> "Me dê 3 opções de títulos impactantes".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-gray-500 font-black text-xs uppercase tracking-[0.4em]">
+                O Prompt é a ponte entre a sua ideia e o resultado final.
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

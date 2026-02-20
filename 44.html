@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Desafio Prático - Criação</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: #0F172A; padding: 15px; color: white; padding-bottom: 100px; }
+        .card { background: white; color: #1e293b; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .topic-box { 
+            background: #f1f5f9; 
+            border: 2px dashed #6366f1; 
+            padding: 20px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            text-align: center; 
+            margin: 15px 0;
+            color: #4338ca;
+            font-size: 1.1rem;
+        }
+        textarea { 
+            width: 100%; 
+            height: 180px; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin-top: 10px; 
+            font-weight: 600;
+            color: #1e293b;
+            font-family: sans-serif;
+        }
+        .btn-main { 
+            background: #6366f1; 
+            color: white; 
+            width: 100%; 
+            padding: 18px; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            margin-top: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 class="text-2xl font-black mb-1 uppercase text-center">🎯 Missão Criativa</h1>
+        <p class="text-gray-400 text-[10px] text-center mb-4 uppercase font-bold tracking-widest">PROJETO TECNO MAIS BRASIL</p>
+        
+        <div class="topic-box" id="topic">Clique para sortear seu desafio</div>
+        
+        <button onclick="sortear()" class="text-xs font-black uppercase text-indigo-600 w-full mb-6 flex items-center justify-center gap-2">
+            <i class="fas fa-random"></i> TROCAR TEMA
+        </button>
+
+        <label class="text-xs font-black uppercase text-gray-400 ml-1">Sua Legenda de Alta Conversão:</label>
+        <textarea id="texto" placeholder="Dica: Use os gatilhos que aprendemos..."></textarea>
+        
+        <button onclick="enviar()" class="btn-main shadow-lg">Finalizar e Ver Gabarito</button>
+        
+        <div id="feedback" class="hidden mt-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-800 text-xs font-bold">
+            <i class="fas fa-check-circle mr-2"></i> Missão concluída! Redirecionando...
+        </div>
+    </div>
+
+    <script>
+        const temas = [
+            "Por que um jovem de 16 anos precisa entender de IA hoje?",
+            "Como eu faria meus primeiros R$ 1.000 no digital se começasse do zero",
+            "A habilidade que a escola não ensina, mas o mercado paga muito bem",
+            "3 ferramentas de IA que economizam 5 horas do meu dia",
+            "O erro que faz 90% dos iniciantes desistirem do digital",
+            "Trabalhar para o mundo: como ganhar em dólar sem sair de casa"
+        ];
+
+        function sortear() { 
+            const box = document.getElementById('topic');
+            const novoTema = temas[Math.floor(Math.random() * temas.length)];
+            box.style.opacity = 0;
+            setTimeout(() => {
+                box.innerText = novoTema;
+                box.style.opacity = 1;
+            }, 200);
+        }
+
+        function enviar() {
+            const texto = document.getElementById('texto').value;
+            if(texto.length < 20) {
+                alert('Sua legenda está muito curta! Desenvolva um pouco mais a ideia.');
+                return;
+            }
+            
+            document.getElementById('feedback').classList.remove('hidden');
+            
+            // Redireciona para o Gabarito (Slide 45) após 2 segundos
+            setTimeout(() => { 
+                window.location.href = '45.html'; 
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

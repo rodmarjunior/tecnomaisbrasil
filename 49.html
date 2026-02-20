@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ética e Responsabilidade em IA</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        .grid-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+        
+        .principle-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 6px solid transparent; /* Bordas mais grossas para o telão */
+            position: relative;
+            overflow: hidden;
+            height: 220px; /* Altura controlada para evitar cortes */
+        }
+        .principle-card:hover {
+            transform: translateY(-8px);
+            background-color: #1e293b;
+        }
+        
+        /* Cores Vibrantes com Glow para Projeção */
+        .border-red-glow { box-shadow: 0 -4px 20px -5px rgba(239, 68, 68, 0.4); border-top-color: #ef4444; }
+        .border-blue-glow { box-shadow: 0 -4px 20px -5px rgba(59, 130, 246, 0.4); border-top-color: #3b82f6; }
+        .border-yellow-glow { box-shadow: 0 -4px 20px -5px rgba(245, 158, 11, 0.4); border-top-color: #f59e0b; }
+        .border-green-glow { box-shadow: 0 -4px 20px -5px rgba(16, 185, 129, 0.4); border-top-color: #10b981; }
+
+        .alert-box {
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container grid-pattern flex flex-col bg-[#0F172A]">
+        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30"></div>
+        
+        <div class="flex-none px-20 pt-12 pb-6 z-10">
+            <div class="flex items-center mb-3">
+                <span class="bg-indigo-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Responsabilidade Digital</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-widest uppercase">Governança de IA</span>
+            </div>
+            <h1 class="text-white text-4xl font-black uppercase leading-tight tracking-tight">
+                Ética e <span class="text-indigo-400">Responsabilidade</span> em IA
+            </h1>
+            <p class="text-gray-300 text-lg mt-1 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl leading-snug">
+                A tecnologia deve ampliar o potencial humano, não substituí-lo de forma irresponsável.
+            </p>
+        </div>
+
+        <div class="flex-1 px-20 pb-12 grid grid-cols-2 gap-6 z-10 items-center">
+            
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-blue-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 border border-blue-500/30">
+                    <i class="fas fa-user-check text-blue-400 text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Revisão Humana</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Em temas sensíveis, a IA deve atuar como suporte. A decisão final e a responsabilidade são sempre humanas.
+                    </p>
+                    <span class="text-blue-400 text-[10px] font-black uppercase tracking-wider">Human-in-the-loop</span>
+                </div>
+            </div>
+
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-red-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0 border border-red-500/30">
+                    <i class="fas fa-scale-balanced text-red-400 text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Mitigação de Vieses</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Algoritmos podem perpetuar preconceitos. Garanta que os resultados sejam justos e inclusivos para todos.
+                    </p>
+                    <span class="text-red-400 text-[10px] font-black uppercase tracking-wider">Equidade Algorítmica</span>
+                </div>
+            </div>
+
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-green-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center shrink-0 border border-green-500/30">
+                    <i class="fas fa-lock text-green-400 text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Privacidade e Dados</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Nunca insira dados confidenciais ou segredos em IAs públicas. Respeite a LGPD e a propriedade intelectual.
+                    </p>
+                    <span class="text-green-400 text-[10px] font-black uppercase tracking-wider">Segurança de Dados</span>
+                </div>
+            </div>
+
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-yellow-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center shrink-0 border border-yellow-500/30">
+                    <i class="fas fa-eye text-yellow-400 text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Transparência</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Deixe claro quando um conteúdo for gerado por IA. A honestidade constrói confiança com sua audiência.
+                    </p>
+                    <span class="text-yellow-400 text-[10px] font-black uppercase tracking-wider">Clareza na Origem</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-16 left-20 right-20 alert-box rounded-xl p-4 flex items-center z-20">
+            <i class="fas fa-triangle-exclamation text-yellow-500 mr-4 text-xl"></i>
+            <p class="text-gray-200 text-sm font-['Open_Sans'] leading-tight">
+                <strong>Lembre-se:</strong> A IA é uma ferramenta poderosa, mas a ética é o freio que impede acidentes graves.
+            </p>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-10 text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+            <i class="fas fa-book-open mr-2"></i> Fonte: Relatório Governança de IA & LGPD 2025
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

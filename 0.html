@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bem-vindo - Inteligência Digital 2026</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #0F172A; font-family: 'Montserrat', sans-serif; }
+        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .slide-container { 
+            width: 1280px; height: 720px; 
+            background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
+            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .qr-main {
+            background: white; padding: 20px; border-radius: 25px;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+            border: 8px solid #6366F1;
+        }
+        .welcome-badge { background: #6366F1; color: white; padding: 5px 20px; border-radius: 999px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container text-center">
+        <div class="welcome-badge animate-bounce">Conecte-se agora</div>
+        
+        <h1 class="text-white text-6xl font-black uppercase mb-4 leading-tight">
+            INTELIGÊNCIA <span class="text-indigo-500">DIGITAL 2026</span>
+        </h1>
+        <p class="text-gray-400 text-2xl italic mb-12">Acompanhe os slides e faça suas anotações em tempo real.</p>
+
+        <div class="flex items-center gap-16">
+            <div class="qr-main">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://beezip.com.br/palestra/acompanhar.html" alt="QR Code Acompanhamento">
+            </div>
+            
+            <div class="text-left max-w-sm">
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-mobile-alt text-indigo-500 text-3xl"></i>
+                        <p class="text-gray-300"><strong>Acompanhe Online:</strong> Veja os slides direto no seu celular.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-edit text-indigo-500 text-3xl"></i>
+                        <p class="text-gray-300"><strong>Bloco de Notas:</strong> Salve seus insights durante a palestra.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-bolt text-indigo-500 text-3xl"></i>
+                        <p class="text-gray-300"><strong>Ação:</strong> Participe das atividades práticas em um clique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-indigo-400 font-bold tracking-[0.3em] uppercase">Rodmar Junior • Projeto Tecno Mais Brasil</div>
+    </div>
+</div>
+
+</body>
+</html>

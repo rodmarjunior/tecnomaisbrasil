@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Atividade: Seu Perfil Digital</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+            border: 8px solid #6366F1;
+        }
+        .pulse-text {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .bg-animate {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+        /* Botão de Música */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: #6366F1;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+            transition: 0.3s;
+        }
+        .music-control:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+<audio id="trilhaAtividade" src="musica2.mp3" preload="auto" loop></audio>
+
+<div class="music-control" onclick="toggleMusica()">
+    <i id="musicIcon" class="fas fa-play"></i>
+</div>
+
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col bg-animate">
+        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+
+        <div class="flex-none px-20 pt-16 pb-6 z-20 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <span class="bg-indigo-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full">Autoconhecimento</span>
+            </div>
+            <h1 class="text-white text-5xl font-black uppercase leading-tight tracking-tight mb-4">
+                DESCUBRA SEU <span class="text-indigo-400">PERFIL DIGITAL</span>
+            </h1>
+            <p class="text-gray-300 text-xl font-['Open_Sans'] max-w-3xl mx-auto">
+                Aponte a câmera do seu celular para o QR Code abaixo e descubra qual dessas carreiras mais combina com seus talentos.
+            </p>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center z-10 pb-10">
+            <div class="qr-container mb-6">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://beezip.com.br/palestra/27.html" 
+                     alt="QR Code Quiz" 
+                     class="w-64 h-64">
+            </div>
+            
+            <div class="flex items-center gap-4 text-white font-black text-2xl uppercase tracking-widest pulse-text">
+                <i class="fas fa-mobile-screen-button"></i>
+                <span>beezip.com.br/palestra/27.html</span>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
+            <div class="flex justify-between items-center text-gray-500 text-[10px] font-black uppercase tracking-widest">
+                <span><i class="fas fa-clock mr-2 text-indigo-500"></i> Tempo estimado: 2 minutos</span>
+                <span>Rodmar Junior • Projeto Tecno Mais Brasil</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const musica = document.getElementById('trilhaAtividade');
+    const icon = document.getElementById('musicIcon');
+
+    function toggleMusica() {
+        if (musica.paused) {
+            musica.play();
+            icon.classList.replace('fa-play', 'fa-pause');
+        } else {
+            musica.pause();
+            icon.classList.replace('fa-pause', 'fa-play');
+        }
+    }
+</script>
+
+</body>
+</html>

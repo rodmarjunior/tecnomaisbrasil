@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>IA na Prática: Playbook de Prompts</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+        
+        .bg-tech {
+            background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
+        }
+
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            position: relative; overflow: hidden; 
+            display: flex; flex-direction: column;
+            padding: 40px 80px; /* Padding padrão */
+        }
+
+        /* Syntax Highlighting */
+        .syntax-keyword { color: #c084fc; font-weight: 800; } 
+        .syntax-string { color: #4ade80; } 
+        .syntax-variable { color: #38bdf8; font-weight: 800; } 
+        .syntax-comment { color: #64748b; font-style: italic; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .prompt-window {
+            background: #0b0f1a;
+            border: 1px solid #1e293b;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .tool-category {
+            border-left: 4px solid;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 8px 14px; /* Mais compacto para não vazar */
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .glow-cyan { text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
+        .code-font { font-family: 'Fira Code', monospace; }
+        
+        /* AJUSTE PARA O MENU DE NOTAS */
+        .main-content {
+            margin-bottom: 110px; /* Espaço obrigatório para o menu não sobrepor */
+        }
+    </style>
+</head>
+<body class="bg-tech text-white">
+
+<div class="slide-wrapper">
+    <div class="slide-container">
+        <div class="absolute left-0 top-0 h-full w-2 bg-cyan-500 z-30 shadow-[5px_0_20px_rgba(34,211,238,0.4)]"></div>
+
+        <div class="flex-none z-20 mb-4">
+            <div class="flex items-center mb-1">
+                <span class="bg-cyan-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg">Engenharia de Prompt</span>
+                <span class="text-cyan-400 text-[10px] font-bold ml-4 tracking-widest uppercase opacity-70"></span>
+            </div>
+            <h1 class="text-5xl font-black uppercase tracking-tighter glow-cyan">
+                IA NA PRÁTICA: <span class="text-cyan-400">COMANDOS</span>
+            </h1>
+        </div>
+
+        <div class="flex flex-1 gap-8 z-10 items-stretch overflow-hidden main-content">
+            
+            <div class="w-7/12 flex flex-col gap-3">
+                <div class="glass-card p-3 border-l-4 border-red-500 bg-red-500/5">
+                    <p class="text-red-500 font-black uppercase text-[10px] tracking-widest mb-1 flex items-center">
+                        <i class="fas fa-ban mr-2"></i> Prompt Genérico (Fraco)
+                    </p>
+                    <div class="bg-black/50 p-2 rounded-lg code-font text-xs text-gray-500 italic">
+                        "Faça um post sobre vendas."
+                    </div>
+                </div>
+
+                <div class="prompt-window rounded-xl p-5 flex-1 border-t-4 border-cyan-500">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-cyan-400 font-black uppercase text-[10px] tracking-widest flex items-center">
+                            <i class="fas fa-terminal mr-2"></i> Estrutura Mestre (Copia e Cola)
+                        </span>
+                        <div class="flex gap-1">
+                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">CONTEXTO</span>
+                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">FORMATO</span>
+                        </div>
+                    </div>
+                    
+                    <div class="code-font text-base leading-snug text-gray-200">
+                        <p>
+                            <span class="syntax-keyword">Atue como</span> um <span class="syntax-variable">copywriter sênior</span>...<br/><br/>
+                            <span class="syntax-keyword">Tarefa:</span> Crie um post carrossel para Instagram.<br/>
+                            <span class="syntax-keyword">Público:</span> Microempreendedores iniciantes.<br/>
+                            <span class="syntax-keyword">Tom:</span> Prático e direto.<br/>
+                            <span class="syntax-keyword">Requisitos:</span><br/>
+                            &nbsp;&nbsp;1. Inclua CTA para "Link na Bio".<br/>
+                            &nbsp;&nbsp;2. Gere 3 variações de Headlines.<br/><br/>
+                            <span class="syntax-comment">// Evite clichês corporativos.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-5/12 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-white font-black uppercase text-[10px] mb-2 flex items-center tracking-widest text-cyan-500">
+                        <i class="fas fa-robot mr-2"></i> Ecossistema 2026
+                    </h3>
+                    
+                    <div class="tool-category border-blue-500">
+                        <h4 class="text-white font-black text-xs uppercase">Texto: <span class="text-blue-400">ChatGPT & Claude</span></h4>
+                        <p class="text-gray-400 text-[9px]">Raciocínio e escrita de elite.</p>
+                    </div>
+
+                    <div class="tool-category border-pink-500">
+                        <h4 class="text-white font-black text-xs uppercase">Imagem: <span class="text-pink-400">Midjourney & Firefly</span></h4>
+                        <p class="text-gray-400 text-[9px]">Visuais realistas e publicitários.</p>
+                    </div>
+
+                    <div class="tool-category border-purple-500">
+                        <h4 class="text-white font-black text-xs uppercase">Vídeo: <span class="text-purple-400">Runway & ElevenLabs</span></h4>
+                        <p class="text-gray-400 text-[9px]">Vídeos e vozes profissionais.</p>
+                    </div>
+
+                    <div class="tool-category border-yellow-500">
+                        <h4 class="text-white font-black text-xs uppercase">Automação: <span class="text-yellow-500">Make & Zapier</span></h4>
+                        <p class="text-gray-400 text-[9px]">IA executando tarefas sozinha.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 border-cyan-500/30">
+                    <p class="text-cyan-400 text-[9px] font-black uppercase mb-1 flex items-center">
+                        <i class="fas fa-lightbulb mr-2"></i> Dica de Ouro
+                    </p>
+                    <p class="text-gray-200 text-[11px] leading-tight italic">
+                        Não use IA para "pensar" por você. Use para <strong>executar</strong> e acelerar suas ideias originais.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Tipos de IA: A Grande Divisão</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+    <style>
+        .split-bg { background: linear-gradient(135deg, #1e293b 50%, #3730a3 50%); }
+        .card-left { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); border-right: 4px solid #60a5fa; }
+        .card-right { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); border-left: 4px solid #a78bfa; }
+        .icon-box { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
+        .vs-circle { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: rgba(255, 255, 255, 0.2); border: 4px solid #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 30; }
+    </style>
+</head>
+<body class="split-bg overflow-hidden">
+<div class="slide-wrapper">
+    <div class="slide-container flex relative items-center px-20 gap-20">
+        
+        <div class="vs-circle text-white font-black text-3xl italic">VS</div>
+
+        <div class="w-1/2 p-12 card-left rounded-3xl h-[550px] flex flex-col justify-center">
+            <div class="icon-box bg-blue-500/30"><i class="fas fa-microchip text-blue-300 text-4xl"></i></div>
+            <h3 class="text-blue-300 font-black text-xs uppercase tracking-widest mb-2">Traditional AI</h3>
+            <h2 class="text-white text-5xl font-black mb-6 uppercase leading-tight">IA <span class="text-blue-300">ESTRITA</span></h2>
+            <p class="text-gray-200 text-lg leading-relaxed mb-8">
+                É a IA que toma decisões. Ela classifica, filtra e identifica. É o "Cérebro Analítico" que diz se algo é verdadeiro ou falso.
+            </p>
+            <ul class="space-y-3 text-gray-100 font-bold">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Filtra Spam de E-mail</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Detecta Fraudes em Bancos</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Sugere Rotas no Google Maps</li>
+            </ul>
+        </div>
+
+        <div class="w-1/2 p-12 card-right rounded-3xl h-[550px] flex flex-col justify-center">
+            <div class="icon-box bg-indigo-500/30"><i class="fas fa-wand-magic-sparkles text-indigo-300 text-4xl"></i></div>
+            <h3 class="text-indigo-300 font-black text-xs uppercase tracking-widest mb-2">Generative AI</h3>
+            <h2 class="text-white text-5xl font-black mb-6 uppercase leading-tight">IA <span class="text-indigo-300">CRIATIVA</span></h2>
+            <p class="text-gray-100 text-lg leading-relaxed mb-8">
+                É a IA que produz. Ela cria textos, imagens e sons do absoluto zero. É o "Cérebro Artista" que gera novas ideias.
+            </p>
+            <ul class="space-y-3 text-indigo-100 font-bold">
+                <li><i class="fas fa-plus text-indigo-400 mr-2"></i> Escreve Redações & Scripts</li>
+                <li><i class="fas fa-plus text-indigo-400 mr-2"></i> Gera Fotos de Alta Resolução</li>
+                <li><i class="fas fa-plus text-indigo-400 mr-2"></i> Compõe Trilhas Sonoras</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

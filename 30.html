@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Criativo: Renda com Celular</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+    <style>
+        .creative-bg { background: radial-gradient(circle at top right, #312e81, #0f172a); }
+        .feature-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(236, 72, 153, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .feature-card:hover { transform: scale(1.03); border-color: #ec4899; box-shadow: 0 0 30px rgba(236, 72, 153, 0.2); }
+        .price-tag { background: #ec4899; color: white; padding: 2px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; }
+    </style>
+</head>
+<body>
+<div class="slide-wrapper">
+    <div class="slide-container creative-bg flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-2 bg-pink-500 z-30 shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
+        
+        <div class="px-20 pt-12 pb-6 z-20">
+            <span class="bg-pink-600 text-white text-xs font-black px-3 py-1 uppercase rounded-sm">Renda Imediata</span>
+            <h1 class="text-white text-5xl font-black uppercase mt-2">CRIATIVO: <span class="text-pink-500">Celular na Mão</span></h1>
+            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-pink-500 pl-4 mt-2">Como monetizar sua criatividade sem sair de casa e sem PC.</p>
+        </div>
+
+        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
+            <div class="feature-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-video text-xl"></i></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-white font-bold text-lg">Editor de Reels/TikTok</h3>
+                    <span class="price-tag">R$ 50-150 /vídeo</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Muitos influencers têm conteúdo bruto mas não têm tempo de legendar e cortar. Você faz tudo pelo <strong>CapCut</strong> no celular.</p>
+                <div class="mt-auto text-[10px] text-pink-400 font-black uppercase tracking-widest">Ferramenta: CapCut + Captions</div>
+            </div>
+
+            <div class="feature-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-magic text-xl"></i></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-white font-bold text-lg">Designer de Thumbnails</h3>
+                    <span class="price-tag">R$ 30-80 /thumb</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Crie capas para YouTube que geram cliques. Use o <strong>Canva Mobile</strong> ou <strong>PicsArt</strong> para remover fundos e aplicar efeitos.</p>
+                <div class="mt-auto text-[10px] text-pink-400 font-black uppercase tracking-widest">Ferramenta: Canva + PicsArt</div>
+            </div>
+
+            <div class="feature-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-user-check text-xl"></i></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-white font-bold text-lg">Criador de UGC</h3>
+                    <span class="price-tag">R$ 200-500 /vídeo</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Grave reviews naturais de produtos para marcas usarem em anúncios. Sua "vibe" real vale ouro no TikTok.</p>
+                <div class="mt-auto text-[10px] text-pink-400 font-black uppercase tracking-widest">Foco: Naturalidade + Celular</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

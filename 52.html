@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>A Arte do Contorno - Projeto Tecno Mais Brasil</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        /* Fundo mais vibrante e moderno */
+        .strategy-bg { 
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); 
+        }
+        
+        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        .slide-container { 
+            width: 1280px; height: 720px; 
+            position: relative; overflow: hidden; display: flex; flex-direction: column; 
+            justify-content: center; padding: 40px 60px 100px 60px;
+        }
+
+        /* Estilo Glassmorphism para os cards */
+        .obj-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(10px);
+            border-radius: 24px; 
+            padding: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 230px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .obj-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .obj-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        }
+
+        /* Cores das barras de topo */
+        .bar-red::before { background: #ef4444; }
+        .bar-orange::before { background: #f97316; }
+        .bar-yellow::before { background: #facc15; }
+        .bar-blue::before { background: #3b82f6; }
+
+        /* Box de resposta com melhor contraste */
+        .ans-box { 
+            background: rgba(15, 23, 42, 0.6); 
+            padding: 12px 15px; 
+            border-radius: 12px; 
+            border-left: 4px solid currentColor;
+            margin-top: 10px;
+        }
+
+        .label-obj {
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="strategy-bg text-white overflow-hidden">
+
+<div class="slide-wrapper">
+    <div class="slide-container">
+        
+        <div class="text-center mb-10">
+            <h1 class="text-white text-6xl font-black uppercase leading-tight drop-shadow-lg">
+                COMO VIRAR <span class="text-red-500">O JOGO?</span>
+            </h1>
+            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mt-2">Transformando Objeções em Oportunidades</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 max-w-6xl mx-auto">
+            
+            <div class="obj-card bar-red">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-red-400">Objeção 01</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Está caro!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">O cliente ainda não percebeu o lucro que você gera.</p>
+                </div>
+                <div class="ans-box text-red-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Quanto custa para sua empresa continuar com imagens que não vendem e perder clientes para o vizinho?"
+                    </p>
+                </div>
+            </div>
+
+            <div class="obj-card bar-orange">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-orange-400">Objeção 02</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Já tenho quem faça!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está apenas confortável com o básico.</p>
+                </div>
+                <div class="ans-box text-orange-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Ótimo! Posso te enviar uma arte teste com IA sem custo? Se o resultado for superior ao atual, conversamos."
+                    </p>
+                </div>
+            </div>
+
+            <div class="obj-card bar-yellow">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-yellow-400">Objeção 03</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Não preciso disso!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele ainda não entendeu que o jogo mudou.</p>
+                </div>
+                <div class="ans-box text-yellow-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Entendo. Mas hoje 80% das vendas começam no celular. Posso te mostrar como seus concorrentes estão atraindo seu público?"
+                    </p>
+                </div>
+            </div>
+
+            <div class="obj-card bar-blue">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-blue-400">Objeção 04</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Manda no WhatsApp!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está tentando fugir da decisão agora.</p>
+                </div>
+                <div class="ans-box text-blue-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Com certeza! Já enviei. Podemos marcar uma conversa de 2 minutos amanhã às 14h para eu tirar suas dúvidas?"
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

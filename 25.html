@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Skills Essenciais para 2026</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        .skill-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 200px; /* Altura controlada para caber as 2 fileiras no telão */
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background-color: #1e293b;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .importance-dots span {
+            display: inline-block;
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            margin-left: 2px;
+            background-color: #374151;
+        }
+        .importance-dots span.active { background-color: #F59E0B; }
+        
+        .network-bg {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="white" stroke-width="1" fill="none"/><path d="M50 10 L50 90 M10 50 L90 50" stroke="white" stroke-width="1"/></svg>');
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col bg-[#0F172A]">
+        <div class="network-bg"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-[#131d33] transform skew-x-12 translate-x-32 z-0"></div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-purple-600 z-30"></div>
+
+        <div class="flex-none px-20 pt-10 pb-6 z-20">
+            <div class="flex items-center mb-3">
+                <span class="bg-purple-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Competências do Futuro</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-widest uppercase">Mapa de Talentos 2026</span>
+            </div>
+            <h1 class="text-white text-4xl font-black uppercase leading-tight">
+                Skills Essenciais <span class="text-purple-500">2026</span>
+            </h1>
+            <p class="text-gray-300 text-lg mt-1 font-['Open_Sans'] border-l-4 border-purple-600 pl-4 max-w-3xl">
+                O kit de ferramentas obrigatório para prosperar na economia digital.
+            </p>
+        </div>
+
+        <div class="flex-1 px-20 pb-12 z-10 grid grid-cols-3 gap-5 items-center">
+            
+            <div class="skill-card bg-[#1E293B]/60 rounded-xl border-l-4 border-purple-500 p-5 flex flex-col justify-between border border-white/5">
+                <div class="flex justify-between items-start mb-2">
+                    <i class="fas fa-robot text-xl text-purple-400"></i>
+                    <div class="importance-dots">
+                        <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-base mb-1 uppercase">IA & Automação</h3>
+                    <p class="text-gray-400 text-[10px] leading-relaxed">Domínio de prompts, agentes e ferramentas no-code para escala.</p>
+                </div>
+            </div>
+
+            <div class="skill-card bg-[#1E293B]/60 rounded-xl border-l-4 border-green-500 p-5 flex flex-col justify-between border border-white/5">
+                <div class="flex justify-between items-start mb-2">
+                    <i class="fas fa-sack-dollar text-xl text-green-400"></i>
+                    <div class="importance-dots">
+                        <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-base mb-1 uppercase">Vendas & Copy</h3>
+                    <p class="text-gray-400 text-[10px] leading-relaxed">Habilidade de persuadir e criar ofertas que convertem audiência em lucro.</p>
+                </div>
+            </div>
+
+            <div class="skill-card bg-[#1E293B]/60 rounded-xl border-l-4 border-pink-500 p-5 flex flex-col justify-between border border-white/5">
+                <div class="flex justify-between items-start mb-2">
+                    <i class="fas fa-pen-nib text-xl text-pink-400"></i>
+                    <div class="importance-dots">
+                        <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-base mb-1 uppercase">Visual Mobile</h3>
+                    <p class="text-gray-400 text-[10px] leading-relaxed">Edição dinâmica e estética que retém atenção nos primeiros segundos.</p>
+                </div>
+            </div>
+
+            <div class="skill-card bg-[#1E293B]/60 rounded-xl border-l-4 border-blue-500 p-5 flex flex-col justify-between border border-white/5">
+                <div class="flex justify-between items-start mb-2">
+                    <i class="fas fa-chart-line text-xl text-blue-400"></i>
+                    <div class="importance-dots">
+                        <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-base mb-1 uppercase">Análise de Dados</h3>
+                    <p class="text-gray-400 text-[10px] leading-relaxed">Entender CAC, LTV e ROAS para tomar decisões baseadas em fatos.</p>
+                </div>
+            </div>
+
+            <div class="skill-card bg-[#1E293B]/60 rounded-xl border-l-4 border-yellow-500 p-5 flex flex-col justify-between border border-white/5">
+                <div class="flex justify-between items-start mb-2">
+                    <i class="fas fa-users text-xl text-yellow-400"></i>
+                    <div class="importance-dots">
+                        <span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-base mb-1 uppercase">Comunidade</h3>
+                    <p class="text-gray-400 text-[10px] leading-relaxed">Transformar seguidores em fãs e clientes recorrentes através do relacionamento.</p>
+                </div>
+            </div>
+
+            <div class="skill-card bg-[#1E293B]/60 rounded-xl border-l-4 border-gray-400 p-5 flex flex-col justify-between border border-white/5">
+                <div class="flex justify-between items-start mb-2">
+                    <i class="fas fa-globe text-xl text-gray-300"></i>
+                    <div class="importance-dots">
+                        <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-base mb-1 uppercase">Inglês & Ética</h3>
+                    <p class="text-gray-400 text-[10px] leading-relaxed">Acesso à fonte global e responsabilidade no uso das ferramentas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
+            <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                Hard Skills + Soft Skills = Profissional Imbatível 2026
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
