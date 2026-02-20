@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bem-vindo - Inteligência Digital 2026</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
@@ -13,19 +13,48 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #0F172A; font-family: 'Montserrat', sans-serif; }
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
-            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        html, body { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background-color: #0F172A; font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
         }
+        
+        .slide-wrapper { 
+            width: 100vw; min-height: 100vh; 
+            display: flex; align-items: center; justify-content: center; 
+        }
+
+        /* Ajuste para ser 1280x720 no projetor, mas 100% no celular */
+        .slide-container { 
+            width: 100%;
+            max-width: 1280px; 
+            min-height: 720px; 
+            background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
+            position: relative; overflow: hidden; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .slide-container { min-height: 100vh; padding: 40px 20px; }
+            .flex-mobile { flex-direction: column; gap: 40px !important; }
+            .text-left { text-align: center !important; }
+            .flex-mobile h1 { font-size: 2.5rem !important; }
+        }
+
         .qr-main {
             background: white; padding: 20px; border-radius: 25px;
             box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
             border: 8px solid #6366F1;
+            transition: transform 0.3s ease;
         }
-        .welcome-badge { background: #6366F1; color: white; padding: 5px 20px; border-radius: 999px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px; }
+        .qr-main:hover { transform: scale(1.02); }
+        
+        .welcome-badge { 
+            background: #6366F1; color: white; padding: 8px 25px; 
+            border-radius: 999px; font-weight: 800; font-size: 0.9rem; 
+            text-transform: uppercase; margin-bottom: 25px; 
+        }
     </style>
 </head>
 <body>
@@ -34,14 +63,14 @@
     <div class="slide-container text-center">
         <div class="welcome-badge animate-bounce">Conecte-se agora</div>
         
-        <h1 class="text-white text-6xl font-black uppercase mb-4 leading-tight">
+        <h1 class="text-white text-4xl md:text-6xl font-black uppercase mb-4 leading-tight">
             INTELIGÊNCIA <span class="text-indigo-500">DIGITAL 2026</span>
         </h1>
-        <p class="text-gray-400 text-2xl italic mb-12">Acompanhe os slides e faça suas anotações em tempo real.</p>
+        <p class="text-gray-400 text-lg md:text-2xl italic mb-12">Acompanhe os slides e faça suas anotações em tempo real.</p>
 
-        <div class="flex items-center gap-16">
+        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16 flex-mobile">
             <div class="qr-main">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://beezip.com.br/palestra/acompanhar.html" alt="QR Code Acompanhamento">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://rodmarjunior.github.io/tecnomaisbrasil/acompanhar.html" alt="QR Code Acompanhamento">
             </div>
             
             <div class="text-left max-w-sm">
@@ -62,7 +91,9 @@
             </div>
         </div>
 
-        <div class="mt-16 text-indigo-400 font-bold tracking-[0.3em] uppercase">Rodmar Junior • Projeto Tecno Mais Brasil</div>
+        <div class="mt-16 text-indigo-400 font-bold tracking-[0.3em] uppercase text-xs md:text-base">
+            Rodmar Junior • Projeto Tecno Mais Brasil
+        </div>
     </div>
 </div>
 
