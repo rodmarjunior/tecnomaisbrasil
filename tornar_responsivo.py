@@ -1,24 +1,47 @@
 import os
 
-# Configurações de Blindagem
-CSS_MOBILE = """
+# Blindagem Mobile Premium
+CSS_MOBILE_PREMIUM = """
     <style>
-        /* Blindagem Mobile Automática */
         @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
+            
             .slide-container { 
                 width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: block !important; transform: none !important; padding: 40px 20px 120px 20px !important;
+                display: flex !important; flex-direction: column !important;
+                transform: none !important; padding: 0 !important;
             }
-            /* Converte colunas do Tailwind em linhas no celular */
-            .w-1\\/2, .w-1\\/3, .w-2\\/3, .w-1\\/4, .w-3\\/4, .w-7\\/12, .w-5\\/12 { 
-                width: 100% !important; height: auto !important; 
+
+            /* Seção de Texto */
+            .w-7\\/12, .w-1\\/2, .w-full, .text-section { 
+                width: 100% !important; padding: 40px 25px !important; order: 2;
             }
+
+            /* Seção de Imagem/Destaque */
+            .w-5\\/12, .image-section, .w-1\\/2 { 
+                width: 100% !important; height: 300px !important; order: 1; position: relative;
+            }
+
             .flex { flex-direction: column !important; }
-            .pl-20, .pr-12 { padding-left: 15px !important; padding-right: 15px !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-            img { position: relative !important; height: 300px !important; }
+            
+            /* Títulos e Textos */
+            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
+            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
+            
+            /* Ajuste de imagens de fundo */
+            img.object-cover { 
+                position: absolute !important; height: 100% !important; 
+                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            }
+
+            /* Reset de margens negativas ou flutuantes */
+            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
+            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
+            
+            /* Menu de navegação (Footer) no celular */
+            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
         }
     </style>
 """
@@ -26,28 +49,19 @@ CSS_MOBILE = """
 pasta = "."
 arquivos = [f for f in os.listdir(pasta) if f.endswith(".html")]
 
-print(f"Iniciando a modernização de {len(arquivos)} arquivos...")
-
 for nome in arquivos:
-    if nome == "index.html": continue # Pula o index se ele já estiver ok
-    
     with open(nome, "r", encoding="utf-8") as f:
         conteudo = f.read()
 
-    # 1. Injeta o CSS de blindagem antes do fechamento do </head>
-    if "</head>" in conteudo and "<style>" not in conteudo:
-        conteudo = conteudo.replace("</head>", f"{CSS_MOBILE}\n</head>")
-    
-    # 2. Garante que a Meta Tag de viewport esteja correta
-    meta_velha = 'content="width=device-width, initial-scale=1.0"'
-    meta_nova = 'name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"'
-    if meta_velha in conteudo:
-        conteudo = conteudo.replace(meta_velha, meta_nova)
+    # Remove estilo antigo se existir para não duplicar
+    if "/* Blindagem Mobile Automática */" in conteudo:
+        import re
+        conteudo = re.sub(r'<style>.*?\/\* Blindagem Mobile Automática \*\/.*?<\/style>', '', conteudo, flags=re.DOTALL)
+
+    # Injeta o novo estilo
+    if "</head>" in conteudo:
+        conteudo = conteudo.replace("</head>", f"{CSS_MOBILE_PREMIUM}\n</head>")
 
     with open(nome, "w", encoding="utf-8") as f:
         f.write(conteudo)
-    
-    print(f"✅ Arquivo {nome} agora é responsivo.")
-
-print("\n--- PROCESSO CONCLUÍDO ---")
-print("Agora todos os seus slides têm suporte automático para celular.")
+    print(f"✨ Estilo Premium aplicado: {nome}")
