@@ -6,205 +6,127 @@
     <title>Inteligência Digital em 2026</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        /* FORÇAR RESET PARA CELULAR */
+        /* BLINDAGEM MOBILE DEFINITIVA E ÚNICA */
         @media (max-width: 1024px) {
-            html, body { 
-                overflow-y: auto !important; 
-                height: auto !important; 
-                background-color: #0F172A !important;
-            }
-            .slide-wrapper { 
-                height: auto !important; 
-                padding: 0 !important;
-                display: block !important;
-            }
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
+            .slide-wrapper { height: auto !important; display: block !important; padding: 0 !important; }
             .slide-container { 
-                width: 100% !important; 
-                height: auto !important; 
-                min-height: 100vh !important;
-                padding: 40px 20px 120px 20px !important; /* Espaço para o menu */
-                display: block !important;
-                transform: none !important;
-                left: 0 !important;
-                top: 0 !important;
+                width: 100% !important; height: auto !important; min-height: 100vh !important;
+                display: flex !important; flex-direction: column !important;
+                transform: none !important; padding: 40px 20px 100px 20px !important;
             }
-            /* Ajuste dos elementos internos no Mobile */
             .flex-row-mobile { flex-direction: column !important; gap: 30px !important; }
             .w-half-mobile { width: 100% !important; }
-            .grid-mobile { grid-template-columns: 1fr !important; }
-            .h-mobile-auto { height: auto !important; }
+            .grid-mobile { grid-template-columns: 1fr !important; gap: 20px !important; }
+            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+            .text-lg { font-size: 1.1rem !important; }
         }
 
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); border-color: #fbbf24; }
-        .glass-box { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        /* EFEITOS VISUAIS PREMIUM */
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); border-color: #fbbf24; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.15); }
+        .glass-box { background: linear-gradient(145deg, rgba(30,41,59,0.9) 0%, rgba(15,23,42,0.9) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-text { text-shadow: 0 0 30px rgba(251, 191, 36, 0.3); }
     </style>
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
-            }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
 </head>
-<body class="bg-black">
+<body class="bg-[#0B1120] overflow-hidden">
 
-<div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+<div class="slide-wrapper w-screen h-screen flex items-center justify-center">
+    <div class="slide-container w-[1280px] h-[720px] relative flex flex-col justify-between px-16 py-12">
         
-        <div class="relative z-20 h-full flex flex-col">
-            
-            <div class="flex flex-col md:flex-row justify-between items-start mb-10 gap-8 flex-row-mobile">
-                <div class="w-full md:w-1/2 w-half-mobile">
-                    <div class="flex items-center mb-4">
-                        <span class="bg-yellow-500 text-black text-[10px] font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm">Conceito Fundamental</span>
-                    </div>
-                    <h1 class="text-white text-4xl md:text-5xl font-black uppercase leading-tight">
-                        Inteligência <br/>
-                        <span class="text-yellow-500">Digital</span>
-                    </h1>
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30 shadow-[0_0_15px_rgba(251,191,36,0.5)]"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-1/2 w-full h-64 bg-blue-500/5 rounded-full blur-3xl -z-10 transform -translate-x-1/2"></div>
+        
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 flex-row-mobile z-20">
+            <div class="w-full md:w-5/12 w-half-mobile">
+                <div class="flex items-center mb-6">
+                    <span class="bg-yellow-500 text-black text-xs font-black px-4 py-1.5 uppercase tracking-widest rounded-sm">Conceito Fundamental</span>
                 </div>
+                <h1 class="text-white text-5xl md:text-6xl font-black uppercase leading-tight tracking-tight glow-text">
+                    Inteligência <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Digital</span>
+                </h1>
+                <p class="text-gray-400 mt-6 text-lg font-['Open_Sans'] border-l-4 border-yellow-500 pl-4">
+                    Não é sobre saber usar ferramentas. É sobre construir um ecossistema.
+                </p>
+            </div>
 
-                <div class="w-full md:w-1/2 w-half-mobile glass-box p-6 rounded-xl border-l-4 border-yellow-500">
-                    <p class="text-gray-100 text-base md:text-lg leading-relaxed">
-                        É a capacidade estratégica de integrar <span class="text-yellow-500 font-bold">dados, IA e automação</span> para resolver problemas e criar valor tangível.
+            <div class="w-full md:w-7/12 w-half-mobile flex flex-col gap-6">
+                <div class="glass-box p-8 rounded-2xl border-l-4 border-yellow-500 relative overflow-hidden">
+                    <i class="fas fa-quote-right absolute top-4 right-6 text-4xl text-white/5"></i>
+                    <p class="text-gray-100 text-xl font-medium leading-relaxed font-['Open_Sans']">
+                        É a capacidade estratégica de integrar <span class="text-yellow-400 font-black">Dados, IA e Automação</span> para resolver problemas complexos, escalar operações e criar valor tangível de mercado.
                     </p>
                 </div>
-            </div>
-
-            <div class="mt-auto">
-                <h3 class="text-white text-xl font-bold uppercase tracking-wide mb-6 flex items-center">
-                    <div class="w-8 h-1 bg-yellow-500 mr-3"></div>
-                    Os 5 Pilares Estratégicos
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 h-mobile-auto grid-mobile">
-                    
-                    <div class="bg-[#1E293B] p-5 rounded-lg border-t-4 border-blue-500 card-hover">
-                        <i class="fas fa-database text-blue-400 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold text-sm mb-1">Dados</h4>
-                        <p class="text-gray-400 text-xs">Decisões baseadas em métricas.</p>
+                
+                <div class="flex items-center gap-4 bg-blue-900/20 p-4 rounded-xl border border-blue-500/30">
+                    <div class="bg-blue-500/20 p-3 rounded-full"><i class="fas fa-chart-line text-blue-400 text-xl"></i></div>
+                    <div>
+                        <p class="text-white font-bold text-sm uppercase">O Impacto Real</p>
+                        <p class="text-gray-400 text-sm">Empresas e profissionais digitalmente inteligentes crescem em média 3x mais rápido.</p>
                     </div>
-
-                    <div class="bg-[#1E293B] p-5 rounded-lg border-t-4 border-purple-500 card-hover">
-                        <i class="fas fa-brain text-purple-400 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold text-sm mb-1">IA Generativa</h4>
-                        <p class="text-gray-400 text-xs">Criação e análise preditiva.</p>
-                    </div>
-
-                    <div class="bg-[#1E293B] p-5 rounded-lg border-t-4 border-green-500 card-hover">
-                        <i class="fas fa-bolt text-green-400 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold text-sm mb-1">Automação</h4>
-                        <p class="text-gray-400 text-xs">Escala com processos ágeis.</p>
-                    </div>
-
-                    <div class="bg-[#1E293B] p-5 rounded-lg border-t-4 border-red-500 card-hover">
-                        <i class="fas fa-lock text-red-400 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold text-sm mb-1">Segurança</h4>
-                        <p class="text-gray-400 text-xs">Proteção e privacidade (LGPD).</p>
-                    </div>
-
-                    <div class="bg-[#1E293B] p-5 rounded-lg border-t-4 border-yellow-500 card-hover">
-                        <i class="fas fa-rocket text-yellow-500 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold text-sm mb-1">Testes</h4>
-                        <p class="text-gray-400 text-xs">Cultura de aprendizado ágil.</p>
-                    </div>
-
                 </div>
             </div>
+        </div>
 
-            <div class="mt-12 text-gray-600 text-[10px] uppercase tracking-widest text-center md:text-left">
-                Rodmar Junior • Inteligência Digital 2026
+        <div class="mt-8 z-20">
+            <h3 class="text-white text-xl font-black uppercase tracking-widest mb-6 flex items-center">
+                <div class="w-8 h-1 bg-yellow-500 mr-4"></div>
+                O Ecossistema de 5 Pilares
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-5 grid-mobile">
+                
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-blue-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-database text-blue-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Dados</h4>
+                    <p class="text-gray-400 text-sm mb-3">O novo petróleo. Decisões baseadas em métricas, não em "achismos".</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-blue-300 font-bold">Dashboards & BI</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-purple-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-brain text-purple-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">IA Generativa</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sua equipe invisível. Criação de conteúdo, análise e atendimento 24/7.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-purple-300 font-bold">LLMs & Prompts</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-green-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-bolt text-green-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Automação</h4>
+                    <p class="text-gray-400 text-sm mb-3">Velocidade e escala. Eliminação de tarefas repetitivas e manuais.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-green-300 font-bold">Fluxos & APIs</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-red-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-shield-halved text-red-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Segurança</h4>
+                    <p class="text-gray-400 text-sm mb-3">A base de confiança. Proteção de dados e adequação total à LGPD.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-red-300 font-bold">Criptografia & Privacidade</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-yellow-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-rocket text-yellow-500 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Cultura Ágil</h4>
+                    <p class="text-gray-400 text-sm mb-3">A mentalidade. Validação rápida, testes contínuos e adaptação.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-yellow-300 font-bold">Testes A/B & MVP</div>
+                </div>
+
             </div>
         </div>
+
+        <div class="absolute bottom-6 right-16 text-gray-600 text-[10px] font-black uppercase tracking-[0.3em] z-20 hidden md:block">
+            Rodmar Junior • Projeto Tecno Mais Brasil
+        </div>
+        
     </div>
 </div>
 
