@@ -3,36 +3,37 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Produção de Conteúdo que Vende</title>
+    <title>Creator Economy no Brasil</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        }
-        .chart-container {
-            position: relative;
-            height: 240px; /* Reduzido levemente para garantir folga no telão */
-            width: 100%;
-        }
-        .stat-card {
+        .card-kpi {
             background-color: #1E293B;
-            border-left: 4px solid #F59E0B;
-            transition: transform 0.3s ease;
+            border-top: 4px solid transparent;
+            height: 235px; /* Altura fixa para segurança no telão */
+            transition: all 0.3s ease;
         }
-        .stat-card:hover {
+        .card-kpi:hover {
             transform: translateY(-5px);
             background-color: #27354d;
+        }
+        .border-t-green { border-top-color: #10B981; }
+        .border-t-blue { border-top-color: #3B82F6; }
+        .border-t-purple { border-top-color: #8B5CF6; }
+        .border-t-yellow { border-top-color: #F59E0B; }
+        
+        .bg-pattern {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05;
+            background-image: url("https://page.gensparksite.com/slides_images/020c795e10a55e0d2410d5451b759c4d.png");
+            z-index: 0;
         }
     </style>
 </head>
@@ -40,125 +41,100 @@
 
 <div class="slide-wrapper">
     <div class="slide-container flex flex-col">
-        <div class="absolute inset-0 bg-grid z-0"></div>
-        <div class="absolute left-0 top-0 h-full w-2 bg-pink-500 z-30"></div>
+        <div class="bg-pattern"></div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
 
-        <div class="flex-none p-12 pl-20 pb-4 z-10">
+        <div class="p-12 pl-20 pb-6 z-10">
             <div class="flex items-center mb-4">
-                <span class="bg-pink-500 text-white text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Creator Economy</span>
-                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Estratégia de Conteúdo</span>
+                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Ecossistema Digital</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Brasil 2026</span>
             </div>
             <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
-                Produção de Conteúdo <span class="text-pink-500">Que Vende</span>
+                Creator Economy <span class="text-yellow-500">Brasil</span>
             </h1>
-            <div class="w-32 h-1 bg-gray-700 mt-6"></div>
+            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4">
+                A profissionalização dos criadores de conteúdo e o impacto real nos negócios.
+            </p>
         </div>
 
-        <div class="flex-1 flex px-20 pb-12 gap-10 z-10 items-center">
-            <div class="w-1/2 flex flex-col">
-                <h3 class="text-white text-lg font-bold uppercase mb-4 flex items-center">
-                    <i class="fas fa-chart-bar text-pink-500 mr-3"></i>Dominância das Plataformas
-                </h3>
-                <div class="bg-[#1E293B] p-6 rounded-lg shadow-xl border border-gray-700">
-                    <div class="chart-container">
-                        <canvas id="platformChart"></canvas>
-                    </div>
-                    <p class="text-gray-400 text-[10px] mt-4 font-['Open_Sans'] text-center">
-                        % de criadores que utilizam ativamente (Fonte: Censo Creators 2025)
-                    </p>
+        <div class="px-20 z-10 grid grid-cols-2 gap-8">
+            <div class="card-kpi border-t-green rounded-lg p-8 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fas fa-users text-8xl text-green-500"></i>
                 </div>
-                
-                <div class="mt-4 flex gap-4">
-                    <div class="bg-blue-900/20 p-3 rounded border border-blue-500/30 flex-1">
-                        <p class="text-white font-bold text-xs"><i class="fab fa-youtube text-red-500 mr-2"></i>YouTube</p>
-                        <p class="text-gray-400 text-[10px]">Forte em vídeos longos e Shorts.</p>
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 mr-4">
+                        <i class="fas fa-user-plus text-lg"></i>
                     </div>
-                    <div class="bg-blue-900/20 p-3 rounded border border-blue-500/30 flex-1">
-                        <p class="text-white font-bold text-xs"><i class="fab fa-facebook text-blue-500 mr-2"></i>Facebook</p>
-                        <p class="text-gray-400 text-[10px]">Dominância na Geração X.</p>
-                    </div>
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Base de Criadores</p>
                 </div>
+                <p class="text-white text-6xl font-black tracking-tight mb-2">14 <span class="text-3xl text-gray-500 font-bold">Milhões</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
+                    <div class="bg-green-500 h-full w-full"></div>
+                </div>
+                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Brasileiros produzindo conteúdo ativamente, liderando a influência digital global.</p>
             </div>
 
-            <div class="w-1/2 flex flex-col gap-4">
-                <div>
-                    <h3 class="text-white text-lg font-bold uppercase mb-3 flex items-center">
-                        <i class="fas fa-clapperboard text-yellow-500 mr-3"></i>Formatos Vencedores
-                    </h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="stat-card p-3 rounded shadow-lg border-l-purple-500">
-                            <p class="text-white font-bold text-sm">Vídeos Curtos</p>
-                            <p class="text-gray-300 text-[10px] mt-1 italic">Alcance e viralização rápida.</p>
-                        </div>
-                        <div class="stat-card p-3 rounded shadow-lg border-l-green-500">
-                            <p class="text-white font-bold text-sm">3 a 10 Minutos</p>
-                            <p class="text-gray-300 text-[10px] mt-1 italic">Autoridade e retenção.</p>
-                        </div>
+            <div class="card-kpi border-t-blue rounded-lg p-8 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fas fa-bullhorn text-8xl text-blue-500"></i>
+                </div>
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-4">
+                        <i class="fas fa-chart-pie text-lg"></i>
                     </div>
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Microinfluenciadores</p>
                 </div>
+                <p class="text-white text-6xl font-black tracking-tight mb-2">83 <span class="text-3xl text-gray-500 font-bold">%</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
+                    <div class="bg-blue-500 h-full w-10/12"></div>
+                </div>
+                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Criadores com até 100k seguidores detêm o maior engajamento e conversão.</p>
+            </div>
 
-                <div class="bg-[#1E293B] p-5 rounded-lg border border-gray-700 relative overflow-hidden">
-                    <h3 class="text-white text-lg font-bold uppercase mb-4 flex items-center">
-                        <i class="fas fa-bullseye text-red-500 mr-3"></i>Estratégias 2026
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-filter text-yellow-500 mt-1 mr-3 text-xs"></i>
-                            <div>
-                                <p class="text-white font-bold text-xs">Nicho + Microcomunidade</p>
-                                <p class="text-gray-400 text-[10px]">Foco em conversão sobre alcance.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-magnifying-glass text-blue-500 mt-1 mr-3 text-xs"></i>
-                            <div>
-                                <p class="text-white font-bold text-xs">SEO Social</p>
-                                <p class="text-gray-400 text-[10px]">Otimize para buscas no TikTok/Instagram.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-bag-shopping text-green-500 mt-1 mr-3 text-xs"></i>
-                            <div>
-                                <p class="text-white font-bold text-xs">Social Commerce</p>
-                                <p class="text-gray-400 text-[10px]">Venda direta integrada aos vídeos.</p>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="card-kpi border-t-purple rounded-lg p-8 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fas fa-wallet text-8xl text-purple-500"></i>
                 </div>
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4">
+                        <i class="fas fa-money-bill-trend-up text-lg"></i>
+                    </div>
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Mercado Nacional</p>
+                </div>
+                <p class="text-white text-6xl font-black tracking-tight mb-2">R$ 4 <span class="text-3xl text-gray-500 font-bold">bi</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
+                    <div class="bg-purple-500 h-full w-3/4"></div>
+                </div>
+                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Movimentação anual estimada em publicidade e infoprodutos no Brasil.</p>
+            </div>
+
+            <div class="card-kpi border-t-yellow rounded-lg p-8 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fas fa-earth-americas text-8xl text-yellow-500"></i>
+                </div>
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 mr-4">
+                        <i class="fas fa-rocket text-lg"></i>
+                    </div>
+                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Projeção Global 2027</p>
+                </div>
+                <p class="text-white text-6xl font-black tracking-tight mb-2">US$ 480 <span class="text-3xl text-gray-500 font-bold">bi</span></p>
+                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
+                    <div class="bg-yellow-500 h-full w-full"></div>
+                </div>
+                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Estimativa do Goldman Sachs para o crescimento do setor no mundo.</p>
             </div>
         </div>
 
-        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3">
-            <p class="text-gray-500 text-[10px] uppercase font-['Open_Sans']">Fonte: Censo de Criadores 2025 (Wake Creators)</p>
+        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3 z-20">
+            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans'] uppercase tracking-widest">
+                <i class="fas fa-info-circle mr-2"></i>
+                <span>Fonte: Wake Creators, Goldman Sachs, Forbes (Censo 2025)</span>
+            </div>
         </div>
     </div>
 </div>
-
-<script>
-    const ctx = document.getElementById('platformChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Instagram', 'TikTok', 'YouTube', 'Facebook'],
-            datasets: [{
-                data: [97, 79, 45, 30],
-                backgroundColor: ['#E1306C', '#00F2EA', '#FF0000', '#1877F2'],
-                borderRadius: 4,
-                barPercentage: 0.6
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { max: 100, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
-                y: { ticks: { color: '#fff', font: { weight: 'bold' } }, grid: { display: false } }
-            }
-        }
-    });
-</script>
 
 </body>
 </html>

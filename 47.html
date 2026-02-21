@@ -3,56 +3,107 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>O Poder do Networking</title>
+    <title>Desafio Prático - Criação</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
+
     <style>
-        .net-bg { background: radial-gradient(circle at 80% 20%, #2e1065 0%, #0f172a 100%); }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; }
-        .network-line { stroke: #8b5cf6; stroke-dasharray: 1000; animation: draw 5s infinite; }
-        @keyframes draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+        body { font-family: 'Montserrat', sans-serif; background: #0F172A; padding: 15px; color: white; padding-bottom: 100px; }
+        .card { background: white; color: #1e293b; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .topic-box { 
+            background: #f1f5f9; 
+            border: 2px dashed #6366f1; 
+            padding: 20px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            text-align: center; 
+            margin: 15px 0;
+            color: #4338ca;
+            font-size: 1.1rem;
+        }
+        textarea { 
+            width: 100%; 
+            height: 180px; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin-top: 10px; 
+            font-weight: 600;
+            color: #1e293b;
+            font-family: sans-serif;
+        }
+        .btn-main { 
+            background: #6366f1; 
+            color: white; 
+            width: 100%; 
+            padding: 18px; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            margin-top: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
-<body class="net-bg overflow-hidden">
-<div class="slide-wrapper">
-    <div class="slide-container flex flex-col justify-center px-24 relative">
-        <div class="absolute right-0 top-0 h-full w-3 bg-purple-600 z-30 shadow-[-5px_0_20px_rgba(139,92,246,0.5)]"></div>
+<body>
+    <div class="card">
+        <h1 class="text-2xl font-black mb-1 uppercase text-center">🎯 Missão Criativa</h1>
+        <p class="text-gray-400 text-[10px] text-center mb-4 uppercase font-bold tracking-widest">PROJETO TECNO MAIS BRASIL</p>
+        
+        <div class="topic-box" id="topic">Clique para sortear seu desafio</div>
+        
+        <button onclick="sortear()" class="text-xs font-black uppercase text-indigo-600 w-full mb-6 flex items-center justify-center gap-2">
+            <i class="fas fa-random"></i> TROCAR TEMA
+        </button>
 
-        <div class="flex items-center gap-16 z-20">
-            <div class="w-1/2">
-                <span class="text-purple-400 font-black uppercase tracking-[0.5em] mb-4 block">Ecossistema Humano</span>
-                <h1 class="text-white text-7xl font-black uppercase leading-none mb-10">
-                    O PODER DO <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">NETWORKING</span>
-                </h1>
-                <p class="text-gray-400 text-2xl leading-relaxed italic border-l-4 border-purple-600 pl-8">
-                    "Você é a média das 5 pessoas com quem mais convive."
-                </p>
-            </div>
-
-            <div class="w-1/2 glass-card p-12">
-                <h3 class="text-white font-black text-2xl mb-8 uppercase tracking-widest text-center border-b border-white/10 pb-4">O que é de verdade?</h3>
-                <div class="space-y-8">
-                    <div class="flex gap-6 items-start">
-                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg shadow-purple-900/40"><i class="fas fa-handshake"></i></div>
-                        <div>
-                            <h4 class="text-white font-black text-lg">Troca de Valor</h4>
-                            <p class="text-gray-500 text-sm">Não é sobre "pedir favores", é sobre como você pode ajudar o outro para crescerem juntos.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6 items-start">
-                        <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg shadow-indigo-900/40"><i class="fas fa-project-diagram"></i></div>
-                        <div>
-                            <h4 class="text-white font-black text-lg">Teia de Oportunidades</h4>
-                            <p class="text-gray-500 text-sm">Estar no radar das pessoas certas quando elas precisarem de uma solução que você domina.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <label class="text-xs font-black uppercase text-gray-400 ml-1">Sua Legenda de Alta Conversão:</label>
+        <textarea id="texto" placeholder="Dica: Use os gatilhos que aprendemos..."></textarea>
+        
+        <button onclick="enviar()" class="btn-main shadow-lg">Finalizar e Ver Gabarito</button>
+        
+        <div id="feedback" class="hidden mt-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-800 text-xs font-bold">
+            <i class="fas fa-check-circle mr-2"></i> Missão concluída! Redirecionando...
         </div>
     </div>
-</div>
+
+    <script>
+        const temas = [
+            "Por que um jovem de 16 anos precisa entender de IA hoje?",
+            "Como eu faria meus primeiros R$ 1.000 no digital se começasse do zero",
+            "A habilidade que a escola não ensina, mas o mercado paga muito bem",
+            "3 ferramentas de IA que economizam 5 horas do meu dia",
+            "O erro que faz 90% dos iniciantes desistirem do digital",
+            "Trabalhar para o mundo: como ganhar em dólar sem sair de casa"
+        ];
+
+        function sortear() { 
+            const box = document.getElementById('topic');
+            const novoTema = temas[Math.floor(Math.random() * temas.length)];
+            box.style.opacity = 0;
+            setTimeout(() => {
+                box.innerText = novoTema;
+                box.style.opacity = 1;
+            }, 200);
+        }
+
+        function enviar() {
+            const texto = document.getElementById('texto').value;
+            if(texto.length < 20) {
+                alert('Sua legenda está muito curta! Desenvolva um pouco mais a ideia.');
+                return;
+            }
+            
+            document.getElementById('feedback').classList.remove('hidden');
+            
+            // Redireciona para o Gabarito (Slide 45) após 2 segundos
+            setTimeout(() => { 
+                window.location.href = '45.html'; 
+            }, 2000);
+        }
+    </script>
 </body>
 </html>

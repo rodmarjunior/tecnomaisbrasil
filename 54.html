@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>IA na Prática: Playbook de Prompts</title>
+    <title>A Oferta Irresistível - Script de Vendas</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
-        
-        .bg-tech {
-            background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #f1f5f9;
         }
 
         .slide-wrapper {
@@ -26,137 +27,100 @@
 
         .slide-container {
             width: 1280px; height: 720px;
-            position: relative; overflow: hidden; 
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
             display: flex; flex-direction: column;
-            padding: 40px 80px; /* Padding padrão */
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            padding-top: 40px; /* Margem de segurança superior */
+            padding-bottom: 100px; /* Margem de segurança inferior para o menu */
         }
 
-        /* Syntax Highlighting */
-        .syntax-keyword { color: #c084fc; font-weight: 800; } 
-        .syntax-string { color: #4ade80; } 
-        .syntax-variable { color: #38bdf8; font-weight: 800; } 
-        .syntax-comment { color: #64748b; font-style: italic; }
+        .script-box {
+            background: #1e293b;
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            border-left: 12px solid #fbbf24;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .price-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
             border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
         }
 
-        .prompt-window {
-            background: #0b0f1a;
-            border: 1px solid #1e293b;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        .price-card:hover {
+            border-color: #fbbf24;
+            transform: translateY(-5px);
         }
 
-        .tool-category {
-            border-left: 4px solid;
-            background: rgba(15, 23, 42, 0.8);
-            padding: 8px 14px; /* Mais compacto para não vazar */
-            border-radius: 10px;
-            margin-bottom: 8px;
-        }
-
-        .glow-cyan { text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
-        .code-font { font-family: 'Fira Code', monospace; }
-        
-        /* AJUSTE PARA O MENU DE NOTAS */
-        .main-content {
-            margin-bottom: 110px; /* Espaço obrigatório para o menu não sobrepor */
+        .gold-badge {
+            background: #fbbf24;
+            color: #000;
+            padding: 4px 16px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
         }
     </style>
 </head>
-<body class="bg-tech text-white">
+<body>
 
 <div class="slide-wrapper">
     <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-2 bg-cyan-500 z-30 shadow-[5px_0_20px_rgba(34,211,238,0.4)]"></div>
+        <div class="absolute left-0 top-0 h-full w-3 bg-yellow-500 z-30 shadow-[5px_0_15px_rgba(251,191,36,0.3)]"></div>
 
-        <div class="flex-none z-20 mb-4">
-            <div class="flex items-center mb-1">
-                <span class="bg-cyan-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg">Engenharia de Prompt</span>
-                <span class="text-cyan-400 text-[10px] font-bold ml-4 tracking-widest uppercase opacity-70"></span>
+        <div class="w-full h-full flex flex-col justify-center px-24 z-20">
+            <div class="flex items-center mb-4">
+                <span class="gold-badge">Passo 4: Prospecção Real</span>
+                <span class="text-gray-400 text-xs font-bold ml-4 tracking-[0.3em] uppercase">Estratégia de Abordagem</span>
             </div>
-            <h1 class="text-5xl font-black uppercase tracking-tighter glow-cyan">
-                IA NA PRÁTICA: <span class="text-cyan-400">COMANDOS</span>
+
+            <h1 class="text-[#1e293b] text-6xl font-black uppercase leading-tight mb-4">
+                A OFERTA <br><span class="text-yellow-500">IRRESISTÍVEL</span>
             </h1>
+            <p class="text-gray-400 text-2xl font-bold italic mb-10 border-l-4 border-yellow-500 pl-6">
+                Transforme seu conhecimento em um contrato fechado.
+            </p>
+
+            <div class="script-box mb-10">
+                <div class="absolute -top-5 right-10 bg-yellow-500 text-black px-6 py-2 rounded-full font-black uppercase text-sm shadow-lg">
+                    Copia e Cola <i class="fas fa-copy ml-2"></i>
+                </div>
+                <h3 class="text-yellow-500 font-black text-xs uppercase tracking-widest mb-4">Script de Abordagem WhatsApp:</h3>
+                <p class="text-white italic text-2xl leading-relaxed font-medium">
+                    "Olá [NOME], vi seu perfil no Google Maps e notei que fazem um trabalho incrível, mas as fotos não fazem justiça à qualidade de vocês. Criei esta arte exclusiva como presente (ENVIAR FOTO DA IA). Gostaria de um pacote com mais 5 fotos profissionais assim para suas redes?"
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8">
+                <div class="price-card">
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-2">Precificação Sugerida</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-[#1e293b] text-5xl font-black">R$ 50 - 200</span>
+                        <span class="text-gray-400 font-bold uppercase text-xs">Por Pacote Simples</span>
+                    </div>
+                </div>
+
+                <div class="price-card border-l-8 border-indigo-600">
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-2">Dica de Ouro</p>
+                    <p class="text-[#1e293b] text-xl font-black leading-tight uppercase">
+                        O primeiro cliente paga o aprendizado. <br>
+                        <span class="text-indigo-600">O segundo paga o seu lucro.</span>
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="flex flex-1 gap-8 z-10 items-stretch overflow-hidden main-content">
-            
-            <div class="w-7/12 flex flex-col gap-3">
-                <div class="glass-card p-3 border-l-4 border-red-500 bg-red-500/5">
-                    <p class="text-red-500 font-black uppercase text-[10px] tracking-widest mb-1 flex items-center">
-                        <i class="fas fa-ban mr-2"></i> Prompt Genérico (Fraco)
-                    </p>
-                    <div class="bg-black/50 p-2 rounded-lg code-font text-xs text-gray-500 italic">
-                        "Faça um post sobre vendas."
-                    </div>
-                </div>
-
-                <div class="prompt-window rounded-xl p-5 flex-1 border-t-4 border-cyan-500">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-cyan-400 font-black uppercase text-[10px] tracking-widest flex items-center">
-                            <i class="fas fa-terminal mr-2"></i> Estrutura Mestre (Copia e Cola)
-                        </span>
-                        <div class="flex gap-1">
-                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">CONTEXTO</span>
-                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">FORMATO</span>
-                        </div>
-                    </div>
-                    
-                    <div class="code-font text-base leading-snug text-gray-200">
-                        <p>
-                            <span class="syntax-keyword">Atue como</span> um <span class="syntax-variable">copywriter sênior</span>...<br/><br/>
-                            <span class="syntax-keyword">Tarefa:</span> Crie um post carrossel para Instagram.<br/>
-                            <span class="syntax-keyword">Público:</span> Microempreendedores iniciantes.<br/>
-                            <span class="syntax-keyword">Tom:</span> Prático e direto.<br/>
-                            <span class="syntax-keyword">Requisitos:</span><br/>
-                            &nbsp;&nbsp;1. Inclua CTA para "Link na Bio".<br/>
-                            &nbsp;&nbsp;2. Gere 3 variações de Headlines.<br/><br/>
-                            <span class="syntax-comment">// Evite clichês corporativos.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-5/12 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-white font-black uppercase text-[10px] mb-2 flex items-center tracking-widest text-cyan-500">
-                        <i class="fas fa-robot mr-2"></i> Ecossistema 2026
-                    </h3>
-                    
-                    <div class="tool-category border-blue-500">
-                        <h4 class="text-white font-black text-xs uppercase">Texto: <span class="text-blue-400">ChatGPT & Claude</span></h4>
-                        <p class="text-gray-400 text-[9px]">Raciocínio e escrita de elite.</p>
-                    </div>
-
-                    <div class="tool-category border-pink-500">
-                        <h4 class="text-white font-black text-xs uppercase">Imagem: <span class="text-pink-400">Midjourney & Firefly</span></h4>
-                        <p class="text-gray-400 text-[9px]">Visuais realistas e publicitários.</p>
-                    </div>
-
-                    <div class="tool-category border-purple-500">
-                        <h4 class="text-white font-black text-xs uppercase">Vídeo: <span class="text-purple-400">Runway & ElevenLabs</span></h4>
-                        <p class="text-gray-400 text-[9px]">Vídeos e vozes profissionais.</p>
-                    </div>
-
-                    <div class="tool-category border-yellow-500">
-                        <h4 class="text-white font-black text-xs uppercase">Automação: <span class="text-yellow-500">Make & Zapier</span></h4>
-                        <p class="text-gray-400 text-[9px]">IA executando tarefas sozinha.</p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-4 border-cyan-500/30">
-                    <p class="text-cyan-400 text-[9px] font-black uppercase mb-1 flex items-center">
-                        <i class="fas fa-lightbulb mr-2"></i> Dica de Ouro
-                    </p>
-                    <p class="text-gray-200 text-[11px] leading-tight italic">
-                        Não use IA para "pensar" por você. Use para <strong>executar</strong> e acelerar suas ideias originais.
-                    </p>
-                </div>
-            </div>
+        <div class="absolute bottom-6 left-0 w-full text-center border-t border-gray-100 pt-4">
+            <p class="text-gray-400 font-black text-[10px] uppercase tracking-[0.4em]">
+               
+            </p>
         </div>
     </div>
 </div>

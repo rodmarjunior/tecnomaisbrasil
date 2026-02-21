@@ -3,135 +3,98 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Creator Economy no Brasil</title>
+    <title>Slide 9 - Ética e Segurança na IA</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .card-kpi {
-            background-color: #1E293B;
-            border-top: 4px solid transparent;
-            height: 235px; /* Altura fixa para segurança no telão */
+        .safety-bg { background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); }
+        .danger-card { 
+            background: rgba(239, 68, 68, 0.05); 
+            border: 2px solid rgba(239, 68, 68, 0.2); 
+            border-radius: 30px; 
+            padding: 30px; 
             transition: all 0.3s ease;
         }
-        .card-kpi:hover {
-            transform: translateY(-5px);
-            background-color: #27354d;
+        .danger-card:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .safety-pill { 
+            background: #10b981; 
+            color: white; 
+            padding: 5px 20px; 
+            border-radius: 999px; 
+            font-weight: 800; 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
         }
-        .border-t-green { border-top-color: #10B981; }
-        .border-t-blue { border-top-color: #3B82F6; }
-        .border-t-purple { border-top-color: #8B5CF6; }
-        .border-t-yellow { border-top-color: #F59E0B; }
-        
-        .bg-pattern {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.05;
-            background-image: url("https://page.gensparksite.com/slides_images/020c795e10a55e0d2410d5451b759c4d.png");
-            z-index: 0;
-        }
+        .warning-glow { animation: warning-pulse 2s infinite; }
+        @keyframes warning-pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
     </style>
 </head>
-<body>
+<body class="safety-bg overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col">
-        <div class="bg-pattern"></div>
-        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+    <div class="slide-container flex flex-col justify-center px-24 relative">
+        <div class="absolute left-0 top-0 h-full w-3 bg-gradient-to-b from-red-600 to-yellow-500 z-30 shadow-[5px_0_15px_rgba(239,68,68,0.3)]"></div>
 
-        <div class="p-12 pl-20 pb-6 z-10">
-            <div class="flex items-center mb-4">
-                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Ecossistema Digital</span>
-                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Brasil 2026</span>
+        <div class="mb-10 flex items-center gap-6">
+            <div class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center text-white text-3xl warning-glow">
+                <i class="fas fa-shield-virus"></i>
             </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
-                Creator Economy <span class="text-yellow-500">Brasil</span>
-            </h1>
-            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4">
-                A profissionalização dos criadores de conteúdo e o impacto real nos negócios.
+            <div>
+                <h1 class="text-5xl font-black uppercase leading-tight">CUIDADO: A IA <br><span class="text-red-500 italic">NÃO É UM COFRE</span></h1>
+                <p class="text-gray-400 font-bold uppercase tracking-widest mt-1">Regras de Ouro para sua Segurança Digital</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+            <div class="danger-card">
+                <h3 class="text-red-500 font-black text-xl mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <i class="fas fa-user-secret"></i> NUNCA COMPARTILHE:
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4 text-gray-300 font-bold">
+                        <i class="fas fa-times-circle text-red-600"></i> Suas Senhas ou Logins
+                    </li>
+                    <li class="flex items-center gap-4 text-gray-300 font-bold">
+                        <i class="fas fa-times-circle text-red-600"></i> Endereço de Casa ou Escola
+                    </li>
+                    <li class="flex items-center gap-4 text-gray-300 font-bold">
+                        <i class="fas fa-times-circle text-red-600"></i> Fotos Íntimas ou de Documentos
+                    </li>
+                    <li class="flex items-center gap-4 text-gray-300 font-bold">
+                        <i class="fas fa-times-circle text-red-600"></i> Segredos Profissionais / Estratégicos
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col justify-center gap-6">
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <span class="safety-pill mb-4 inline-block">Fato ou Fake?</span>
+                    <h4 class="text-white font-black text-lg mb-2">A IA PODE "ALUCINAR"</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Às vezes, as IAs inventam fatos com muita convicção. Sempre confira as informações em fontes reais.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <span class="safety-pill mb-4 inline-block">Plágio e Autoria</span>
+                    <h4 class="text-white font-black text-lg mb-2">USE COMO ASSISTENTE, NÃO SUBSTITUTO</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        A IA deve te ajudar a pensar, não pensar por você. O valor do trabalho está no seu toque humano.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-yellow-600/10 p-4 rounded-xl border-l-4 border-yellow-500">
+            <p class="text-yellow-500 text-sm font-black uppercase text-center tracking-widest">
+                <i class="fas fa-exclamation-triangle mr-2"></i> Tudo o que você digita na IA pode ser usado para treinar os próximos modelos.
             </p>
-        </div>
-
-        <div class="px-20 z-10 grid grid-cols-2 gap-8">
-            <div class="card-kpi border-t-green rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-users text-8xl text-green-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 mr-4">
-                        <i class="fas fa-user-plus text-lg"></i>
-                    </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Base de Criadores</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">14 <span class="text-3xl text-gray-500 font-bold">Milhões</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-green-500 h-full w-full"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Brasileiros produzindo conteúdo ativamente, liderando a influência digital global.</p>
-            </div>
-
-            <div class="card-kpi border-t-blue rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-bullhorn text-8xl text-blue-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-4">
-                        <i class="fas fa-chart-pie text-lg"></i>
-                    </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Microinfluenciadores</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">83 <span class="text-3xl text-gray-500 font-bold">%</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-blue-500 h-full w-10/12"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Criadores com até 100k seguidores detêm o maior engajamento e conversão.</p>
-            </div>
-
-            <div class="card-kpi border-t-purple rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-wallet text-8xl text-purple-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4">
-                        <i class="fas fa-money-bill-trend-up text-lg"></i>
-                    </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Mercado Nacional</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">R$ 4 <span class="text-3xl text-gray-500 font-bold">bi</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-purple-500 h-full w-3/4"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Movimentação anual estimada em publicidade e infoprodutos no Brasil.</p>
-            </div>
-
-            <div class="card-kpi border-t-yellow rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-earth-americas text-8xl text-yellow-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 mr-4">
-                        <i class="fas fa-rocket text-lg"></i>
-                    </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Projeção Global 2027</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">US$ 480 <span class="text-3xl text-gray-500 font-bold">bi</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-yellow-500 h-full w-full"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Estimativa do Goldman Sachs para o crescimento do setor no mundo.</p>
-            </div>
-        </div>
-
-        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3 z-20">
-            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans'] uppercase tracking-widest">
-                <i class="fas fa-info-circle mr-2"></i>
-                <span>Fonte: Wake Creators, Goldman Sachs, Forbes (Censo 2025)</span>
-            </div>
         </div>
     </div>
 </div>

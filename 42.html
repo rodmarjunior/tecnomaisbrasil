@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Slide 35 - O Texto que Converte</title>
+    <title>Slide 39 - Missão: Upgrade Real</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
@@ -34,96 +34,138 @@
             box-shadow: 0 0 50px rgba(0,0,0,0.1);
         }
 
-        .prompt-box-green {
-            background: #000000;
-            border-radius: 12px;
-            padding: 25px;
-            border-left: 8px solid #10b981;
-            box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.1);
+        .mission-bg {
+            background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1280');
+            background-size: cover;
+            background-position: center;
         }
 
-        .checklist-item {
-            background: #f8fafc;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #10b981;
+        .mission-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .checklist-item:hover {
-            transform: translateX(10px);
-            background: #ecfdf5;
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-color: #10b981;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1);
         }
 
-        .step-badge-green {
-            background: #10b981;
-            color: white;
-            padding: 4px 15px;
+        .timer-badge {
+            background: #1e293b;
+            color: #10b981;
+            padding: 10px 25px;
             border-radius: 999px;
-            font-weight: 800;
-            font-size: 0.8rem;
-            text-transform: uppercase;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+        }
+
+        .pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(16, 185, 129, 0.7)); }
+            70% { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(16, 185, 129, 0)); }
+        }
+
+        /* Correção para o box de destaque inferior */
+        .highlight-quote-box {
+            background-color: #0f172a !important; /* Azul marinho muito escuro */
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
 <div class="slide-wrapper">
-    <div class="slide-container">
+    <div class="slide-container mission-bg">
         <div class="absolute left-0 top-0 h-full w-3 bg-green-500 z-30 shadow-[5px_0_15px_rgba(16,185,129,0.3)]"></div>
 
         <div class="w-full h-full flex flex-col justify-center px-24 z-20">
-            <div class="flex items-center mb-4">
-                <span class="step-badge-green">Passo 3: Copywriting de Elite</span>
-                <span class="text-gray-400 text-xs font-bold ml-4 tracking-[0.3em] uppercase">Fechamento de Venda</span>
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center">
+                    <span class="bg-green-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-sm shadow-md">Simulação de Mercado</span>
+                    <span class="text-gray-500 text-xs font-bold ml-4 tracking-[0.3em] uppercase">Desafio: Upgrade de Ativo</span>
+                </div>
+                <div class="timer-badge">
+                    <i class="fas fa-bolt pulse-green"></i>
+                    <span>AÇÃO IMEDIATA: 10 MINUTOS</span>
+                </div>
             </div>
 
             <h1 class="text-[#1e293b] text-6xl font-black uppercase leading-none mb-4">
-                O TEXTO <br><span class="text-green-600">QUE CONVERTE</span>
+                MISSÃO: Venda seu <br><span class="text-green-600">Celular Atual</span>
             </h1>
-            <p class="text-gray-400 text-2xl font-bold italic mb-10 border-l-4 border-green-600 pl-6">
-                A imagem atrai, mas é a sua palavra que faz o cliente pagar.
+            <p class="text-gray-500 text-2xl font-bold italic mb-10 border-l-4 border-green-500 pl-6">
+                Objetivo: Levantar capital para comprar o modelo superior.
             </p>
 
-            <div class="grid grid-cols-2 gap-10">
-                <div class="bg-[#f8fafc] p-8 rounded-2xl border-2 border-gray-100 shadow-xl">
-                    <p class="text-gray-500 font-black mb-4 uppercase text-xs tracking-widest">O Comando para a IA:</p>
-                    <div class="prompt-box-green">
-                        <p class="text-green-400 font-mono text-sm leading-relaxed italic">
-                            "Você é um Copywriter de elite. Escreva uma legenda irresistível para vender meu [MODELO DO CELULAR] atual. Foque no estado impecável do aparelho, no custo-benefício para quem quer um upgrade e termine com uma chamada para ação urgente para o meu WhatsApp."
-                        </p>
+            <div class="grid grid-cols-3 gap-8">
+                <div class="mission-card border-t-8 border-green-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600">
+                            <i class="fas fa-camera text-2xl"></i>
+                        </div>
+                        <h3 class="text-[#1e293b] font-black text-lg uppercase">1. O Valor</h3>
                     </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Olhe para o seu celular agora. Identifique <strong>3 qualidades</strong> dele (ex: bateria ótima, tela sem risco, fotos boas). Ele é o seu produto.
+                    </p>
                 </div>
 
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-[#1e293b] font-black text-2xl mb-6 uppercase">Checklist da Venda:</h3>
-                    <div class="space-y-3">
-                        <div class="checklist-item">
-                            <p class="text-gray-700 font-bold text-sm"><i class="fas fa-bolt text-green-500 mr-2"></i> Gatilho de Urgência (Só hoje!)</p>
+                <div class="mission-card border-t-8 border-blue-600">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                            <i class="fas fa-brain text-2xl"></i>
                         </div>
-                        <div class="checklist-item">
-                            <p class="text-gray-700 font-bold text-sm"><i class="fas fa-star text-green-500 mr-2"></i> Benefício Real (Fotos Incríveis)</p>
-                        </div>
-                        <div class="checklist-item">
-                            <p class="text-gray-700 font-bold text-sm"><i class="fas fa-link text-green-500 mr-2"></i> Link de Contato (WhatsApp)</p>
-                        </div>
+                        <h3 class="text-[#1e293b] font-black text-lg uppercase">2. O Gancho</h3>
                     </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Use a IA para criar um texto de venda: <br><em>"Atue como vendedor elite, crie um anúncio de desapego honesto, mas irresistível."</em>
+                    </p>
+                </div>
+
+                <div class="mission-card border-t-8 border-purple-600">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
+                            <i class="fas fa-paper-plane text-2xl"></i>
+                        </div>
+                        <h3 class="text-[#1e293b] font-black text-lg uppercase">3. O Pitch</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Monte um <strong>Story no Instagram</strong> ou <strong>Status no Whats</strong>. Use uma foto real e a oferta que a IA gerou. 
+                    </p>
                 </div>
             </div>
 
-            <div class="mt-10 bg-[#1e293b] p-5 rounded-xl flex items-center justify-between shadow-2xl">
-                <p class="text-white text-lg font-bold">
-                    <i class="fas fa-check-double text-green-500 mr-3"></i> Agora junte a imagem do Passo 2 com este texto e poste!
+            <div class="mt-12 highlight-quote-box flex items-center justify-between">
+                <p class="text-white text-xl font-bold italic">
+                    "O primeiro passo para ser um profissional digital é aprender a vender o que você já tem."
                 </p>
-                <div class="flex gap-2">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span class="text-green-500 font-black text-[10px] uppercase">Ação em Tempo Real</span>
+                <div class="flex items-center gap-3 text-green-400 font-black">
+                    <i class="fas fa-check-double"></i>
+                    <span class="uppercase tracking-tighter">Valide sua Oferta</span>
                 </div>
             </div>
         </div>
 
-        <div class="absolute bottom-4 right-20 text-gray-400 font-black text-[10px] uppercase tracking-widest">
-           
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-200 pt-3 z-20">
+            <div class="flex justify-between items-center text-gray-400 text-[10px] font-black uppercase tracking-widest">
+            </div>
         </div>
     </div>
 </div>

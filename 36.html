@@ -3,55 +3,59 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Social: Carreira de Conexão</title>
+    <title>Tech: Renda com Automação</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
     <style>
-        .social-corp-card { background: #1e293b; border-radius: 15px; padding: 25px; border-left: 5px solid #f59e0b; transition: all 0.3s; }
-        .social-corp-card:hover { transform: scale(1.02); background: #243147; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1); }
-        .salary-orange { color: #f59e0b; font-weight: 900; font-size: 1.5rem; }
+        .tech-bg { background: radial-gradient(circle at top right, #064e3b, #0f172a); }
+        .tech-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .tech-card:hover { transform: scale(1.03); border-color: #10b981; box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); }
+        .badge-green { background: #10b981; color: #000; padding: 2px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; }
     </style>
 </head>
 <body>
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#0f172a]">
-        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+    <div class="slide-container tech-bg flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-2 bg-green-500 z-30 shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
         
-        <div class="px-20 pt-16 pb-8 z-20">
-            <span class="text-yellow-500 font-bold tracking-widest uppercase">Estratégia Humana</span>
-            <h1 class="text-white text-5xl font-black uppercase">RELACIONAMENTO & <span class="text-yellow-500">COMUNIDADE</span></h1>
-            <p class="text-gray-400 text-lg mt-2">As máquinas não têm empatia. Você tem. E isso vale muito.</p>
+        <div class="px-20 pt-12 pb-6 z-20">
+            <span class="bg-green-600 text-white text-xs font-black px-3 py-1 uppercase rounded-sm">Lógica & Escala</span>
+            <h1 class="text-white text-5xl font-black uppercase mt-2">TECH: <span class="text-green-500">Arquiteto de Soluções</span></h1>
+            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-green-500 pl-4 mt-2">Criando máquinas invisíveis que trabalham por você.</p>
         </div>
 
-        <div class="flex-1 px-20 grid grid-cols-2 gap-8 items-start">
-            <div class="social-corp-card shadow-2xl">
-                <h2 class="text-white text-2xl font-black mb-1">Community Manager Sênior</h2>
-                <p class="text-yellow-500 text-xs font-bold uppercase mb-4">Startups, Bancos & Gigantes de Tech</p>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">Não apenas modera, mas cria estratégias para manter milhares de clientes engajados e fiéis. É a "ponte" entre a marca e os fãs.</p>
-                <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                    <span class="text-gray-500 text-xs font-bold uppercase">Média Salarial:</span>
-                    <span class="salary-orange">R$ 7k - 18k</span>
+        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
+            <div class="tech-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-robot text-xl"></i></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Configurador de Chatbots</h3>
+                    <span class="badge-green">R$ 500+ /projeto</span>
                 </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Muitos negócios perdem vendas por demora no atendimento. Você cria fluxos automáticos no <strong>ManyChat</strong> ou <strong>Typebot</strong> direto pelo navegador do celular.</p>
+                <div class="mt-auto text-[10px] text-green-400 font-black uppercase tracking-widest">Ferramenta: ManyChat / Typebot</div>
             </div>
 
-            <div class="social-corp-card shadow-2xl">
-                <h2 class="text-white text-2xl font-black mb-1">Especialista em PR / Influência</h2>
-                <p class="text-yellow-500 text-xs font-bold uppercase mb-4">Agências de Mídia & Grandes Marcas</p>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">Faz a curadoria e contratação de influencers. É quem decide quem será o rosto da marca em campanhas nacionais.</p>
-                <div class="flex justify-between items-center border-t border-gray-800 pt-4">
-                    <span class="text-gray-500 text-xs font-bold uppercase">Média Salarial:</span>
-                    <span class="salary-orange">R$ 8k - 22k</span>
+            <div class="tech-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-plug text-xl"></i></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Mestre de Integrações</h3>
+                    <span class="badge-green">Freelance</span>
                 </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Conecta ferramentas (Ex: Planilha que envia e-mail automático). Use o <strong>Make (antigo Integromat)</strong> para criar essas pontes sem digitar código.</p>
+                <div class="mt-auto text-[10px] text-green-400 font-black uppercase tracking-widest">Plataforma: Make / Zapier</div>
             </div>
-        </div>
 
-        <div class="px-20 pb-12 mt-auto">
-            <div class="bg-yellow-500/10 border border-yellow-500/30 p-5 rounded-xl flex items-center">
-                <i class="fas fa-heart text-yellow-500 text-2xl mr-4"></i>
-                <p class="text-white text-sm"><strong>A era da confiança:</strong> Em 2026, as pessoas compram de quem elas confiam. Seu papel é construir essa ponte.</p>
+            <div class="tech-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-mobile-alt text-xl"></i></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Criador de Apps No-Code</h3>
+                    <span class="badge-green">R$ 1.5k+ /app</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Cria aplicativos simples para controle de estoque ou agendamento de barbearias usando o <strong>Glide</strong> ou <strong>AppSheet</strong>. O código é visual e intuitivo.</p>
+                <div class="mt-auto text-[10px] text-green-400 font-black uppercase tracking-widest">Ferramenta: Glide / FlutterFlow</div>
             </div>
         </div>
     </div>

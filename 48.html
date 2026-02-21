@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Atividade Networking Interativa</title>
+    <title>Gabarito da IA - Projeto Tecno Mais Brasil</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
@@ -13,123 +13,85 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        .connect-bg { 
-            background: radial-gradient(circle at center, #1e1b4b 0%, #030712 100%); 
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f1f5f9; }
+        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .slide-container { 
+            width: 1280px; height: 720px; 
+            background-color: #ffffff; 
+            position: relative; overflow: hidden; display: flex; flex-direction: column; 
+            box-shadow: 0 0 50px rgba(0,0,0,0.1); 
         }
-        .task-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(10px);
-            border-radius: 25px; 
+        .gabarito-card { 
+            background: white; 
+            border-radius: 20px; 
             padding: 30px; 
-            transition: 0.4s; 
-            border: 1px solid rgba(139, 92, 246, 0.2); 
+            border-left: 8px solid #6366f1; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .task-card:hover { 
-            border-color: #8b5cf6; 
-            background: rgba(139, 92, 246, 0.05);
-            transform: translateY(-5px);
-        }
-        .timer-glow {
-            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
-            font-family: 'Courier New', Courier, monospace;
-        }
+        .pill { background: #e0e7ff; color: #4338ca; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+        .stats-box { background: #1e293b; border-radius: 24px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
     </style>
 </head>
-<body class="connect-bg overflow-hidden">
-
-<audio id="audioLocal" src="musica.mp3" preload="auto" loop></audio>
+<body>
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col p-20 justify-center relative">
-        <div class="absolute w-96 h-96 bg-purple-600/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="slide-container flex flex-col bg-[#F8FAFC]">
+        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-600 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.3)]"></div>
 
-        <div class="z-10">
-            <h1 class="text-white text-6xl font-black uppercase mb-2 text-center">AGORA É COM <span class="text-purple-500">VOCÊS!</span></h1>
-            <p class="text-gray-400 text-center text-xl mb-12 font-bold uppercase tracking-[0.4em]">O Poder da Tribo: Dinâmica de Conexão</p>
+        <div class="px-24 pt-16 pb-8">
+            <h1 class="text-[#1e293b] text-6xl font-black uppercase leading-tight mb-2">O QUE A <span class="text-indigo-600">IA FARIA?</span></h1>
+            <p class="text-gray-500 text-2xl font-bold italic border-l-4 border-indigo-600 pl-6">Compare sua criação com padrões profissionais de alta conversão.</p>
+        </div>
+
+        <div class="flex-1 px-24 grid grid-cols-2 gap-10 items-start">
             
-            <div class="grid grid-cols-3 gap-8 mb-12">
-                <div class="task-card text-center">
-                    <div class="w-16 h-16 bg-purple-900/40 rounded-2xl flex items-center justify-center text-purple-400 mx-auto mb-6">
-                        <i class="fas fa-id-card text-3xl"></i>
-                    </div>
-                    <h4 class="text-white font-black text-xl mb-3 uppercase font-black">QUEM É VOCÊ?</h4>
-                    <p class="text-gray-500 text-sm italic">O que você ama fazer e qual o seu maior talento hoje?</p>
+            <div class="gabarito-card">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="pill">TEMA: CARREIRA AOS 16 ANOS</span>
+                    <i class="fas fa-robot text-indigo-400 text-xl"></i>
                 </div>
-                
-                <div class="task-card text-center">
-                    <div class="w-16 h-16 bg-indigo-900/40 rounded-2xl flex items-center justify-center text-indigo-400 mx-auto mb-6">
-                        <i class="fas fa-gift text-3xl"></i>
-                    </div>
-                    <h4 class="text-white font-black text-xl mb-3 uppercase font-black">O QUE OFERECE?</h4>
-                    <p class="text-gray-500 text-sm italic">Como você pode ajudar alguém da sala com o que sabe?</p>
-                </div>
-
-                <div class="task-card text-center">
-                    <div class="w-16 h-16 bg-blue-900/40 rounded-2xl flex items-center justify-center text-blue-400 mx-auto mb-6">
-                        <i class="fas fa-bullseye text-3xl"></i>
-                    </div>
-                    <h4 class="text-white font-black text-xl mb-3 uppercase font-black">O QUE PRECISA?</h4>
-                    <p class="text-gray-500 text-sm italic">O que você quer aprender ou qual ferramenta precisa dominar?</p>
-                </div>
+                <p class="text-gray-700 text-lg leading-relaxed italic font-semibold">
+                    "O mercado não quer mais o seu diploma, ele quer a sua solução. Enquanto muitos esperam a faculdade, quem domina IA hoje já está no jogo. Você é passageiro ou piloto? 🚀"
+                </p>
             </div>
 
-            <div class="bg-white/5 border border-white/10 p-8 rounded-[40px] flex items-center justify-between mx-auto max-w-5xl w-full backdrop-blur-sm">
-                <div class="flex items-center gap-8">
-                    <button id="startBtn" onclick="toggleAtividade()" class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg shadow-purple-600/30 transition-transform hover:scale-110">
-                        <i id="playIcon" class="fas fa-play ml-1"></i>
-                    </button>
-                    <div>
-                        <p class="text-white text-2xl font-black italic leading-tight">INICIAR CONEXÕES</p>
-                        <p class="text-gray-500 text-sm uppercase font-bold tracking-widest">Grandes negócios nasceram em momentos iguais a esse.</p>
-                    </div>
+            <div class="gabarito-card">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="pill">TEMA: MEUS PRIMEIROS R$ 1.000</span>
+                    <i class="fas fa-robot text-indigo-400 text-xl"></i>
                 </div>
-                <div id="display" class="text-white font-black text-7xl timer-glow">05:00</div>
+                <p class="text-gray-700 text-lg leading-relaxed italic font-semibold">
+                    "Para ganhar R$ 1.000 no digital você não precisa de sorte, precisa de 1 ferramenta e 1 problema para resolver. O segredo é começar pequeno, mas começar HOJE. 🔥"
+                </p>
             </div>
+
+            <div class="col-span-2 stats-box flex justify-around items-center text-white mt-4">
+                <div class="text-center">
+                    <div class="text-indigo-400 text-5xl font-black mb-1">PROMPT</div>
+                    <div class="text-xs uppercase font-bold tracking-[0.2em] text-gray-400">Contexto Claro</div>
+                </div>
+                <div class="h-12 w-px bg-gray-700"></div>
+                <div class="text-center">
+                    <div class="text-indigo-400 text-5xl font-black mb-1">GATILHO</div>
+                    <div class="text-xs uppercase font-bold tracking-[0.2em] text-gray-400">Curiosidade + Desejo</div>
+                </div>
+                <div class="h-12 w-px bg-gray-700"></div>
+                <div class="text-center">
+                    <div class="text-indigo-400 text-5xl font-black mb-1">CTA</div>
+                    <div class="text-xs uppercase font-bold tracking-[0.2em] text-gray-400">Chamada para Ação</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-10 text-gray-400 text-[10px] font-black uppercase text-center tracking-[0.4em]">
+            Análise de Padrões de Inteligência Digital 2026
         </div>
     </div>
 </div>
 
-<script>
-    let tempoSegundos = 300;
-    let intervalo;
-    let rodando = false;
-    const audio = document.getElementById('audioLocal');
-
-    function toggleAtividade() {
-        const icon = document.getElementById('playIcon');
-        
-        if (!rodando) {
-            rodando = true;
-            icon.classList.replace('fa-play', 'fa-pause');
-            
-            // Inicia Áudio
-            audio.play().catch(e => console.log("Erro ao iniciar áudio: ", e));
-            
-            intervalo = setInterval(() => {
-                tempoSegundos--;
-                const min = Math.floor(tempoSegundos / 60);
-                const seg = tempoSegundos % 60;
-                document.getElementById('display').innerText = 
-                    `${min.toString().padStart(2, '0')}:${seg.toString().padStart(2, '0')}`;
-                
-                if (tempoSegundos <= 0) finalizarAtividade();
-            }, 1000);
-        } else {
-            rodando = false;
-            icon.classList.replace('fa-pause', 'fa-play');
-            audio.pause();
-            clearInterval(intervalo);
-        }
-    }
-
-    function finalizarAtividade() {
-        clearInterval(intervalo);
-        audio.pause();
-        audio.currentTime = 0;
-        rodando = false;
-        document.getElementById('playIcon').classList.replace('fa-pause', 'fa-play');
-        alert("O tempo de networking acabou!");
-    }
-</script>
 </body>
 </html>

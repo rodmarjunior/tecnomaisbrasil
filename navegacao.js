@@ -1,6 +1,6 @@
 ﻿/**
  * Script de Controle da Apresentação com Bloco de Notas Integrado
- * Rodmar Junior 2026 - Ajustado para o fluxo total de 58 slides (0 a 57)
+ * Rodmar Junior 2026 - Ajustado para o fluxo total de 61 slides (0 a 60)
  */
 
 function configurarApresentacao() {
@@ -19,7 +19,9 @@ function configurarApresentacao() {
     ajustar();
 
     // Obtém o número da página atual a partir da URL (ex: 5.html -> 5)
-    const pag = parseInt(window.location.pathname.split('/').pop()) || 0;
+    const pathParts = window.location.pathname.split('/');
+    const fileName = pathParts.pop();
+    const pag = parseInt(fileName) || 0;
     
     // Criação do Menu de Navegação (Footer)
     const footer = document.createElement('footer');
@@ -34,7 +36,7 @@ function configurarApresentacao() {
         </button>
 
         <div style="display:flex; align-items:center; gap:5px;">
-            <input type="number" id="goto" value="${pag}" min="0" max="57" style="width:45px; text-align:center; background:#1f2937; color:#F59E0B; border:1px solid #4B5563; border-radius:5px; font-weight:bold; padding:8px 0;">
+            <input type="number" id="goto" value="${pag}" min="0" max="60" style="width:45px; text-align:center; background:#1f2937; color:#F59E0B; border:1px solid #4B5563; border-radius:5px; font-weight:bold; padding:8px 0;">
             <button onclick="irPara()" style="background:#F59E0B; color:black; padding:8px 12px; border:none; border-radius:3px; font-weight:bold; cursor:pointer;">IR</button>
         </div>
         
@@ -81,24 +83,26 @@ window.baixarNotas = () => {
 };
 
 window.mudar = (n) => {
-    const pag = parseInt(window.location.pathname.split('/').pop()) || 0;
+    const pathParts = window.location.pathname.split('/');
+    const fileName = pathParts.pop();
+    const pag = parseInt(fileName) || 0;
     let destino = pag + n;
-    // Limite de 57 slides (0 a 57)
-    if (destino >= 0 && destino <= 57) {
+    
+    // Limite de 61 slides (0 a 60)
+    if (destino >= 0 && destino <= 60) {
         window.location.href = destino + '.html';
     }
 };
 
 window.irPara = () => {
-    const d = document.getElementById('goto').value;
-    if (d >= 0 && d <= 57) {
+    const d = parseInt(document.getElementById('goto').value);
+    if (d >= 0 && d <= 60) {
         window.location.href = d + '.html';
     }
 };
 
 // Atalhos de teclado (Setas e Barra de Espaço)
 document.addEventListener('keydown', (e) => {
-    // Desativa atalhos se o usuário estiver digitando em campos de texto
     if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
     
     if (e.key === "ArrowRight" || e.key === " ") {

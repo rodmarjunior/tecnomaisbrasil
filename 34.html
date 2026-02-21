@@ -3,55 +3,59 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Criativo: Carreira Corporativa</title>
+    <title>Analítico: Renda com Estratégia</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
     <style>
-        .corp-card { background: #1e293b; border-radius: 15px; padding: 25px; border-top: 5px solid #ec4899; transition: transform 0.3s; }
-        .corp-card:hover { transform: translateY(-10px); background: #243147; }
-        .salary-badge { color: #10b981; font-weight: 900; font-size: 1.2rem; }
+        .analytic-bg { background: radial-gradient(circle at top left, #1e3a8a, #0f172a); }
+        .data-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(59, 130, 246, 0.3); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .data-card:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
+        .badge-blue { background: #3b82f6; color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 800; }
     </style>
 </head>
 <body>
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#0f172a]">
-        <div class="absolute left-0 top-0 h-full w-2 bg-pink-600 z-30"></div>
+    <div class="slide-container analytic-bg flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 z-30 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
         
-        <div class="px-20 pt-16 pb-8 z-20">
-            <span class="text-pink-500 font-bold tracking-widest uppercase">Carreiras de Elite</span>
-            <h1 class="text-white text-5xl font-black uppercase">MERCADO <span class="text-pink-500">CORPORATIVO</span></h1>
-            <p class="text-gray-400 text-lg mt-2">O próximo nível: onde as grandes marcas contratam sua mente criativa.</p>
+        <div class="px-20 pt-12 pb-6 z-20">
+            <span class="bg-blue-600 text-white text-xs font-black px-3 py-1 uppercase rounded-sm">Estratégia & Lucro</span>
+            <h1 class="text-white text-5xl font-black uppercase mt-2">ANALÍTICO: <span class="text-blue-400">O Mestre dos Dados</span></h1>
+            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-blue-500 pl-4 mt-2">Transformando cliques e números em dinheiro real.</p>
         </div>
 
-        <div class="flex-1 px-20 grid grid-cols-2 gap-8 items-start">
-            <div class="corp-card shadow-2xl">
-                <h2 class="text-white text-2xl font-black mb-1">Diretor de Arte / Motion Designer</h2>
-                <p class="text-pink-400 text-xs font-bold uppercase mb-4">Startups & Agências de Publicidade</p>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">Responsável por toda a identidade visual de grandes campanhas. Cria vídeos que parecem cinema para redes sociais.</p>
-                <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                    <span class="text-gray-500 text-xs font-bold uppercase">Média Salarial:</span>
-                    <span class="salary-badge">R$ 6k - 15k</span>
+        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
+            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-chart-line text-xl"></i></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Configurador de Anúncios</h3>
+                    <span class="badge-blue">Freelance</span>
                 </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Muitas lojas de bairro não sabem usar o botão "Impulsionar" corretamente. Você configura o público certo e mede o retorno.</p>
+                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Ferramenta: Meta Ads (Celular)</div>
             </div>
 
-            <div class="corp-card shadow-2xl">
-                <h2 class="text-white text-2xl font-black mb-1">Creative Strategist</h2>
-                <p class="text-pink-400 text-xs font-bold uppercase mb-4">E-commerces & Infoprodutos</p>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">Não apenas desenha, mas pensa na estratégia por trás do anúncio. Une dados de performance com criatividade pura.</p>
-                <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                    <span class="text-gray-500 text-xs font-bold uppercase">Média Salarial:</span>
-                    <span class="salary-badge">R$ 8k - 20k</span>
+            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-search-dollar text-xl"></i></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Analista de Concorrência</h3>
+                    <span class="badge-blue">R$ 300+ /estudo</span>
                 </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Você pesquisa o que os concorrentes de um cliente estão vendendo e quais anúncios estão ativos (Biblioteca de Anúncios do Meta).</p>
+                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Foco: Inteligência de Mercado</div>
             </div>
-        </div>
 
-        <div class="px-20 pb-10 mt-auto">
-            <div class="bg-pink-900/20 border border-pink-500/30 p-4 rounded-xl flex items-center">
-                <i class="fas fa-graduation-cap text-pink-500 text-2xl mr-4"></i>
-                <p class="text-white text-sm"><strong>Como chegar lá:</strong> Monte um portfólio no <strong>Behance</strong> ou um perfil "vitrine" no Instagram com seus melhores trabalhos.</p>
+            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-file-invoice-dollar text-xl"></i></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-bold text-lg leading-tight">Gestor de Orçamentos</h3>
+                    <span class="badge-blue">Mensal</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Organiza as planilhas de gastos de pequenos criadores de conteúdo para garantir que eles não gastem mais do que ganham.</p>
+                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Ferramenta: Google Sheets</div>
             </div>
         </div>
     </div>

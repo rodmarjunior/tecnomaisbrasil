@@ -3,107 +3,107 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Desafio Prático - Criação</title>
+    <title>Slide 34 - Fotografia Publicitária com IA</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; background: #0F172A; padding: 15px; color: white; padding-bottom: 100px; }
-        .card { background: white; color: #1e293b; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .topic-box { 
-            background: #f1f5f9; 
-            border: 2px dashed #6366f1; 
-            padding: 20px; 
-            border-radius: 12px; 
-            font-weight: 800; 
-            text-align: center; 
-            margin: 15px 0;
-            color: #4338ca;
-            font-size: 1.1rem;
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #f1f5f9;
         }
-        textarea { 
-            width: 100%; 
-            height: 180px; 
-            border: 2px solid #e2e8f0; 
-            border-radius: 12px; 
-            padding: 15px; 
-            margin-top: 10px; 
-            font-weight: 600;
-            color: #1e293b;
-            font-family: sans-serif;
+
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
         }
-        .btn-main { 
-            background: #6366f1; 
-            color: white; 
-            width: 100%; 
-            padding: 18px; 
-            border-radius: 12px; 
-            font-weight: 900; 
-            margin-top: 15px; 
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+
+        .prompt-box {
+            background: #000000;
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 10px solid #3b82f6;
+            box-shadow: inset 0 0 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .step-badge {
+            background: #3b82f6;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-weight: 900;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1 class="text-2xl font-black mb-1 uppercase text-center">🎯 Missão Criativa</h1>
-        <p class="text-gray-400 text-[10px] text-center mb-4 uppercase font-bold tracking-widest">PROJETO TECNO MAIS BRASIL</p>
-        
-        <div class="topic-box" id="topic">Clique para sortear seu desafio</div>
-        
-        <button onclick="sortear()" class="text-xs font-black uppercase text-indigo-600 w-full mb-6 flex items-center justify-center gap-2">
-            <i class="fas fa-random"></i> TROCAR TEMA
-        </button>
 
-        <label class="text-xs font-black uppercase text-gray-400 ml-1">Sua Legenda de Alta Conversão:</label>
-        <textarea id="texto" placeholder="Dica: Use os gatilhos que aprendemos..."></textarea>
-        
-        <button onclick="enviar()" class="btn-main shadow-lg">Finalizar e Ver Gabarito</button>
-        
-        <div id="feedback" class="hidden mt-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-800 text-xs font-bold">
-            <i class="fas fa-check-circle mr-2"></i> Missão concluída! Redirecionando...
+<div class="slide-wrapper">
+    <div class="slide-container">
+        <div class="absolute left-0 top-0 h-full w-4 bg-blue-600 z-30 shadow-[6px_0_20px_rgba(59,130,246,0.4)]"></div>
+
+        <div class="w-full h-full flex flex-col justify-center px-28 z-20">
+            <div class="flex items-center mb-6">
+                <span class="step-badge">Passo 2: Produção Visual de Alto Impacto</span>
+                <span class="text-gray-500 text-sm font-bold ml-6 tracking-[0.4em] uppercase">Venda com Desejo</span>
+            </div>
+
+            <h1 class="text-[#1e293b] text-6xl lg:text-7xl font-black uppercase leading-tight mb-5">
+                FOTOGRAFIA <br><span class="text-blue-600">PUBLICITÁRIA IA</span>
+            </h1>
+            <p class="text-gray-500 text-2xl lg:text-3xl font-bold italic mb-12 border-l-6 border-blue-600 pl-8">
+                Transforme um celular usado em um objeto de desejo irresistível.
+            </p>
+
+            <div class="bg-[#f8fafc] p-12 rounded-3xl border-2 border-gray-100 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-8 -right-8 bg-blue-600 w-20 h-20 rounded-3xl flex items-center justify-center text-white shadow-xl">
+                    <i class="fas fa-wand-magic-sparkles text-4xl"></i>
+                </div>
+
+                <p class="text-[#1e293b] text-2xl font-bold mb-8">
+                    No <span class="text-blue-600 font-black">Gemini</span> (modelo Banana), cole este prompt poderoso:
+                </p>
+
+                <div class="prompt-box">
+                    <p class="text-blue-300 font-mono text-2xl leading-relaxed">
+                        "Foto realista de samsung m54 sendo segurado na mão, fundo desfocado de sala iluminada, luz natural, tela ligada, sem arranhões, cores vivas, estilo anúncio OLX, 8K, foco nítido."
+
+                <div class="mt-8 text-gray-700 text-lg font-semibold italic">
+                    Por quê esse prompt vende? Ele cria luxo + desejo + urgência visual: reflexos, iluminação premium e composição que fazem o celular parecer vale cada centavo (mesmo usado!).
+                </div>
+            </div>
+
+            <div class="mt-10 flex items-center gap-6 bg-blue-50 p-6 rounded-2xl border-l-6 border-blue-500 shadow-md">
+                <i class="fas fa-lightbulb text-yellow-500 text-3xl"></i>
+                <p class="text-blue-900 font-bold text-base lg:text-lg">
+                    Dica de ouro: Use a imagem como fundo do Story/Instagram Reels e sobreponha o texto da oferta criado pela IA. Converta mais rápido!
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 right-24 text-gray-500 font-black text-xs uppercase tracking-widest">
+     
         </div>
     </div>
+</div>
 
-    <script>
-        const temas = [
-            "Por que um jovem de 16 anos precisa entender de IA hoje?",
-            "Como eu faria meus primeiros R$ 1.000 no digital se começasse do zero",
-            "A habilidade que a escola não ensina, mas o mercado paga muito bem",
-            "3 ferramentas de IA que economizam 5 horas do meu dia",
-            "O erro que faz 90% dos iniciantes desistirem do digital",
-            "Trabalhar para o mundo: como ganhar em dólar sem sair de casa"
-        ];
-
-        function sortear() { 
-            const box = document.getElementById('topic');
-            const novoTema = temas[Math.floor(Math.random() * temas.length)];
-            box.style.opacity = 0;
-            setTimeout(() => {
-                box.innerText = novoTema;
-                box.style.opacity = 1;
-            }, 200);
-        }
-
-        function enviar() {
-            const texto = document.getElementById('texto').value;
-            if(texto.length < 20) {
-                alert('Sua legenda está muito curta! Desenvolva um pouco mais a ideia.');
-                return;
-            }
-            
-            document.getElementById('feedback').classList.remove('hidden');
-            
-            // Redireciona para o Gabarito (Slide 45) após 2 segundos
-            setTimeout(() => { 
-                window.location.href = '45.html'; 
-            }, 2000);
-        }
-    </script>
 </body>
 </html>

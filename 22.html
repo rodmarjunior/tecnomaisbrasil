@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Novas Profissões CLT em Ascensão</title>
+    <title>Marco Legal dos Games</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
@@ -13,158 +13,158 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        .bg-pattern {
+        /* Estilo de Impacto Gamer/Tech */
+        .tech-bg {
             position: absolute;
-            inset: 0;
-            opacity: 0.05;
-            background-image: radial-gradient(#ffffff 1px, transparent 1px);
-            background-size: 20px 20px;
-            pointer-events: none;
-        }
-
-        .role-card {
-            background-color: #1E293B;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            height: 215px; /* Altura otimizada para projetor */
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.1) 1px, transparent 0);
+            background-size: 30px 30px;
+            z-index: 0;
         }
         
-        .role-card:hover {
-            transform: translateY(-5px);
-            background-color: #253347;
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.6);
+        .law-highlight-box {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-left: 8px solid #10b981;
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.3);
         }
 
-        .decoration-line {
+        .stat-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            border-color: #10b981;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .opportunity-pill {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid #3b82f6;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+            transition: all 0.2s ease;
+        }
+        .opportunity-pill:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .glow-accent {
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-        }
-
-        .trend-badge {
-            font-size: 0.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .icon-box {
-            width: 40px; height: 40px;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 0.75rem;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: 0;
         }
     </style>
 </head>
 <body>
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#0F172A]">
-        <div class="bg-pattern"></div>
-        <div class="absolute left-0 top-0 h-full w-2 bg-green-500 z-30 shadow-[0_0_15px_rgba(16,185,129,0.4)]"></div>
+    <div class="slide-container flex flex-col bg-[#0b0f1a] overflow-hidden">
+        <div class="tech-bg"></div>
+        <div class="glow-accent top-[-150px] right-[-150px] bg-emerald-500"></div>
+        <div class="glow-accent bottom-[-150px] left-[-150px] bg-blue-600"></div>
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-emerald-500 z-30 shadow-[2px_0_15px_rgba(16,185,129,0.5)]"></div>
 
-        <div class="flex-none px-20 pt-10 pb-4 z-20 relative">
-            <div class="flex items-center mb-3">
-                <span class="bg-green-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Mercado de Trabalho</span>
-                <span class="text-gray-400 text-xs font-bold ml-4 tracking-widest uppercase border-l border-gray-700 pl-4">Vagas Formais (CLT)</span>
+        <div class="flex-none px-20 pt-12 pb-6 z-20 relative">
+            <div class="flex items-center mb-4">
+                <span class="bg-emerald-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full">Regulação & Mercado</span>
+                <span class="text-gray-400 text-xs font-bold ml-4 tracking-widest uppercase border-l border-gray-700 pl-4">Setor de Games</span>
             </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-tight tracking-tight">
-                Novas Profissões em <span class="text-green-500">Ascensão</span>
+            <h1 class="text-white text-5xl font-black uppercase leading-tight tracking-tighter">
+                Games: Marco Legal e <span class="text-emerald-400">Oportunidades</span>
             </h1>
-            <p class="text-gray-300 text-lg mt-1 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl leading-snug">
-                Oportunidades corporativas para quem domina o digital. Cargos que não existiam há 5 anos.
+            <p class="text-gray-300 text-xl mt-3 font-['Open_Sans'] border-l-4 border-emerald-500 pl-6 max-w-4xl font-medium">
+                A Lei 14.852/2024 consolida o Brasil como potência global do setor.
             </p>
         </div>
 
-        <div class="flex-1 px-20 pb-12 z-10 grid grid-cols-3 gap-5 items-center">
+        <div class="flex-1 px-20 pb-12 z-10 grid grid-cols-12 gap-8 items-center">
             
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-purple-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-purple-500/10 text-purple-400"><i class="fas fa-terminal"></i></div>
-                    <div class="trend-badge bg-purple-500/20 text-purple-300">Alta Demanda</div>
+            <div class="col-span-5 flex flex-col gap-6">
+                <div class="law-highlight-box p-8 rounded-xl relative">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-emerald-500 flex items-center justify-center text-black mr-4 shadow-lg">
+                            <i class="fas fa-gavel text-xl"></i>
+                        </div>
+                        <h3 class="text-white font-black text-2xl uppercase">Lei 14.852/2024</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-emerald-400 mt-1 mr-3"></i>
+                            <p class="text-gray-200 text-sm font-bold">Reconhecimento como Indústria Cultural.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-emerald-400 mt-1 mr-3"></i>
+                            <p class="text-gray-200 text-sm font-bold">Incentivos fiscais (Lei Rouanet/Audiovisual).</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-emerald-400 mt-1 mr-3"></i>
+                            <p class="text-gray-200 text-sm font-bold">Menos burocracia para importar tecnologia.</p>
+                        </li>
+                    </ul>
                 </div>
-                <h3 class="text-white font-bold text-base mb-1">Engenheiro de Prompts</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Refino de inputs para IA Generativa, garantindo precisão e escala para times.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-purple-400 font-black uppercase">Skills: Lógica, Inglês, LLMs</p>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="stat-card p-5 rounded-xl text-center">
+                        <p class="text-emerald-400 font-black text-3xl">R$ 13 Bi</p>
+                        <p class="text-gray-400 text-[10px] font-bold uppercase mt-1">Faturamento Nacional</p>
+                    </div>
+                    <div class="stat-card p-5 rounded-xl text-center">
+                        <p class="text-blue-400 font-black text-3xl">10º</p>
+                        <p class="text-gray-400 text-[10px] font-bold uppercase mt-1">Mercado do Mundo</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-cyan-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-cyan-500/10 text-cyan-400"><i class="fas fa-cogs"></i></div>
-                    <div class="trend-badge bg-cyan-500/20 text-cyan-300">Estratégico</div>
+            <div class="col-span-7 bg-[#1E293B]/40 border border-white/10 rounded-2xl p-8 relative overflow-hidden h-full flex flex-col justify-center">
+                <div class="absolute -right-20 -bottom-20 opacity-10 transform rotate-12">
+                    <i class="fas fa-gamepad text-[250px] text-white"></i>
                 </div>
-                <h3 class="text-white font-bold text-base mb-1">Operações de IA (AI Ops)</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Implementação e integração de ferramentas de IA nos processos corporativos.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-cyan-400 font-black uppercase">Skills: Automação, APIs, Fluxos</p>
+                
+                <h3 class="text-white text-2xl font-black uppercase mb-8 border-b border-white/10 pb-4">
+                    Profissões <span class="text-blue-400">além de jogar</span>
+                </h3>
+
+                <div class="grid grid-cols-2 gap-8 z-10">
+                    <div>
+                        <p class="text-emerald-400 text-xs font-black uppercase tracking-widest mb-4"><i class="fas fa-code mr-2"></i>Técnico & Arte</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">Game Dev</span>
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">Arte 3D/2D</span>
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">Sound Design</span>
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">QA Tester</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-blue-400 text-xs font-black uppercase tracking-widest mb-4"><i class="fas fa-briefcase mr-2"></i>Negócios & Mídia</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">Game Producer</span>
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">eSports Manager</span>
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">Narrative Des.</span>
+                            <span class="opportunity-pill px-3 py-1.5 rounded-lg text-xs font-bold uppercase">Community Man.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 bg-black/40 p-4 rounded-xl border border-white/5 flex items-center">
+                    <i class="fas fa-lightbulb text-yellow-400 text-2xl mr-4"></i>
+                    <p class="text-gray-300 text-xs font-bold leading-tight uppercase tracking-wider">
+                        A nova lei atrai investimento estrangeiro e aumenta a demanda por estúdios locais.
+                    </p>
                 </div>
             </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-yellow-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-yellow-500/10 text-yellow-400"><i class="fas fa-users"></i></div>
-                    <div class="trend-badge bg-yellow-500/20 text-yellow-300">Retenção</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Gestor de Comunidade</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Construção de relacionamentos e estratégias para fidelizar clientes da marca.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-yellow-400 font-black uppercase">Skills: Empatia, CRM, Redes</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-green-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-green-500/10 text-green-400"><i class="fas fa-chart-line"></i></div>
-                    <div class="trend-badge bg-green-500/20 text-green-300">Performance</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Analista de Growth</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Experimentos rápidos e análise de dados para alavancas de crescimento escalável.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-green-400 font-black uppercase">Skills: Analytics, Mídia, Testes A/B</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-pink-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-pink-500/10 text-pink-400"><i class="fas fa-video"></i></div>
-                    <div class="trend-badge bg-pink-500/20 text-pink-300">Criativo</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Conteúdo Omnichannel</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Criação e adaptação de narrativas para vídeos, podcasts e redes sociais.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-pink-400 font-black uppercase">Skills: Storytelling, Edição, Design</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-blue-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-blue-500/10 text-blue-400"><i class="fas fa-database"></i></div>
-                    <div class="trend-badge bg-blue-500/20 text-blue-300">Dados</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Especialista em CRM</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Gestão da jornada do cliente para aumentar o valor de tempo de vida (LTV).</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-blue-400 font-black uppercase">Skills: Salesforce, HubSpot, Análise</p>
-                </div>
-            </div>
-
         </div>
 
-        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
-            <p class="text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                <i class="fas fa-briefcase mr-2"></i> Fonte: LinkedIn Jobs & World Economic Forum 2025
+        <div class="absolute bottom-6 left-20 right-20 border-t border-white/10 pt-3 z-20">
+            <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em]">
+                Referência: Lei 14.852/2024 • Marco Legal dos Games
             </p>
         </div>
     </div>

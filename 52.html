@@ -3,155 +3,128 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>A Arte do Contorno - Projeto Tecno Mais Brasil</title>
+    <title>Ética e Responsabilidade em IA</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        /* Fundo mais vibrante e moderno */
-        .strategy-bg { 
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); 
+        .grid-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
         }
         
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; 
-            justify-content: center; padding: 40px 60px 100px 60px;
-        }
-
-        /* Estilo Glassmorphism para os cards */
-        .obj-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(10px);
-            border-radius: 24px; 
-            padding: 25px; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .principle-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 6px solid transparent; /* Bordas mais grossas para o telão */
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
-            height: 230px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            height: 220px; /* Altura controlada para evitar cortes */
+        }
+        .principle-card:hover {
+            transform: translateY(-8px);
+            background-color: #1e293b;
         }
         
-        .obj-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
+        /* Cores Vibrantes com Glow para Projeção */
+        .border-red-glow { box-shadow: 0 -4px 20px -5px rgba(239, 68, 68, 0.4); border-top-color: #ef4444; }
+        .border-blue-glow { box-shadow: 0 -4px 20px -5px rgba(59, 130, 246, 0.4); border-top-color: #3b82f6; }
+        .border-yellow-glow { box-shadow: 0 -4px 20px -5px rgba(245, 158, 11, 0.4); border-top-color: #f59e0b; }
+        .border-green-glow { box-shadow: 0 -4px 20px -5px rgba(16, 185, 129, 0.4); border-top-color: #10b981; }
 
-        .obj-card::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
-        }
-
-        /* Cores das barras de topo */
-        .bar-red::before { background: #ef4444; }
-        .bar-orange::before { background: #f97316; }
-        .bar-yellow::before { background: #facc15; }
-        .bar-blue::before { background: #3b82f6; }
-
-        /* Box de resposta com melhor contraste */
-        .ans-box { 
-            background: rgba(15, 23, 42, 0.6); 
-            padding: 12px 15px; 
-            border-radius: 12px; 
-            border-left: 4px solid currentColor;
-            margin-top: 10px;
-        }
-
-        .label-obj {
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
+        .alert-box {
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            backdrop-filter: blur(8px);
         }
     </style>
 </head>
-<body class="strategy-bg text-white overflow-hidden">
+<body>
 
 <div class="slide-wrapper">
-    <div class="slide-container">
+    <div class="slide-container grid-pattern flex flex-col bg-[#0F172A]">
+        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30"></div>
         
-        <div class="text-center mb-10">
-            <h1 class="text-white text-6xl font-black uppercase leading-tight drop-shadow-lg">
-                COMO VIRAR <span class="text-red-500">O JOGO?</span>
+        <div class="flex-none px-20 pt-12 pb-6 z-10">
+            <div class="flex items-center mb-3">
+                <span class="bg-indigo-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Responsabilidade Digital</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-widest uppercase">Governança de IA</span>
+            </div>
+            <h1 class="text-white text-4xl font-black uppercase leading-tight tracking-tight">
+                Ética e <span class="text-indigo-400">Responsabilidade</span> em IA
             </h1>
-            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mt-2">Transformando Objeções em Oportunidades</p>
+            <p class="text-gray-300 text-lg mt-1 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl leading-snug">
+                A tecnologia deve ampliar o potencial humano, não substituí-lo de forma irresponsável.
+            </p>
         </div>
 
-        <div class="grid grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div class="flex-1 px-20 pb-12 grid grid-cols-2 gap-6 z-10 items-center">
             
-            <div class="obj-card bar-red">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-red-400">Objeção 01</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Está caro!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">O cliente ainda não percebeu o lucro que você gera.</p>
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-blue-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 border border-blue-500/30">
+                    <i class="fas fa-user-check text-blue-400 text-xl"></i>
                 </div>
-                <div class="ans-box text-red-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Quanto custa para sua empresa continuar com imagens que não vendem e perder clientes para o vizinho?"
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Revisão Humana</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Em temas sensíveis, a IA deve atuar como suporte. A decisão final e a responsabilidade são sempre humanas.
                     </p>
+                    <span class="text-blue-400 text-[10px] font-black uppercase tracking-wider">Human-in-the-loop</span>
                 </div>
             </div>
 
-            <div class="obj-card bar-orange">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-orange-400">Objeção 02</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Já tenho quem faça!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está apenas confortável com o básico.</p>
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-red-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0 border border-red-500/30">
+                    <i class="fas fa-scale-balanced text-red-400 text-xl"></i>
                 </div>
-                <div class="ans-box text-orange-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Ótimo! Posso te enviar uma arte teste com IA sem custo? Se o resultado for superior ao atual, conversamos."
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Mitigação de Vieses</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Algoritmos podem perpetuar preconceitos. Garanta que os resultados sejam justos e inclusivos para todos.
                     </p>
+                    <span class="text-red-400 text-[10px] font-black uppercase tracking-wider">Equidade Algorítmica</span>
                 </div>
             </div>
 
-            <div class="obj-card bar-yellow">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-yellow-400">Objeção 03</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Não preciso disso!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele ainda não entendeu que o jogo mudou.</p>
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-green-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center shrink-0 border border-green-500/30">
+                    <i class="fas fa-lock text-green-400 text-xl"></i>
                 </div>
-                <div class="ans-box text-yellow-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Entendo. Mas hoje 80% das vendas começam no celular. Posso te mostrar como seus concorrentes estão atraindo seu público?"
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Privacidade e Dados</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Nunca insira dados confidenciais ou segredos em IAs públicas. Respeite a LGPD e a propriedade intelectual.
                     </p>
+                    <span class="text-green-400 text-[10px] font-black uppercase tracking-wider">Segurança de Dados</span>
                 </div>
             </div>
 
-            <div class="obj-card bar-blue">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-blue-400">Objeção 04</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Manda no WhatsApp!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está tentando fugir da decisão agora.</p>
+            <div class="principle-card bg-[#1E293B]/80 p-6 rounded-xl border-yellow-glow flex items-start gap-5">
+                <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center shrink-0 border border-yellow-500/30">
+                    <i class="fas fa-eye text-yellow-400 text-xl"></i>
                 </div>
-                <div class="ans-box text-blue-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Com certeza! Já enviei. Podemos marcar uma conversa de 2 minutos amanhã às 14h para eu tirar suas dúvidas?"
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-1 uppercase">Transparência</h3>
+                    <p class="text-gray-400 text-xs font-['Open_Sans'] leading-relaxed mb-2">
+                        Deixe claro quando um conteúdo for gerado por IA. A honestidade constrói confiança com sua audiência.
                     </p>
+                    <span class="text-yellow-400 text-[10px] font-black uppercase tracking-wider">Clareza na Origem</span>
                 </div>
             </div>
+        </div>
 
+        <div class="absolute bottom-16 left-20 right-20 alert-box rounded-xl p-4 flex items-center z-20">
+            <i class="fas fa-triangle-exclamation text-yellow-500 mr-4 text-xl"></i>
+            <p class="text-gray-200 text-sm font-['Open_Sans'] leading-tight">
+                <strong>Lembre-se:</strong> A IA é uma ferramenta poderosa, mas a ética é o freio que impede acidentes graves.
+            </p>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-10 text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+            <i class="fas fa-book-open mr-2"></i> Fonte: Relatório Governança de IA & LGPD 2025
         </div>
     </div>
 </div>

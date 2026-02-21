@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Resumo dos Perfis Digitais</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Atividade: Seu Perfil Digital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
@@ -13,158 +13,110 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        .profile-summary-card {
-            background-color: #1E293B;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            border-top: 6px solid transparent;
-            height: 480px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Estilos globais mantidos */
+        html, body { background-color: #0f172a; }
         
-        .profile-summary-card:hover {
-            transform: translateY(-10px);
-            background-color: #253347;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+            border: 8px solid #6366F1;
         }
-
-        .icon-circle {
-            width: 60px;
-            height: 60px;
+        .pulse-text {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .bg-animate {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: #6366F1;
+            color: white;
+            width: 50px; height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px auto;
-            font-size: 1.5rem;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
         }
 
-        /* Cores dos Perfis */
-        .color-criativo { border-color: #EC4899; }
-        .color-criativo .icon-circle { background: #EC4899; color: white; }
-        .color-criativo .highlight-text { color: #F472B6; }
-
-        .color-analitico { border-color: #3B82F6; }
-        .color-analitico .icon-circle { background: #3B82F6; color: white; }
-        .color-analitico .highlight-text { color: #60A5FA; }
-
-        .color-social { border-color: #F59E0B; }
-        .color-social .icon-circle { background: #F59E0B; color: white; }
-        .color-social .highlight-text { color: #FBBF24; }
-
-        .color-tech { border-color: #10B981; }
-        .color-tech .icon-circle { background: #10B981; color: white; }
-        .color-tech .highlight-text { color: #34D399; }
-
-        .super-power {
-            background: rgba(255,255,255,0.05);
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-top: auto;
+        /* Ajuste para Mobile */
+        @media (max-width: 1024px) {
+            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
+            h1 { font-size: 2.5rem !important; }
+            .flex-mobile-center { flex-direction: column; text-align: center; }
+            .qr-link-text { font-size: 1rem !important; word-break: break-all; }
         }
     </style>
 </head>
 <body>
 
+<audio id="trilhaAtividade" src="musica2.mp3" preload="auto" loop></audio>
+
+<div class="music-control" onclick="toggleMusica()">
+    <i id="musicIcon" class="fas fa-play"></i>
+</div>
+
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#0F172A]">
-        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30"></div>
+    <div class="slide-container flex flex-col bg-animate">
+        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
 
-        <div class="flex-none px-20 pt-12 pb-8 z-20">
-            <div class="flex items-center mb-3">
-                <span class="bg-indigo-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Resultados do Quiz</span>
-                <span class="text-gray-400 text-xs font-bold ml-4 tracking-widest uppercase border-l border-gray-700 pl-4">Análise de Perfis</span>
+        <div class="flex-none px-6 md:px-20 pt-16 pb-6 z-20 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <span class="bg-indigo-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full">Autoconhecimento</span>
             </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-tight tracking-tight">
-                Qual o seu <span class="text-indigo-400">Lugar no Digital?</span>
+            <h1 class="text-white text-4xl md:text-5xl font-black uppercase leading-tight tracking-tight mb-4">
+                DESCUBRA SEU <span class="text-indigo-400">PERFIL DIGITAL</span>
             </h1>
-            <p class="text-gray-300 text-lg mt-1 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl">
-                Cada perfil tem um conjunto de habilidades únicas. O segredo é focar no que você já é bom.
+            <p class="text-gray-300 text-lg md:text-xl font-['Open_Sans'] max-w-3xl mx-auto">
+                Aponte a câmera do seu celular para o QR Code abaixo e descubra qual dessas carreiras mais combina com seus talentos.
             </p>
         </div>
 
-        <div class="flex-1 px-16 pb-12 z-10 grid grid-cols-4 gap-6 items-center">
+        <div class="flex-1 flex flex-col items-center justify-center z-10 pb-10">
+            <div class="qr-container mb-6">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://rodmarjunior.github.io/tecnomaisbrasil/30.html" 
+                     alt="QR Code Quiz" 
+                     class="w-48 h-48 md:w-64 md:h-64">
+            </div>
             
-            <div class="profile-summary-card color-criativo p-6 text-center">
-                <div class="icon-circle"><i class="fas fa-palette"></i></div>
-                <h3 class="text-white font-black text-xl mb-2 uppercase">Criativo</h3>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                    Focado em estética, narrativa e impacto visual. Transforma ideias abstratas em conteúdo que atrai e retém a atenção.
-                </p>
-                <div class="text-left space-y-2 mb-4">
-                    <p class="text-[10px] font-bold uppercase text-gray-500">Exemplos:</p>
-                    <p class="text-xs text-white"><i class="fas fa-video highlight-text mr-2"></i>Videomaker / Editor</p>
-                    <p class="text-xs text-white"><i class="fas fa-pen-nib highlight-text mr-2"></i>Designer Gráfico</p>
-                </div>
-                <div class="super-power color-criativo">
-                    <span class="highlight-text">Super Poder:</span><br/>Storytelling Visual
-                </div>
+            <div class="flex items-center gap-4 text-white font-black text-lg md:text-2xl uppercase tracking-widest pulse-text qr-link-text">
+                <i class="fas fa-mobile-screen-button"></i>
+                <span>rodmarjunior.github.io/tecnomaisbrasil/30.html</span>
             </div>
-
-            <div class="profile-summary-card color-analitico p-6 text-center">
-                <div class="icon-circle"><i class="fas fa-chart-pie"></i></div>
-                <h3 class="text-white font-black text-xl mb-2 uppercase">Analítico</h3>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                    Decifra números e encontra padrões onde outros veem caos. Toma decisões baseadas em ROI e performance técnica.
-                </p>
-                <div class="text-left space-y-2 mb-4">
-                    <p class="text-[10px] font-bold uppercase text-gray-500">Exemplos:</p>
-                    <p class="text-xs text-white"><i class="fas fa-bullseye highlight-text mr-2"></i>Gestor de Tráfego</p>
-                    <p class="text-xs text-white"><i class="fas fa-magnifying-glass-chart highlight-text mr-2"></i>Analista de Dados</p>
-                </div>
-                <div class="super-power color-analitico">
-                    <span class="highlight-text">Super Poder:</span><br/>Previsibilidade de Lucro
-                </div>
-            </div>
-
-            <div class="profile-summary-card color-social p-6 text-center">
-                <div class="icon-circle"><i class="fas fa-comments"></i></div>
-                <h3 class="text-white font-black text-xl mb-2 uppercase">Social</h3>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                    Domina a psicologia humana e a comunicação. Conecta marcas a pessoas e constrói comunidades de fãs apaixonados.
-                </p>
-                <div class="text-left space-y-2 mb-4">
-                    <p class="text-[10px] font-bold uppercase text-gray-500">Exemplos:</p>
-                    <p class="text-xs text-white"><i class="fas fa-feather-pointed highlight-text mr-2"></i>Copywriter</p>
-                    <p class="text-xs text-white"><i class="fas fa-users highlight-text mr-2"></i>Community Manager</p>
-                </div>
-                <div class="super-power color-social">
-                    <span class="highlight-text">Super Poder:</span><br/>Persuasão & Conexão
-                </div>
-            </div>
-
-            <div class="profile-summary-card color-tech p-6 text-center">
-                <div class="icon-circle"><i class="fas fa-code"></i></div>
-                <h3 class="text-white font-black text-xl mb-2 uppercase">Estrategista Tech</h3>
-                <p class="text-gray-400 text-xs leading-relaxed mb-4">
-                    Constrói a infraestrutura do negócio. Especialista em resolver problemas técnicos e criar automações escaláveis.
-                </p>
-                <div class="text-left space-y-2 mb-4">
-                    <p class="text-[10px] font-bold uppercase text-gray-500">Exemplos:</p>
-                    <p class="text-xs text-white"><i class="fas fa-robot highlight-text mr-2"></i>Espec. em Automação</p>
-                    <p class="text-xs text-white"><i class="fas fa-laptop-code highlight-text mr-2"></i>Desenvolvedor</p>
-                </div>
-                <div class="super-power color-tech">
-                    <span class="highlight-text">Super Poder:</span><br/>Escalabilidade Técnica
-                </div>
-            </div>
-
         </div>
 
-        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20 text-center">
-            <p class="text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                Rodmar Junior - Inteligência Digital 2026
-            </p>
+        <div class="absolute bottom-6 left-10 right-10 border-t border-gray-800 pt-3 z-20">
+            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest gap-2">
+                <span><i class="fas fa-clock mr-2 text-indigo-500"></i> Tempo estimado: 2 minutos</span>
+                <span>Rodmar Junior • Projeto Tecno Mais Brasil</span>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    const musica = document.getElementById('trilhaAtividade');
+    const icon = document.getElementById('musicIcon');
+
+    function toggleMusica() {
+        if (musica.paused) {
+            musica.play();
+            icon.classList.replace('fa-play', 'fa-pause');
+        } else {
+            musica.pause();
+            icon.classList.replace('fa-pause', 'fa-play');
+        }
+    }
+</script>
 
 </body>
 </html>

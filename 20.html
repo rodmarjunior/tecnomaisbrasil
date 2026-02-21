@@ -3,147 +3,153 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Trabalho: O que sai de cena vs O que surge</title>
+    <title>Caminhos de Monetização</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .bg-pattern {
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 30px 30px;
+        .option-column {
+            transition: all 0.4s ease;
+            height: 480px; /* Altura fixa para manter alinhamento no telão */
         }
-        .card-split { transition: all 0.3s ease; }
-        .card-split:hover { transform: translateY(-5px); }
-        .vs-badge {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 50;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        .option-column:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        .icon-box {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .list-item-hover {
+            transition: transform 0.2s ease;
+        }
+        .list-item-hover:hover {
+            transform: translateX(5px);
         }
     </style>
 </head>
 <body>
 
 <div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute inset-0 bg-pattern z-0 opacity-30"></div>
+    <div class="slide-container flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+        
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 opacity-5 rounded-bl-full filter blur-2xl"></div>
+        <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-yellow-500 opacity-5 rounded-full filter blur-3xl transform -translate-x-1/2"></div>
 
-        <div class="flex-none p-12 pl-20 pb-4 z-10">
+        <div class="flex-none px-20 pt-12 pb-6 z-20">
             <div class="flex items-center mb-4">
-                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Mercado 2026</span>
-                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Transformação do Trabalho</span>
+                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Estratégia de Carreira</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Mapa de Oportunidades</span>
             </div>
             <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
-                O Que Sai de Cena <span class="text-gray-500 mx-2 font-light">vs</span> <span class="text-green-500">O Que Surge</span>
+                Caminhos de <span class="text-yellow-500">Monetização</span>
             </h1>
-            <div class="w-32 h-1 bg-gray-700 mt-6"></div>
-        </div>
-
-        <div class="flex-1 flex px-20 pb-16 gap-12 relative z-10 items-center h-[520px]">
-            <div class="vs-badge bg-gray-900 rounded-full w-20 h-20 flex items-center justify-center border-4 border-gray-700">
-                <span class="text-white font-black text-xl italic">VS</span>
-            </div>
-
-            <div class="w-1/2 h-full flex flex-col">
-                <div class="bg-[#1E293B] border-l-8 border-red-500 rounded-r-xl h-full p-8 flex flex-col relative overflow-hidden card-split">
-                    <div class="absolute -right-10 -bottom-10 text-red-900 opacity-20 text-9xl">
-                        <i class="fas fa-arrow-trend-down"></i>
-                    </div>
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <h2 class="text-red-500 text-2xl font-black uppercase tracking-wide mb-1">Em Declínio</h2>
-                            <p class="text-gray-400 text-sm font-['Open_Sans']">Tarefas repetitivas e operacionais</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-6 relative z-10">
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-phone-slash"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Telefonista & Atendimento Básico</p>
-                                <p class="text-gray-500 text-xs">Substituído por Chatbots & IA de Voz</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-cash-register"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Caixa & Cobrador</p>
-                                <p class="text-gray-500 text-xs">Pagamentos invisíveis e Self-checkout</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-file-invoice"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Administrativo Repetitivo</p>
-                                <p class="text-gray-500 text-xs">Automação de processos (RPA)</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-taxi"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Motorista Operacional</p>
-                                <p class="text-gray-500 text-xs">Avanço dos veículos autônomos</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="w-1/2 h-full flex flex-col">
-                <div class="bg-[#1E293B] border-r-8 border-green-500 rounded-l-xl h-full p-8 flex flex-col relative overflow-hidden card-split">
-                    <div class="absolute -left-10 -bottom-10 text-green-900 opacity-20 text-9xl">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="flex justify-between items-start mb-8 text-right">
-                        <div class="w-full">
-                            <h2 class="text-green-400 text-2xl font-black uppercase tracking-wide mb-1">Em Alta</h2>
-                            <p class="text-gray-400 text-sm font-['Open_Sans']">Criatividade, Dados e Estratégia</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-6 relative z-10">
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-video"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Criadores de Conteúdo</p>
-                                <p class="text-gray-400 text-xs">Humanização de marcas e influência</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-robot"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Operadores de IA (AI Ops)</p>
-                                <p class="text-gray-400 text-xs">Engenharia de Prompt e curadoria</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-users-gear"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Gestores de Comunidade</p>
-                                <p class="text-gray-400 text-xs">Engajamento real e retenção</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-code-branch"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Especialistas No-Code</p>
-                                <p class="text-gray-400 text-xs">Automação acessível e ágil</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3">
-            <p class="text-gray-500 text-[10px] font-['Open_Sans'] uppercase">
-                Fonte: Future of Jobs Report 2025 - World Economic Forum
+            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl">
+                Duas trilhas distintas para gerar renda no ecossistema digital: estabilidade corporativa ou liberdade empreendedora.
             </p>
+        </div>
+
+        <div class="flex-1 flex px-20 pb-12 gap-8 z-10">
+            <div class="w-1/2 bg-[#1E293B] border-t-4 border-blue-500 rounded-xl p-8 flex flex-col relative overflow-hidden option-column shadow-xl">
+                <div class="absolute -right-6 -bottom-6 text-blue-900 opacity-10 text-9xl transform rotate-12">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="flex items-center mb-8 border-b border-gray-700 pb-4">
+                    <div class="w-14 h-14 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 mr-5 icon-box shrink-0">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-white text-2xl font-black uppercase tracking-wide">Com Vínculo</h2>
+                        <p class="text-blue-400 text-[10px] font-bold uppercase tracking-wider mt-1">CLT • Contratos • Estabilidade</p>
+                    </div>
+                </div>
+                <div class="flex-1 space-y-3 font-['Open_Sans']">
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-bullhorn text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Agências de Marketing</p>
+                            <p class="text-gray-500 text-[10px]">Gestão de tráfego, copy, design</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-gamepad text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Estúdios de Games</p>
+                            <p class="text-gray-500 text-[10px]">Dev, arte, community manager</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-store text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">E-commerce & Varejo</p>
+                            <p class="text-gray-500 text-[10px]">Operações, logística, CX</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-robot text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">IA Corporativa</p>
+                            <p class="text-gray-500 text-[10px]">Treinamento e implementação de modelos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 bg-[#1E293B] border-t-4 border-green-500 rounded-xl p-8 flex flex-col relative overflow-hidden option-column shadow-xl">
+                <div class="absolute -right-6 -bottom-6 text-green-900 opacity-10 text-9xl transform -rotate-12">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="flex items-center mb-8 border-b border-gray-700 pb-4">
+                    <div class="w-14 h-14 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 mr-5 icon-box shrink-0">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-white text-2xl font-black uppercase tracking-wide">Sem Vínculo</h2>
+                        <p class="text-green-400 text-[10px] font-bold uppercase tracking-wider mt-1">Freelancer • Empreendedor • Autonomia</p>
+                    </div>
+                </div>
+                <div class="flex-1 space-y-3 font-['Open_Sans']">
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-video text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Creator Economy</p>
+                            <p class="text-gray-500 text-[10px]">Ads, afiliados, produtos digitais</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-box-open text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Dropshipping & Afiliados</p>
+                            <p class="text-gray-500 text-[10px]">Venda sem estoque e comissões</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-code text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">SaaS No-Code</p>
+                            <p class="text-gray-500 text-[10px]">Micro-SaaS e automações</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-chalkboard-user text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Consultoria & Mentoria</p>
+                            <p class="text-gray-500 text-[10px]">Venda de conhecimento especializado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3 z-20">
+            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans']">
+                <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                <span>Dica: É possível transitar entre os modelos ou combinar ambos (Carreira Híbrida)</span>
+            </div>
         </div>
     </div>
 </div>
