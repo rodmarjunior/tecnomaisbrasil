@@ -2,234 +2,79 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Atividade Prática - Mão na Massa</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>A Ponte: Do Macro ao Micro</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
-
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #0F172A; }
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding-top: 40px;
-            padding-bottom: 100px;
-        }
-
-        .qr-giant {
-            background: white; padding: 25px; border-radius: 30px;
-            box-shadow: 0 0 60px rgba(99, 102, 241, 0.4);
-            border: 10px solid #6366F1;
-        }
-
-        .timer-display {
-            background: #1e293b; color: #ef4444;
-            padding: 10px 30px; border-radius: 999px;
-            font-family: 'Courier New', monospace; font-weight: 900;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .music-btn {
-            position: fixed; top: 30px; right: 30px; z-index: 100;
-            background: #6366F1; color: white; width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); transition: 0.3s;
-        }
-
-        /* Ajustes para Mobile */
+        /* Blindagem Mobile Segura */
         @media (max-width: 1024px) {
-            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
+            .slide-wrapper { height: auto !important; display: block !important; }
+            .slide-container { width: 100% !important; height: auto !important; min-height: 100vh !important; display: flex !important; flex-direction: column !important; transform: none !important; padding: 40px 20px 100px 20px !important; }
+            .w-1\/2 { width: 100% !important; height: auto !important; }
             .flex-mobile-col { flex-direction: column !important; gap: 40px !important; }
-            h1 { font-size: 3rem !important; }
-            .qr-giant img { width: 250px; height: 250px; }
-            .timer-display { font-size: 3rem !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; text-align: center; }
         }
+        .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .orange-glow { text-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
     </style>
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
-            }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
-            .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
-            .custom-footer { flex-direction: row !important; }
-            .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-        }
-    </style>
-
 </head>
-<body>
-
-<audio id="audioAtividade" src="musica3.mp3" preload="auto" loop></audio>
-
-<div class="music-btn" onclick="toggleMusica()">
-    <i id="musicIcon" class="fas fa-play"></i>
-</div>
+<body class="bg-[#0B1120] overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-600 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.5)]"></div>
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-orange-500 z-30 shadow-[5px_0_15px_rgba(249,115,22,0.3)]"></div>
 
-        <div class="text-center mb-10 z-10 w-full px-4">
-            <h1 class="text-white text-4xl md:text-6xl font-black uppercase mb-4 leading-tight">MÃO NA <span class="text-indigo-500">MASSA</span></h1>
-            <p class="text-gray-400 text-lg md:text-2xl italic font-bold">Atividade: Criando Conteúdo que Vende</p>
+        <div class="text-center mb-10 z-20">
+            <h1 class="text-white text-5xl font-black uppercase tracking-tight orange-glow">
+                A Pergunta de <span class="text-orange-500">1 Milhão</span>
+            </h1>
+            <p class="text-gray-400 mt-2 text-xl font-medium">"Como eu pego uma fatia desses Bilhões da internet?"</p>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 z-10 w-full flex-mobile-col">
-            <div class="qr-giant">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=https://rodmarjunior.github.io/tecnomaisbrasil/47.html" 
-                     alt="QR Code Atividade" 
-                     class="w-56 h-56 md:w-80 md:h-80">
-            </div>
-
-            <div class="max-w-md w-full space-y-8 px-4">
-                <div class="bg-indigo-900/30 p-6 md:p-8 rounded-2xl border border-indigo-500/50 backdrop-blur-sm">
-                    <h3 class="text-indigo-400 font-black text-xl md:text-2xl mb-4 uppercase text-center md:text-left">REGRAS:</h3>
-                    <ul class="text-gray-300 space-y-4 text-lg md:text-xl font-bold">
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Escaneie o código</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Sorteie seu tema</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Mostre sua criatividade</li>
-                    </ul>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="timer-display text-4xl md:text-6xl">10:00</div>
+        <div class="flex gap-12 items-center flex-mobile-col z-20">
+            
+            <div class="w-1/2 flex flex-col items-center">
+                <div class="glass-box p-8 rounded-2xl w-full text-center border-t-4 border-gray-600 relative overflow-hidden">
+                    <i class="fas fa-building text-6xl text-gray-500 mb-6 opacity-50"></i>
+                    <h3 class="text-white text-2xl font-black uppercase mb-4">O Erro Comum</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Tentar competir com grandes agências vendendo serviços complexos para multinacionais ou marcas gigantes logo no primeiro dia.
+                    </p>
+                    <div class="bg-red-500/20 text-red-400 font-bold py-2 px-4 rounded-lg text-sm inline-block">
+                        <i class="fas fa-times-circle mr-2"></i> Alta Concorrência
+                    </div>
                 </div>
             </div>
+
+            <div class="hidden md:flex flex-col items-center justify-center text-orange-500 text-4xl">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+
+            <div class="w-1/2 flex flex-col items-center">
+                <div class="glass-box p-8 rounded-2xl w-full text-center border-t-4 border-orange-500 relative overflow-hidden transform transition hover:scale-105">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+                    <i class="fas fa-store text-6xl text-orange-400 mb-6"></i>
+                    <h3 class="text-white text-2xl font-black uppercase mb-4">O Segredo: O Bairro</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        As grandes agências ignoram a oficina, a padaria e a clínica da sua rua. É ali que a necessidade é urgente e a concorrência é zero.
+                    </p>
+                    <div class="bg-green-500/20 text-green-400 font-bold py-2 px-4 rounded-lg text-sm inline-block shadow-[0_0_15px_rgba(34,197,94,0.3)]">
+                        <i class="fas fa-check-circle mr-2"></i> Oceano Azul
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="mt-12 text-white font-black text-lg md:text-xl animate-bounce z-10 text-center w-full">
-            <i class="fas fa-arrow-up mr-3 text-indigo-500"></i> ESCANEIE PARA COMEÇAR
-        </div>
     </div>
 </div>
-
-<script>
-    const player = document.getElementById('audioAtividade');
-    const icon = document.getElementById('musicIcon');
-
-    function toggleMusica() {
-        if (player.paused) {
-            player.play();
-            icon.classList.replace('fa-play', 'fa-pause');
-        } else {
-            player.pause();
-            icon.classList.replace('fa-pause', 'fa-play');
-        }
-    }
-</script>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Dropshipping em 2026</title>
+    <title>Caminhos de Monetização</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
@@ -13,31 +13,22 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        /* Restaurando a "Vida" do Style Original */
-        .bg-grid-decor {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        .option-column {
+            transition: all 0.4s ease;
+            height: 480px; /* Altura fixa para manter alinhamento no telão */
         }
-        
-        .step-card { transition: all 0.3s ease; height: 260px; }
-        .step-card:hover { transform: translateY(-10px); background-color: #263349; }
-        
-        .step-number-ring { box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2); }
-        
-        .step-connector {
-            position: absolute;
-            top: 24px; left: 50px; right: 50px;
-            height: 2px; background-color: #334155; z-index: 0;
+        .option-column:hover {
+            background-color: rgba(255, 255, 255, 0.03);
         }
-
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        .icon-box {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        .market-pulse { animation: pulse-border 2s infinite; }
+        .list-item-hover {
+            transition: transform 0.2s ease;
+        }
+        .list-item-hover:hover {
+            transform: translateX(5px);
+        }
     </style>
 
     <style>
@@ -162,96 +153,121 @@
 
 <div class="slide-wrapper">
     <div class="slide-container flex flex-col">
-        <div class="absolute inset-0 bg-grid-decor z-0"></div>
         <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-[#1E293B] opacity-50 skew-x-12 transform origin-top-right z-0"></div>
+        
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 opacity-5 rounded-bl-full filter blur-2xl"></div>
+        <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-yellow-500 opacity-5 rounded-full filter blur-3xl transform -translate-x-1/2"></div>
 
-        <div class="flex-none px-20 pt-12 pb-6 z-10 flex justify-between items-end">
-            <div>
-                <div class="flex items-center mb-4">
-                    <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Modelo de Negócio</span>
-                    <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Estratégia 2026</span>
-                </div>
-                <h1 class="text-white text-4xl font-black uppercase tracking-tight">
-                    Dropshipping <span class="text-yellow-500">2026</span>
-                </h1>
-                <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-xl leading-snug">
-                    O fim do amadorismo: mercado sem estoque com profissionalismo e visão de longo prazo.
-                </p>
+        <div class="flex-none px-20 pt-12 pb-6 z-20">
+            <div class="flex items-center mb-4">
+                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Estratégia de Carreira</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Mapa de Oportunidades</span>
             </div>
-
-            <div class="bg-[#1E293B] border border-gray-700 p-5 rounded-lg shadow-xl flex items-center gap-6 relative market-pulse">
-                <div class="text-center border-r border-gray-600 pr-6">
-                    <p class="text-gray-400 text-[10px] font-bold uppercase mb-1">Mercado Global</p>
-                    <p class="text-green-400 text-3xl font-black">US$ 445 <span class="text-sm text-gray-400">bi</span></p>
-                </div>
-                <div class="text-center">
-                    <p class="text-gray-400 text-[10px] font-bold uppercase mb-1">Crescimento</p>
-                    <div class="flex items-center justify-center text-green-400">
-                        <i class="fas fa-arrow-trend-up mr-2 text-sm"></i>
-                        <p class="text-2xl font-black">22%</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex-1 px-16 relative z-10 flex flex-col justify-center">
-            <div class="relative w-full">
-                <div class="step-connector"></div>
-                
-                <div class="grid grid-cols-5 gap-4 relative z-10">
-                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-yellow-500 shadow-lg flex flex-col items-center text-center justify-between group">
-                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-yellow-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-yellow-500 group-hover:text-black transition-colors">1</div>
-                        <i class="fas fa-bullseye text-yellow-500 text-3xl mb-2"></i>
-                        <div>
-                            <h3 class="text-white font-bold text-xs uppercase mb-1">Nicho & PMF</h3>
-                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Defina um público específico e um problema claro para resolver.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-blue-500 shadow-lg flex flex-col items-center text-center justify-between group">
-                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-blue-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-blue-500 group-hover:text-black transition-colors">2</div>
-                        <i class="fas fa-truck-fast text-blue-500 text-3xl mb-2"></i>
-                        <div>
-                            <h3 class="text-white font-bold text-xs uppercase mb-1">Fornecedores BR</h3>
-                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Priorize estoque nacional para entrega rápida e SLA rigoroso.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-purple-500 shadow-lg flex flex-col items-center text-center justify-between group">
-                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-purple-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-purple-500 group-hover:text-black transition-colors">3</div>
-                        <i class="fas fa-desktop text-purple-500 text-3xl mb-2"></i>
-                        <div>
-                            <h3 class="text-white font-bold text-xs uppercase mb-1">Oferta & Loja</h3>
-                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Landing page de alta conversão com prova social e vídeos.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-green-500 shadow-lg flex flex-col items-center text-center justify-between group">
-                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-green-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-green-500 group-hover:text-black transition-colors">4</div>
-                        <i class="fas fa-chart-pie text-green-500 text-3xl mb-2"></i>
-                        <div>
-                            <h3 class="text-white font-bold text-xs uppercase mb-1">Margem & CAC</h3>
-                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Monitore o Custo de Aquisição (CAC) e garanta margem saudável.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-red-500 shadow-lg flex flex-col items-center text-center justify-between group">
-                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-red-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-red-500 group-hover:text-black transition-colors">5</div>
-                        <i class="fas fa-scale-balanced text-red-500 text-3xl mb-2"></i>
-                        <div>
-                            <h3 class="text-white font-bold text-xs uppercase mb-1">Compliance</h3>
-                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Emissão de nota fiscal e políticas claras de trocas e devoluções.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
-            <p class="text-gray-500 text-[10px] font-['Open_Sans'] uppercase tracking-widest">
-                Fonte: Statista 2025 - Global Dropshipping Market Report
+            <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
+                Caminhos de <span class="text-yellow-500">Monetização</span>
+            </h1>
+            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl">
+                Duas trilhas distintas para gerar renda no ecossistema digital: estabilidade corporativa ou liberdade empreendedora.
             </p>
+        </div>
+
+        <div class="flex-1 flex px-20 pb-12 gap-8 z-10">
+            <div class="w-1/2 bg-[#1E293B] border-t-4 border-blue-500 rounded-xl p-8 flex flex-col relative overflow-hidden option-column shadow-xl">
+                <div class="absolute -right-6 -bottom-6 text-blue-900 opacity-10 text-9xl transform rotate-12">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="flex items-center mb-8 border-b border-gray-700 pb-4">
+                    <div class="w-14 h-14 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 mr-5 icon-box shrink-0">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-white text-2xl font-black uppercase tracking-wide">Com Vínculo</h2>
+                        <p class="text-blue-400 text-[10px] font-bold uppercase tracking-wider mt-1">CLT • Contratos • Estabilidade</p>
+                    </div>
+                </div>
+                <div class="flex-1 space-y-3 font-['Open_Sans']">
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-bullhorn text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Agências de Marketing</p>
+                            <p class="text-gray-500 text-[10px]">Gestão de tráfego, copy, design</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-gamepad text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Estúdios de Games</p>
+                            <p class="text-gray-500 text-[10px]">Dev, arte, community manager</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-store text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">E-commerce & Varejo</p>
+                            <p class="text-gray-500 text-[10px]">Operações, logística, CX</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-300 mr-3 shrink-0"><i class="fas fa-robot text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">IA Corporativa</p>
+                            <p class="text-gray-500 text-[10px]">Treinamento e implementação de modelos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 bg-[#1E293B] border-t-4 border-green-500 rounded-xl p-8 flex flex-col relative overflow-hidden option-column shadow-xl">
+                <div class="absolute -right-6 -bottom-6 text-green-900 opacity-10 text-9xl transform -rotate-12">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="flex items-center mb-8 border-b border-gray-700 pb-4">
+                    <div class="w-14 h-14 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 mr-5 icon-box shrink-0">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-white text-2xl font-black uppercase tracking-wide">Sem Vínculo</h2>
+                        <p class="text-green-400 text-[10px] font-bold uppercase tracking-wider mt-1">Freelancer • Empreendedor • Autonomia</p>
+                    </div>
+                </div>
+                <div class="flex-1 space-y-3 font-['Open_Sans']">
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-video text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Creator Economy</p>
+                            <p class="text-gray-500 text-[10px]">Ads, afiliados, produtos digitais</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-box-open text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Dropshipping & Afiliados</p>
+                            <p class="text-gray-500 text-[10px]">Venda sem estoque e comissões</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-code text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">SaaS No-Code</p>
+                            <p class="text-gray-500 text-[10px]">Micro-SaaS e automações</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-800/50 rounded-lg list-item-hover">
+                        <div class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 mr-3 shrink-0"><i class="fas fa-chalkboard-user text-xs"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Consultoria & Mentoria</p>
+                            <p class="text-gray-500 text-[10px]">Venda de conhecimento especializado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3 z-20">
+            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans']">
+                <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                <span>Dica: É possível transitar entre os modelos ou combinar ambos (Carreira Híbrida)</span>
+            </div>
         </div>
     </div>
 </div>

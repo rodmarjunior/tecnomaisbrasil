@@ -3,61 +3,33 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Novas Profissões CLT em Ascensão</title>
+    <title>Slide 10 - O Futuro do Trabalho</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .bg-pattern {
-            position: absolute;
-            inset: 0;
-            opacity: 0.05;
-            background-image: radial-gradient(#ffffff 1px, transparent 1px);
-            background-size: 20px 20px;
-            pointer-events: none;
-        }
-
-        .role-card {
-            background-color: #1E293B;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .work-bg { background: linear-gradient(135deg, #020617 0%, #1e1b4b 100%); }
+        .vision-card { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px);
+            border-radius: 40px; 
+            padding: 40px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            height: 215px; /* Altura otimizada para projetor */
         }
-        
-        .role-card:hover {
-            transform: translateY(-5px);
-            background-color: #253347;
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.6);
-        }
-
-        .decoration-line {
+        .highlight-border {
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
+            bottom: 0; left: 0; width: 100%; height: 8px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
         }
-
-        .trend-badge {
-            font-size: 0.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .icon-box {
-            width: 40px; height: 40px;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 0.75rem;
-        }
+        .pulse-icon { animation: pulse-blue 2s infinite; }
+        @keyframes pulse-blue { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
     </style>
 
     <style>
@@ -178,111 +150,63 @@
     </style>
 
 </head>
-<body>
+<body class="work-bg overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#0F172A]">
-        <div class="bg-pattern"></div>
-        <div class="absolute left-0 top-0 h-full w-2 bg-green-500 z-30 shadow-[0_0_15px_rgba(16,185,129,0.4)]"></div>
+    <div class="slide-container flex flex-col justify-center px-24 relative">
+        <div class="absolute left-0 top-0 h-full w-3 bg-blue-600 z-30 shadow-[5px_0_15px_rgba(59,130,246,0.3)]"></div>
 
-        <div class="flex-none px-20 pt-10 pb-4 z-20 relative">
-            <div class="flex items-center mb-3">
-                <span class="bg-green-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Mercado de Trabalho</span>
-                <span class="text-gray-400 text-xs font-bold ml-4 tracking-widest uppercase border-l border-gray-700 pl-4">Vagas Formais (CLT)</span>
+        <div class="grid grid-cols-5 gap-12 items-center">
+            <div class="col-span-3">
+                <span class="text-blue-400 font-black uppercase tracking-[0.5em] mb-4 block">Evolução Profissional</span>
+                <h1 class="text-white text-6xl font-black uppercase leading-tight mb-8">
+                    A IA NÃO VAI <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 italic">TE SUBSTITUIR.</span>
+                </h1>
+                
+                <div class="vision-card">
+                    <p class="text-white text-3xl font-black leading-snug">
+                        "O que vai te substituir é o <span class="text-blue-500">HUMANO</span> que sabe usar a IA melhor do que você."
+                    </p>
+                    <div class="highlight-border"></div>
+                </div>
             </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-tight tracking-tight">
-                Novas Profissões em <span class="text-green-500">Ascensão</span>
-            </h1>
-            <p class="text-gray-300 text-lg mt-1 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl leading-snug">
-                Oportunidades corporativas para quem domina o digital. Cargos que não existiam há 5 anos.
-            </p>
+
+            <div class="col-span-2 space-y-6">
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                    <div class="flex items-center gap-4 mb-3">
+                        <i class="fas fa-rocket text-blue-500 text-2xl pulse-icon"></i>
+                        <h4 class="font-black uppercase text-sm tracking-widest">Aumente sua Escala</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Um profissional com IA faz o trabalho de uma equipe inteira em 10% do tempo. Torne-se indispensável.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                    <div class="flex items-center gap-4 mb-3">
+                        <i class="fas fa-user-tie text-indigo-500 text-2xl"></i>
+                        <h4 class="font-black uppercase text-sm tracking-widest">Novas Profissões</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Engenheiros de Prompt, Curadores Digitais e Analistas de Dados IA. O mercado de 2026 busca criadores, não executores.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                    <div class="flex items-center gap-4 mb-3">
+                        <i class="fas fa-heart text-red-500 text-2xl"></i>
+                        <h4 class="font-black uppercase text-sm tracking-widest">O Diferencial Humano</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Empatia, Ética e Criatividade. Essas são as coisas que a máquina não pode copiar. Use a IA para a parte chata e foque no que importa.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="flex-1 px-20 pb-12 z-10 grid grid-cols-3 gap-5 items-center">
-            
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-purple-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-purple-500/10 text-purple-400"><i class="fas fa-terminal"></i></div>
-                    <div class="trend-badge bg-purple-500/20 text-purple-300">Alta Demanda</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Engenheiro de Prompts</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Refino de inputs para IA Generativa, garantindo precisão e escala para times.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-purple-400 font-black uppercase">Skills: Lógica, Inglês, LLMs</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-cyan-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-cyan-500/10 text-cyan-400"><i class="fas fa-cogs"></i></div>
-                    <div class="trend-badge bg-cyan-500/20 text-cyan-300">Estratégico</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Operações de IA (AI Ops)</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Implementação e integração de ferramentas de IA nos processos corporativos.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-cyan-400 font-black uppercase">Skills: Automação, APIs, Fluxos</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-yellow-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-yellow-500/10 text-yellow-400"><i class="fas fa-users"></i></div>
-                    <div class="trend-badge bg-yellow-500/20 text-yellow-300">Retenção</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Gestor de Comunidade</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Construção de relacionamentos e estratégias para fidelizar clientes da marca.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-yellow-400 font-black uppercase">Skills: Empatia, CRM, Redes</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-green-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-green-500/10 text-green-400"><i class="fas fa-chart-line"></i></div>
-                    <div class="trend-badge bg-green-500/20 text-green-300">Performance</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Analista de Growth</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Experimentos rápidos e análise de dados para alavancas de crescimento escalável.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-green-400 font-black uppercase">Skills: Analytics, Mídia, Testes A/B</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-pink-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-pink-500/10 text-pink-400"><i class="fas fa-video"></i></div>
-                    <div class="trend-badge bg-pink-500/20 text-pink-300">Criativo</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Conteúdo Omnichannel</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Criação e adaptação de narrativas para vídeos, podcasts e redes sociais.</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-pink-400 font-black uppercase">Skills: Storytelling, Edição, Design</p>
-                </div>
-            </div>
-
-            <div class="role-card rounded-xl p-5 flex flex-col">
-                <div class="decoration-line bg-blue-500"></div>
-                <div class="flex justify-between items-start">
-                    <div class="icon-box bg-blue-500/10 text-blue-400"><i class="fas fa-database"></i></div>
-                    <div class="trend-badge bg-blue-500/20 text-blue-300">Dados</div>
-                </div>
-                <h3 class="text-white font-bold text-base mb-1">Especialista em CRM</h3>
-                <p class="text-gray-400 text-[10px] leading-relaxed flex-grow">Gestão da jornada do cliente para aumentar o valor de tempo de vida (LTV).</p>
-                <div class="mt-2 pt-2 border-t border-gray-700">
-                    <p class="text-[9px] text-blue-400 font-black uppercase">Skills: Salesforce, HubSpot, Análise</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
-            <p class="text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                <i class="fas fa-briefcase mr-2"></i> Fonte: LinkedIn Jobs & World Economic Forum 2025
+        <div class="mt-16 text-center">
+            <p class="text-gray-500 font-black text-xs uppercase tracking-[0.5em]">
+                Prepare-se para ser o piloto, não o passageiro.
             </p>
         </div>
     </div>

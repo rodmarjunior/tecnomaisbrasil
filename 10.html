@@ -3,33 +3,26 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>IA: Guia de Soluções Práticas</title>
+    <title>Slide 6 - Onde a IA Mora</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
     <style>
-        .solution-bg { background: #0f172a; }
-        .solution-card { 
-            background: rgba(255, 255, 255, 0.02); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 24px; 
-            padding: 24px; 
-            transition: all 0.3s ease;
+        .datacenter-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=1280');
+            background-size: cover;
+            background-position: center;
         }
-        .solution-card:hover { 
-            background: rgba(59, 130, 246, 0.1); 
-            border-color: #3b82f6;
-            transform: scale(1.02);
+        .data-stream {
+            position: absolute; width: 2px; background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
+            animation: streamDown 3s linear infinite; opacity: 0.3;
         }
-        .icon-circle {
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa; margin-bottom: 16px;
-        }
+        @keyframes streamDown { 0% { top: -100%; } 100% { top: 100%; } }
+        .server-glow { animation: blink 1.5s infinite alternate; }
+        @keyframes blink { from { opacity: 0.3; } to { opacity: 1; } }
     </style>
 
     <style>
@@ -150,44 +143,43 @@
     </style>
 
 </head>
-<body class="solution-bg overflow-hidden text-white">
+<body class="datacenter-bg overflow-hidden text-white">
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col p-20">
-        <div class="mb-12">
-            <h1 class="text-5xl font-black uppercase">O QUE VOCÊ PRECISA <span class="text-blue-500">CRIAR?</span></h1>
-            <p class="text-gray-400 mt-2 font-bold uppercase tracking-widest">A ferramenta ideal para cada missão.</p>
-        </div>
+    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
 
-        <div class="grid grid-cols-2 gap-6">
-            <div class="solution-card flex items-start gap-6">
-                <div class="icon-circle shrink-0"><i class="fas fa-code text-2xl"></i></div>
-                <div>
-                    <h3 class="text-xl font-black text-blue-400">"Preciso fazer um site inteiro"</h3>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">Use o <strong>V0.dev</strong> ou <strong>Bolt.new</strong>. Eles escrevem o código e montam o visual em segundos.</p>
+    <div class="slide-container flex flex-col justify-center px-24 relative z-10">
+        <h1 class="text-6xl font-black uppercase leading-tight mb-8">ONDE A <span class="text-blue-500 italic">I.A. MORA?</span></h1>
+        
+        <div class="grid grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <p class="text-2xl leading-relaxed text-gray-300">
+                    A IA não vive "nas nuvens" de forma abstrata. Ela vive em **Data Centers** gigantescos: prédios do tamanho de estádios, lotados de supercomputadores.
+                </p>
+                <div class="bg-blue-600/10 p-6 rounded-3xl border border-blue-500/30">
+                    <h3 class="font-black text-xl mb-2 text-blue-400">BILHÕES DE DADOS</h3>
+                    <p class="text-gray-400">Imagine milhões de HDS armazenando toda a internet: livros, códigos, conversas e fotos. A IA usa essa base para "estudar" e te responder.</p>
                 </div>
             </div>
 
-            <div class="solution-card flex items-start gap-6">
-                <div class="icon-circle shrink-0" style="color: #fbbf24; background: rgba(251,191,36,0.2)"><i class="fas fa-desktop text-2xl"></i></div>
-                <div>
-                    <h3 class="text-xl font-black text-yellow-400">"Preciso fazer uma apresentação"</h3>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">Use o <strong>Gamma.app</strong>. Ele cria slides, imagens e textos de uma palestra inteira com um clique.</p>
-                </div>
-            </div>
-
-            <div class="solution-card flex items-start gap-6">
-                <div class="icon-circle shrink-0" style="color: #f87171; background: rgba(248,113,113,0.2)"><i class="fas fa-paint-brush text-2xl"></i></div>
-                <div>
-                    <h3 class="text-xl font-black text-red-400">"Preciso fazer um cartaz ou post"</h3>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">Use o <strong>Canva Magic Studio</strong> ou <strong>Microsoft Designer</strong>. Design profissional sem ser designer.</p>
-                </div>
-            </div>
-
-            <div class="solution-card flex items-start gap-6">
-                <div class="icon-circle shrink-0" style="color: #a78bfa; background: rgba(167,139,250,0.2)"><i class="fas fa-video text-2xl"></i></div>
-                <div>
-                    <h3 class="text-xl font-black text-purple-400">"Preciso criar um vídeo viral"</h3>
-                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">Use o <strong>HeyGen</strong> para avatares ou o <strong>Kling AI/Luma Dream Machine</strong> para cenas realistas.</p>
+            <div class="relative">
+                <div class="bg-gray-800/50 backdrop-blur-xl p-10 rounded-[40px] border border-white/10 shadow-2xl">
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center server-glow">
+                            <i class="fas fa-hdd text-blue-400"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-500/40 rounded-lg flex items-center justify-center server-glow" style="animation-delay: 0.3s">
+                            <i class="fas fa-hdd text-blue-300"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center server-glow" style="animation-delay: 0.6s">
+                            <i class="fas fa-hdd text-blue-400"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-500/40 rounded-lg flex items-center justify-center server-glow" style="animation-delay: 0.1s">
+                            <i class="fas fa-hdd text-blue-300"></i>
+                        </div>
+                    </div>
+                    <p class="text-center mt-6 text-xs font-black uppercase tracking-widest text-gray-500">Processamento em Tempo Real</p>
                 </div>
             </div>
         </div>

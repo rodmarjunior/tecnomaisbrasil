@@ -2,175 +2,122 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>O Poder do Networking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Passo a Passo: Gamma.app</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
     <style>
-        .net-bg { background: radial-gradient(circle at 80% 20%, #2e1065 0%, #0f172a 100%); }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; }
-        .network-line { stroke: #8b5cf6; stroke-dasharray: 1000; animation: draw 5s infinite; }
-        @keyframes draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
-    </style>
-
-    <style>
+        /* Blindagem Mobile Segura e Ajustes Globais */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            
             .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
+                width: 100% !important; height: auto !important; min-height: 100vh !important; 
+                display: flex !important; flex-direction: column !important; transform: none !important; 
+                padding: 40px 20px 100px 20px !important; /* Respiro para o footer */
             }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
-            .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
+            .w-1\/2 { width: 100% !important; height: auto !important; }
+            .flex-mobile-col { flex-direction: column !important; gap: 30px !important; }
             .custom-footer { flex-direction: row !important; }
             .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; text-align: center; }
         }
+        .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-text { text-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        
+        /* Classe para imagens clicáveis com Zoom */
+        .zoomable-image { cursor: zoom-in; transition: transform 0.3s ease; }
+        .zoomable-image:hover { transform: scale(1.03); z-index: 10; relative; }
     </style>
-
 </head>
-<body class="net-bg overflow-hidden">
+<body class="bg-[#0B1120] overflow-hidden text-white">
+
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col justify-center px-24 relative">
-        <div class="absolute right-0 top-0 h-full w-3 bg-purple-600 z-30 shadow-[-5px_0_20px_rgba(139,92,246,0.5)]"></div>
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 z-30 shadow-[5px_0_15px_rgba(168,85,247,0.3)]"></div>
 
-        <div class="flex items-center gap-16 z-20">
-            <div class="w-1/2">
-                <span class="text-purple-400 font-black uppercase tracking-[0.5em] mb-4 block">Ecossistema Humano</span>
-                <h1 class="text-white text-7xl font-black uppercase leading-none mb-10">
-                    O PODER DO <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">NETWORKING</span>
-                </h1>
-                <p class="text-gray-400 text-2xl leading-relaxed italic border-l-4 border-purple-600 pl-8">
-                    "Você é a média das 5 pessoas com quem mais convive."
-                </p>
-            </div>
+        <div class="text-center mb-10 z-20">
+            <h1 class="text-white text-5xl font-black uppercase tracking-tight mb-4 glow-text">
+                A Fábrica de <span class="text-purple-400">Sites IA</span>
+            </h1>
+            <a href="https://gamma.app" target="_blank" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-6 rounded-full transition duration-300 shadow-lg">
+                <i class="fas fa-link"></i> Acessar Gamma.app (Gratuito)
+            </a>
+        </div>
 
-            <div class="w-1/2 glass-card p-12">
-                <h3 class="text-white font-black text-2xl mb-8 uppercase tracking-widest text-center border-b border-white/10 pb-4">O que é de verdade?</h3>
-                <div class="space-y-8">
-                    <div class="flex gap-6 items-start">
-                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg shadow-purple-900/40"><i class="fas fa-handshake"></i></div>
-                        <div>
-                            <h4 class="text-white font-black text-lg">Troca de Valor</h4>
-                            <p class="text-gray-500 text-sm">Não é sobre "pedir favores", é sobre como você pode ajudar o outro para crescerem juntos.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6 items-start">
-                        <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white shrink-0 shadow-lg shadow-indigo-900/40"><i class="fas fa-project-diagram"></i></div>
-                        <div>
-                            <h4 class="text-white font-black text-lg">Teia de Oportunidades</h4>
-                            <p class="text-gray-500 text-sm">Estar no radar das pessoas certas quando elas precisarem de uma solução que você domina.</p>
-                        </div>
-                    </div>
+        <div class="flex gap-10 items-stretch flex-mobile-col z-20">
+            
+            <div class="w-1/2 glass-box p-6 rounded-2xl flex flex-col border-t-4 border-blue-500">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-black text-xl">1</div>
+                    <h3 class="text-white font-bold text-xl uppercase">O Comando (Prompt)</h3>
                 </div>
+                <div class="flex-1 rounded-xl overflow-hidden border border-gray-600 bg-gray-900 flex items-center justify-center">
+                    <img src="processogama.png" alt="Passo 1 Gamma" class="w-full h-full object-contain zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
+                </div>
+                <p class="text-gray-400 text-sm mt-4 text-center font-medium">Basta descrever o negócio e o objetivo da página.</p>
             </div>
+
+            <div class="w-1/2 glass-box p-6 rounded-2xl flex flex-col border-t-4 border-purple-500">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-purple-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-black text-xl">2</div>
+                    <h3 class="text-white font-bold text-xl uppercase">A Geração</h3>
+                </div>
+                <div class="flex-1 rounded-xl overflow-hidden border border-gray-600 bg-gray-900 flex items-center justify-center">
+                    <img src="processogama2.png" alt="Passo 2 Gamma" class="w-full h-full object-contain zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
+                </div>
+                <p class="text-gray-400 text-sm mt-4 text-center font-medium">A IA estrutura as seções, escreve os textos e escolhe imagens.</p>
+            </div>
+
         </div>
     </div>
 </div>
+
+<div id="image-modal" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-zoom-out" onclick="closeZoom()">
+    <img id="zoomed-image" src="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300">
+    <div class="absolute top-6 right-8 text-gray-400 hover:text-white text-4xl cursor-pointer">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<script>
+    function openZoom(src) {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        img.src = src;
+        
+        // Remove 'hidden' para o display block funcionar
+        modal.classList.remove('hidden');
+        
+        // Pequeno delay para a transição do CSS acontecer de forma suave
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            img.classList.remove('scale-95');
+            img.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeZoom() {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        
+        // Inicia a animação de saída
+        modal.classList.add('opacity-0');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        
+        // Esconde o elemento depois da animação terminar
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            img.src = ''; // Limpa a fonte
+        }, 300);
+    }
+</script>
+
 </body>
 </html>

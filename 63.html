@@ -3,89 +3,78 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Roadmap 90 Dias: Plano de Ação</title>
+    <title>A Arte do Contorno - Projeto Tecno Mais Brasil</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 20px;
-            height: 480px;
+        /* Fundo mais vibrante e moderno */
+        .strategy-bg { 
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); 
+        }
+        
+        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        .slide-container { 
+            width: 1280px; height: 720px; 
+            position: relative; overflow: hidden; display: flex; flex-direction: column; 
+            justify-content: center; padding: 40px 60px 100px 60px;
         }
 
-        .step-card {
-            background-color: #1E293B;
-            border-radius: 16px;
+        /* Estilo Glassmorphism para os cards */
+        .obj-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(10px);
+            border-radius: 24px; 
+            padding: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.3s ease;
+            height: 230px;
             display: flex;
             flex-direction: column;
-            position: relative;
+            justify-content: space-between;
         }
-
-        .step-card:hover {
+        
+        .obj-card:hover {
             transform: translateY(-5px);
-            background-color: #253347;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
-        .phase-tag {
-            padding: 6px 15px;
-            font-size: 11px;
+        .obj-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        }
+
+        /* Cores das barras de topo */
+        .bar-red::before { background: #ef4444; }
+        .bar-orange::before { background: #f97316; }
+        .bar-yellow::before { background: #facc15; }
+        .bar-blue::before { background: #3b82f6; }
+
+        /* Box de resposta com melhor contraste */
+        .ans-box { 
+            background: rgba(15, 23, 42, 0.6); 
+            padding: 12px 15px; 
+            border-radius: 12px; 
+            border-left: 4px solid currentColor;
+            margin-top: 10px;
+        }
+
+        .label-obj {
+            font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-body {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .step-icon {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        /* Cores Temáticas */
-        .step-1 .phase-tag { background: #3B82F6; }
-        .step-2 .phase-tag { background: #8B5CF6; }
-        .step-3 .phase-tag { background: #EC4899; }
-        .step-4 .phase-tag { background: #10B981; }
-        .step-5 .phase-tag { background: #F59E0B; }
-        .step-6 .phase-tag { background: #06B6D4; }
-
-        .milestone {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #F59E0B;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid #0F172A;
-            z-index: 20;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 
@@ -207,87 +196,80 @@
     </style>
 
 </head>
-<body>
+<body class="strategy-bg text-white overflow-hidden">
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#0F172A]">
-        <div class="absolute left-0 top-0 h-full w-2 bg-green-500 z-30 shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
-
-        <div class="flex-none px-20 pt-12 pb-6 z-20">
-            <div class="flex items-center mb-3">
-                <span class="bg-green-600 text-white text-xs font-black px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">Plano de Ação</span>
-                <span class="text-gray-400 text-xs font-bold ml-4 tracking-widest uppercase border-l border-gray-700 pl-4">Do Zero aos 90 Dias</span>
-            </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-tight tracking-tight">
-                Primeiros Passos <span class="text-green-500">Práticos</span>
+    <div class="slide-container">
+        
+        <div class="text-center mb-10">
+            <h1 class="text-white text-6xl font-black uppercase leading-tight drop-shadow-lg">
+                COMO VIRAR <span class="text-red-500">O JOGO?</span>
             </h1>
+            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mt-2">Transformando Objeções em Oportunidades</p>
         </div>
 
-        <div class="flex-1 px-20 pb-12 z-10">
-            <div class="roadmap-grid">
-                
-                <div class="step-card step-1">
-                    <div class="phase-tag"><span>Dia 1-7</span> <span class="opacity-50">#01</span></div>
-                    <div class="card-body">
-                        <i class="fas fa-search step-icon text-blue-400"></i>
-                        <h3 class="text-white font-bold text-sm mb-2 uppercase">Descubra</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">Defina seu nicho e proposta de valor única. O que você resolve?</p>
+        <div class="grid grid-cols-2 gap-6 max-w-6xl mx-auto">
+            
+            <div class="obj-card bar-red">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-red-400">Objeção 01</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Está caro!"</h4>
                     </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">O cliente ainda não percebeu o lucro que você gera.</p>
                 </div>
-
-                <div class="step-card step-2">
-                    <div class="phase-tag"><span>Dia 8-15</span> <span class="opacity-50">#02</span></div>
-                    <div class="card-body">
-                        <i class="fas fa-rocket step-icon text-purple-400"></i>
-                        <h3 class="text-white font-bold text-sm mb-2 uppercase">MVP Simples</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">Lance rápido: 1 canal, 1 oferta, 1 público. Sem perfeccionismo.</p>
-                    </div>
+                <div class="ans-box text-red-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Quanto custa para sua empresa continuar com imagens que não vendem e perder clientes para o vizinho?"
+                    </p>
                 </div>
-
-                <div class="step-card step-3">
-                    <div class="phase-tag"><span>Dia 16-45</span> <span class="opacity-50">#03</span></div>
-                    <div class="card-body">
-                        <i class="fas fa-sync-alt step-icon text-pink-400"></i>
-                        <h3 class="text-white font-bold text-sm mb-2 uppercase">Rotina 5x</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">Consistência brutal. Produção 5x/semana. O algoritmo ama frequência.</p>
-                    </div>
-                </div>
-
-                <div class="step-card step-4">
-                    <div class="phase-tag"><span>Dia 46-60</span> <span class="opacity-50">#04</span></div>
-                    <div class="card-body">
-                        <i class="fas fa-compass step-icon text-green-400"></i>
-                        <h3 class="text-white font-bold text-sm mb-2 uppercase">Métricas</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">Analise o que importa: Leads, Conversão e Engajamento real.</p>
-                    </div>
-                </div>
-
-                <div class="step-card step-5">
-                    <div class="milestone"><i class="fas fa-star text-[8px] text-white"></i></div>
-                    <div class="phase-tag"><span>Dia 61-75</span> <span class="opacity-50">#05</span></div>
-                    <div class="card-body">
-                        <i class="fas fa-coins step-icon text-yellow-400"></i>
-                        <h3 class="text-white font-bold text-sm mb-2 uppercase">Reinvista</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">Use 30-50% do lucro inicial em tráfego ou ferramentas melhores.</p>
-                    </div>
-                </div>
-
-                <div class="step-card step-6">
-                    <div class="phase-tag"><span>Dia 76-90</span> <span class="opacity-50">#06</span></div>
-                    <div class="card-body">
-                        <i class="fas fa-trophy step-icon text-cyan-400"></i>
-                        <h3 class="text-white font-bold text-sm mb-2 uppercase">Prova Social</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">Colete depoimentos e construa autoridade. O jogo de longo prazo.</p>
-                    </div>
-                </div>
-
             </div>
-        </div>
 
-        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
-            <div class="flex justify-between items-center text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                <span><i class="fas fa-flag-checkered mr-2 text-green-500"></i> Meta: Primeira venda validada até o dia 45</span>
+            <div class="obj-card bar-orange">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-orange-400">Objeção 02</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Já tenho quem faça!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está apenas confortável com o básico.</p>
+                </div>
+                <div class="ans-box text-orange-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Ótimo! Posso te enviar uma arte teste com IA sem custo? Se o resultado for superior ao atual, conversamos."
+                    </p>
+                </div>
             </div>
+
+            <div class="obj-card bar-yellow">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-yellow-400">Objeção 03</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Não preciso disso!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele ainda não entendeu que o jogo mudou.</p>
+                </div>
+                <div class="ans-box text-yellow-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Entendo. Mas hoje 80% das vendas começam no celular. Posso te mostrar como seus concorrentes estão atraindo seu público?"
+                    </p>
+                </div>
+            </div>
+
+            <div class="obj-card bar-blue">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="label-obj text-blue-400">Objeção 04</span>
+                        <h4 class="text-white font-black text-xl uppercase">"Manda no WhatsApp!"</h4>
+                    </div>
+                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está tentando fugir da decisão agora.</p>
+                </div>
+                <div class="ans-box text-blue-400">
+                    <p class="text-gray-200 font-bold text-sm leading-snug">
+                        <i class="fas fa-comment-dots mr-2"></i> "Com certeza! Já enviei. Podemos marcar uma conversa de 2 minutos amanhã às 14h para eu tirar suas dúvidas?"
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

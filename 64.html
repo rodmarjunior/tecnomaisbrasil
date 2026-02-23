@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Atividade Prática - Mão na Massa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Resiliência: O Poder do Não</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
@@ -13,43 +13,12 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #0F172A; }
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding-top: 40px;
-            padding-bottom: 100px;
-        }
-
-        .qr-giant {
-            background: white; padding: 25px; border-radius: 30px;
-            box-shadow: 0 0 60px rgba(99, 102, 241, 0.4);
-            border: 10px solid #6366F1;
-        }
-
-        .timer-display {
-            background: #1e293b; color: #ef4444;
-            padding: 10px 30px; border-radius: 999px;
-            font-family: 'Courier New', monospace; font-weight: 900;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .music-btn {
-            position: fixed; top: 30px; right: 30px; z-index: 100;
-            background: #6366F1; color: white; width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); transition: 0.3s;
-        }
-
-        /* Ajustes para Mobile */
-        @media (max-width: 1024px) {
-            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
-            .flex-mobile-col { flex-direction: column !important; gap: 40px !important; }
-            h1 { font-size: 3rem !important; }
-            .qr-giant img { width: 250px; height: 250px; }
-            .timer-display { font-size: 3rem !important; }
+        .no-bg { background: #020617; }
+        .glass-dark { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .red-glow { text-shadow: 0 0 30px rgba(239, 68, 68, 0.4); }
+        .bg-pattern { 
+            background-image: radial-gradient(circle at 2px 2px, rgba(239, 68, 68, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
         }
     </style>
 
@@ -171,65 +140,49 @@
     </style>
 
 </head>
-<body>
-
-<audio id="audioAtividade" src="musica3.mp3" preload="auto" loop></audio>
-
-<div class="music-btn" onclick="toggleMusica()">
-    <i id="musicIcon" class="fas fa-play"></i>
-</div>
+<body class="no-bg bg-pattern overflow-hidden">
 
 <div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-600 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.5)]"></div>
+    <div class="slide-container flex items-center justify-between px-24 relative">
+        <div class="absolute left-0 top-0 h-full w-3 bg-red-600 z-30 shadow-[5px_0_20px_rgba(239,68,68,0.4)]"></div>
 
-        <div class="text-center mb-10 z-10 w-full px-4">
-            <h1 class="text-white text-4xl md:text-6xl font-black uppercase mb-4 leading-tight">MÃO NA <span class="text-indigo-500">MASSA</span></h1>
-            <p class="text-gray-400 text-lg md:text-2xl italic font-bold">Atividade: Criando Conteúdo que Vende</p>
+        <div class="w-1/2 z-10">
+            <span class="text-red-500 font-black uppercase tracking-[0.5em] mb-4 block">Blindagem Emocional</span>
+            <h1 class="text-white text-7xl font-black uppercase leading-none mb-10 red-glow">
+                O "NÃO" É SÓ <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">DADOS.</span>
+            </h1>
+            <p class="text-gray-400 text-2xl leading-relaxed italic border-l-4 border-red-600 pl-8">
+                "O sucesso é ir de fracasso em fracasso sem perder o entusiasmo."
+            </p>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 z-10 w-full flex-mobile-col">
-            <div class="qr-giant">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=https://rodmarjunior.github.io/tecnomaisbrasil/47.html" 
-                     alt="QR Code Atividade" 
-                     class="w-56 h-56 md:w-80 md:h-80">
+        <div class="w-1/2 flex flex-col gap-6">
+            <div class="glass-dark p-8 rounded-[40px] transform hover:scale-105 transition-all">
+                <div class="flex items-center gap-6 mb-4">
+                    <div class="w-14 h-14 bg-red-600/20 rounded-2xl flex items-center justify-center text-red-500 text-3xl">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-white font-black text-2xl uppercase">Não é Pessoal</h3>
+                </div>
+                <p class="text-gray-500 text-lg leading-relaxed">
+                    A rejeição não é sobre quem você é. É sobre o momento, a necessidade ou o orçamento da outra pessoa. Não deixe uma recusa virar uma dúvida.
+                </p>
             </div>
 
-            <div class="max-w-md w-full space-y-8 px-4">
-                <div class="bg-indigo-900/30 p-6 md:p-8 rounded-2xl border border-indigo-500/50 backdrop-blur-sm">
-                    <h3 class="text-indigo-400 font-black text-xl md:text-2xl mb-4 uppercase text-center md:text-left">REGRAS:</h3>
-                    <ul class="text-gray-300 space-y-4 text-lg md:text-xl font-bold">
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Escaneie o código</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Sorteie seu tema</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Mostre sua criatividade</li>
-                    </ul>
+            <div class="glass-dark p-8 rounded-[40px] border-l-8 border-red-600 transform hover:scale-105 transition-all">
+                <div class="flex items-center gap-6 mb-4">
+                    <div class="w-14 h-14 bg-orange-600/20 rounded-2xl flex items-center justify-center text-orange-500 text-3xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-white font-black text-2xl uppercase">É um Degrau</h3>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="timer-display text-4xl md:text-6xl">10:00</div>
-                </div>
+                <p class="text-gray-500 text-lg leading-relaxed">
+                    Cada "Não" te ensina a ajustar sua oferta. O maior profissional do mundo apenas recebeu mais "Nãos" do que você até chegar no "Sim".
+                </p>
             </div>
-        </div>
-
-        <div class="mt-12 text-white font-black text-lg md:text-xl animate-bounce z-10 text-center w-full">
-            <i class="fas fa-arrow-up mr-3 text-indigo-500"></i> ESCANEIE PARA COMEÇAR
         </div>
     </div>
 </div>
-
-<script>
-    const player = document.getElementById('audioAtividade');
-    const icon = document.getElementById('musicIcon');
-
-    function toggleMusica() {
-        if (player.paused) {
-            player.play();
-            icon.classList.replace('fa-play', 'fa-pause');
-        } else {
-            player.pause();
-            icon.classList.replace('fa-pause', 'fa-play');
-        }
-    }
-</script>
 
 </body>
 </html>

@@ -2,213 +2,85 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Slide 10 - O Futuro do Trabalho</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>A Caixa de Ferramentas IA</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
-
     <style>
-        .work-bg { background: linear-gradient(135deg, #020617 0%, #1e1b4b 100%); }
-        .vision-card { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(10px);
-            border-radius: 40px; 
-            padding: 40px; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .highlight-border {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 8px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-        }
-        .pulse-icon { animation: pulse-blue 2s infinite; }
-        @keyframes pulse-blue { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
-    </style>
-
-    <style>
+        /* Blindagem Mobile Segura */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
-            }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
+            .slide-container { width: 100% !important; height: auto !important; min-height: 100vh !important; display: flex !important; flex-direction: column !important; transform: none !important; padding: 40px 20px 100px 20px !important; }
+            .grid-cols-4 { grid-template-columns: 1fr 1fr !important; gap: 15px !important; } /* 2 colunas no mobile */
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; text-align: center; }
         }
+        .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .tool-card { transition: all 0.3s ease; }
+        .tool-card:hover { transform: translateY(-5px); border-color: #A855F7; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2); }
     </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
-            .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
-            .custom-footer { flex-direction: row !important; }
-            .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-        }
-    </style>
-
 </head>
-<body class="work-bg overflow-hidden text-white">
+<body class="bg-[#0B1120] overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col justify-center px-24 relative">
-        <div class="absolute left-0 top-0 h-full w-3 bg-blue-600 z-30 shadow-[5px_0_15px_rgba(59,130,246,0.3)]"></div>
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 z-30 shadow-[5px_0_15px_rgba(168,85,247,0.3)]"></div>
 
-        <div class="grid grid-cols-5 gap-12 items-center">
-            <div class="col-span-3">
-                <span class="text-blue-400 font-black uppercase tracking-[0.5em] mb-4 block">Evolução Profissional</span>
-                <h1 class="text-white text-6xl font-black uppercase leading-tight mb-8">
-                    A IA NÃO VAI <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 italic">TE SUBSTITUIR.</span>
-                </h1>
-                
-                <div class="vision-card">
-                    <p class="text-white text-3xl font-black leading-snug">
-                        "O que vai te substituir é o <span class="text-blue-500">HUMANO</span> que sabe usar a IA melhor do que você."
-                    </p>
-                    <div class="highlight-border"></div>
-                </div>
-            </div>
-
-            <div class="col-span-2 space-y-6">
-                <div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="flex items-center gap-4 mb-3">
-                        <i class="fas fa-rocket text-blue-500 text-2xl pulse-icon"></i>
-                        <h4 class="font-black uppercase text-sm tracking-widest">Aumente sua Escala</h4>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        Um profissional com IA faz o trabalho de uma equipe inteira em 10% do tempo. Torne-se indispensável.
-                    </p>
-                </div>
-
-                <div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="flex items-center gap-4 mb-3">
-                        <i class="fas fa-user-tie text-indigo-500 text-2xl"></i>
-                        <h4 class="font-black uppercase text-sm tracking-widest">Novas Profissões</h4>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        Engenheiros de Prompt, Curadores Digitais e Analistas de Dados IA. O mercado de 2026 busca criadores, não executores.
-                    </p>
-                </div>
-
-                <div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="flex items-center gap-4 mb-3">
-                        <i class="fas fa-heart text-red-500 text-2xl"></i>
-                        <h4 class="font-black uppercase text-sm tracking-widest">O Diferencial Humano</h4>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        Empatia, Ética e Criatividade. Essas são as coisas que a máquina não pode copiar. Use a IA para a parte chata e foque no que importa.
-                    </p>
-                </div>
-            </div>
+        <div class="text-center mb-12 z-20">
+            <span class="bg-purple-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full mb-4 inline-block"><i class="fas fa-camera mr-2"></i> Tire uma Foto</span>
+            <h1 class="text-white text-5xl font-black uppercase tracking-tight text-shadow-sm">
+                Sua Caixa de <span class="text-purple-400">Ferramentas</span>
+            </h1>
         </div>
 
-        <div class="mt-16 text-center">
-            <p class="text-gray-500 font-black text-xs uppercase tracking-[0.5em]">
-                Prepare-se para ser o piloto, não o passageiro.
+        <div class="grid grid-cols-4 gap-6 z-20">
+            
+            <div class="glass-box p-6 rounded-2xl tool-card text-center border-t-2 border-transparent">
+                <i class="fas fa-brain text-5xl text-blue-400 mb-4"></i>
+                <h3 class="text-white font-black text-lg uppercase mb-1">O Cérebro</h3>
+                <p class="text-gray-400 text-xs font-bold">ChatGPT / DeepSeek</p>
+                <p class="text-gray-500 text-[10px] mt-2">Geração de textos e estratégias locais.</p>
+            </div>
+
+            <div class="glass-box p-6 rounded-2xl tool-card text-center border-t-2 border-transparent">
+                <i class="fas fa-paint-brush text-5xl text-pink-400 mb-4"></i>
+                <h3 class="text-white font-black text-lg uppercase mb-1">O Design</h3>
+                <p class="text-gray-400 text-xs font-bold">Microsoft Designer / Canva</p>
+                <p class="text-gray-500 text-[10px] mt-2">Criação de rostos e artes profissionais.</p>
+            </div>
+
+            <div class="glass-box p-6 rounded-2xl tool-card text-center border-t-2 border-transparent">
+                <i class="fas fa-laptop-code text-5xl text-purple-400 mb-4"></i>
+                <h3 class="text-white font-black text-lg uppercase mb-1">A Vitrine</h3>
+                <p class="text-gray-400 text-xs font-bold">Gamma.app / Canva Sites</p>
+                <p class="text-gray-500 text-[10px] mt-2">Geração de Landing Pages em 3 minutos.</p>
+            </div>
+
+            <div class="glass-box p-6 rounded-2xl tool-card text-center border-t-2 border-transparent">
+                <i class="fas fa-video text-5xl text-amber-400 mb-4"></i>
+                <h3 class="text-white font-black text-lg uppercase mb-1">O Ator</h3>
+                <p class="text-gray-400 text-xs font-bold">HeyGen / D-ID</p>
+                <p class="text-gray-500 text-[10px] mt-2">Animação de foto e clonagem de voz.</p>
+            </div>
+
+        </div>
+
+        <div class="mt-10 bg-purple-500/10 p-4 rounded-xl border border-purple-500/30 flex items-center justify-center z-20">
+            <p class="text-gray-300 text-sm font-medium text-center">
+                <strong class="text-purple-400 uppercase tracking-wider block mb-1">A Regra de Ouro:</strong>
+                A ferramenta é 100% gratuita. O que você cobra do cliente é a <span class="text-white font-bold">sua visão estratégica</span> e a <span class="text-white font-bold">execução</span>.
             </p>
         </div>
+
+        <div class="absolute bottom-6 right-20 text-gray-600 text-[10px] uppercase tracking-widest hidden md:block font-bold">
+            Projeto Tecno Mais Brasil
+        </div>
+
     </div>
 </div>
 

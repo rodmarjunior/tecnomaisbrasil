@@ -3,32 +3,42 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Seu Perfil Digital: Resultado</title>
+    <title>Casos de Sucesso Reais - Brasil</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .result-container {
-            background: white; border-radius: 20px; padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            width: 90%; max-width: 850px; height: 600px; overflow-y: auto;
+        .case-card {
+            background-color: #1E293B;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 380px;
         }
-        .profile-badge {
-            text-align: center; padding: 20px; border-radius: 15px; margin-bottom: 20px;
-            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); color: white;
+        .case-card:hover {
+            transform: translateY(-8px);
+            background-color: #263349;
         }
-        .section-title { color: #1E293B; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 5px; }
-        .skill-item { background: #F1F5F9; padding: 10px 15px; border-radius: 8px; border-left: 4px solid #6366F1; font-weight: 600; font-size: 0.8rem; }
-        .score-bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; }
-        .score-label { min-width: 100px; font-weight: 600; font-size: 0.75rem; color: #475569; }
-        .score-progress { flex: 1; height: 8px; background: #E2E8F0; border-radius: 10px; overflow: hidden; }
-        .score-fill { height: 100%; background: #6366F1; transition: width 1s; }
-        .score-value { font-weight: 700; color: #6366F1; font-size: 0.75rem; }
+        .avatar-container {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            border: 4px solid #0F172A;
+            overflow: hidden;
+            position: absolute;
+            top: -50px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            background: #1e293b;
+        }
+        .card-content { padding-top: 60px; }
+        .metric-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
     </style>
 
     <style>
@@ -152,104 +162,104 @@
 <body>
 
 <div class="slide-wrapper">
-    <div class="slide-container flex items-center justify-center bg-[#0F172A]">
-        <div class="result-container">
-            <div class="profile-badge" id="profileBadge">
-                <div class="text-4xl mb-2" id="profileIcon">🎬</div>
-                <div class="text-3xl font-black mb-1" id="profileTitle">Carregando...</div>
-                <div class="text-sm opacity-90" id="profileSubtitle">Aguarde um momento</div>
+    <div class="slide-container flex flex-col">
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+        <div class="absolute bottom-10 left-10 text-[180px] font-black text-gray-800 opacity-5 leading-none select-none z-0 uppercase">RESULTADOS</div>
+
+        <div class="p-12 pl-20 pb-4 z-10 relative">
+            <div class="flex items-center mb-4">
+                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Referências de Mercado</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Brasil 2026</span>
+            </div>
+            <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
+                Casos de <span class="text-yellow-500">Sucesso</span> Reais
+            </h1>
+            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl">
+                De profissionais autônomos a empresários digitais: a prova de que a estratégia vence o tamanho da audiência.
+            </p>
+        </div>
+
+        <div class="px-20 z-10 grid grid-cols-3 gap-8 mt-16">
+            
+            <div class="case-card rounded-xl shadow-xl border-t-4 border-blue-500">
+                <div class="avatar-container border-blue-500 flex items-center justify-center">
+                    <i class="fas fa-robot text-4xl text-blue-500"></i>
+                </div>
+                <div class="card-content px-6 pb-6 text-center h-full flex flex-col">
+                    <h3 class="text-white text-xl font-bold mb-1 font-['Montserrat']">Consultoria No-Code</h3>
+                    <p class="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-4">Automação de Processos</p>
+                    <p class="text-gray-300 text-xs font-['Open_Sans'] mb-4 leading-relaxed">
+                        Profissionais que usam ferramentas como <strong>Make e Zapier</strong> para otimizar empresas. Foco em vender tempo e eficiência para pequenos negócios.
+                    </p>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <div class="metric-badge rounded p-2 text-center">
+                            <p class="text-white font-bold text-base leading-none">R$ 5k - 15k</p>
+                            <p class="text-gray-500 text-[8px] uppercase">Ticket Médio Mensal</p>
+                        </div>
+                        <div class="metric-badge rounded p-2 text-center">
+                            <i class="fas fa-bolt text-blue-500 text-xs"></i>
+                            <p class="text-gray-500 text-[8px] uppercase">Alta Demanda</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-6">
-                <div class="section">
-                    <div class="section-title text-base"><i class="fas fa-chart-bar"></i> Seus Pontos</div>
-                    <div id="scoreDisplay"></div>
-                    
-                    <div class="section-title text-base mt-4"><i class="fas fa-rocket"></i> Próximos Passos</div>
-                    <p class="text-gray-600 text-xs leading-relaxed italic" id="careerPath"></p>
+            <div class="case-card rounded-xl shadow-xl border-t-4 border-green-500">
+                <div class="avatar-container border-green-500 flex items-center justify-center">
+                    <i class="fas fa-bullseye text-4xl text-green-500"></i>
                 </div>
+                <div class="card-content px-6 pb-6 text-center h-full flex flex-col">
+                    <h3 class="text-white text-xl font-bold mb-1 font-['Montserrat']">Tráfego para Negócios</h3>
+                    <p class="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-4">Marketing de Proximidade</p>
+                    <p class="text-gray-300 text-xs font-['Open_Sans'] mb-4 leading-relaxed">
+                        Especialistas que geram clientes para barbearias, clínicas e lojas locais usando <strong>Google e Meta Ads</strong> com baixo investimento inicial.
+                    </p>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <div class="metric-badge rounded p-2 text-center">
+                            <p class="text-white font-bold text-base leading-none">ROI 5x</p>
+                            <p class="text-gray-500 text-[8px] uppercase">Retorno Médio</p>
+                        </div>
+                        <div class="metric-badge rounded p-2 text-center">
+                            <i class="fas fa-map-marker-alt text-green-500 text-xs"></i>
+                            <p class="text-gray-500 text-[8px] uppercase">Escala Local</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="section">
-                    <div class="section-title text-base"><i class="fas fa-star"></i> Skills de Ouro</div>
-                    <div class="grid grid-cols-1 gap-2" id="skillsList"></div>
-                    
-                    <div class="section-title text-base mt-4"><i class="fas fa-dollar-sign"></i> Renda 2026</div>
-                    <p class="text-gray-600 text-xs font-bold" id="incomeInfo"></p>
+            <div class="case-card rounded-xl shadow-xl border-t-4 border-yellow-500">
+                <div class="avatar-container border-yellow-500 flex items-center justify-center">
+                    <i class="fas fa-graduation-cap text-4xl text-yellow-500"></i>
                 </div>
+                <div class="card-content px-6 pb-6 text-center h-full flex flex-col">
+                    <h3 class="text-white text-xl font-bold mb-1 font-['Montserrat']">Educação Digital</h3>
+                    <p class="text-yellow-500 text-[10px] font-bold uppercase tracking-widest mb-4">Cursos e Mentorias</p>
+                    <p class="text-gray-300 text-xs font-['Open_Sans'] mb-4 leading-relaxed">
+                        Pessoas comuns transformando conhecimentos específicos (ex: culinária, finanças, consertos) em <strong>produtos digitais escaláveis</strong>.
+                    </p>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <div class="metric-badge rounded p-2 text-center">
+                            <p class="text-white font-bold text-base leading-none">90%</p>
+                            <p class="text-gray-500 text-[8px] uppercase">Margem de Lucro</p>
+                        </div>
+                        <div class="metric-badge rounded p-2 text-center">
+                            <i class="fas fa-users text-yellow-500 text-xs"></i>
+                            <p class="text-gray-500 text-[8px] uppercase">Comunidade</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="absolute bottom-4 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-2 z-20">
+            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans'] uppercase">
+                <i class="fas fa-chart-line mr-2"></i>
+                <span>Fonte: Hotmart Insights & Benchmark de Mercado Digital Brasil 2025</span>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-const profiles = {
-    criativo: {
-        title: 'Videomaker / Designer',
-        subtitle: 'Criador de Conteúdo Visual',
-        icon: '🎬',
-        skills: ['Edição de vídeo', 'Motion graphics', 'Storytelling visual', 'Design gráfico'],
-        careerPath: '1. Aprenda ferramentas (CapCut, Canva) → 2. Crie portfólio no Instagram → 3. Ofereça serviços para negócios locais.',
-        income: 'R$ 3.000 a R$ 15.000+ conforme especialização.'
-    },
-    analitico: {
-        title: 'Analista de Dados',
-        subtitle: 'Especialista em Insights',
-        icon: '📊',
-        skills: ['Excel avançado', 'Power BI / Tableau', 'SQL', 'Google Analytics'],
-        careerPath: '1. Domine Excel → 2. Aprenda Power BI → 3. Ofereça dashboards para e-commerces.',
-        income: 'R$ 4.000 a R$ 20.000+ em cargos sênior.'
-    },
-    social: {
-        title: 'Social Media / Copy',
-        subtitle: 'Especialista em Conteúdo',
-        icon: '✍️',
-        skills: ['Copy persuasivo', 'Gestão de redes', 'Community management', 'Escrita'],
-        careerPath: '1. Estude escrita persuasiva → 2. Gerencie redes de parceiros → 3. Monte portfólio de resultados.',
-        income: 'R$ 3.000 a R$ 12.000+ com agência própria.'
-    },
-    tech: {
-        title: 'Desenvolvedor / Tech',
-        subtitle: 'Especialista em Soluções',
-        icon: '💻',
-        skills: ['HTML, CSS, JS', 'Python', 'Lógica de programação', 'Git'],
-        careerPath: '1. Aprenda fundamentos → 2. Construa projetos no GitHub → 3. Busque freelances.',
-        income: 'R$ 5.000 a R$ 35.000+ no mercado global.'
-    }
-};
-
-window.onload = function() {
-    const perfil = localStorage.getItem('perfilDigital') || 'criativo';
-    const scores = JSON.parse(localStorage.getItem('scores') || '{"criativo":5}');
-    const profile = profiles[perfil];
-    
-    document.getElementById('profileIcon').textContent = profile.icon;
-    document.getElementById('profileTitle').textContent = profile.title;
-    document.getElementById('profileSubtitle').textContent = profile.subtitle;
-    document.getElementById('careerPath').textContent = profile.careerPath;
-    document.getElementById('incomeInfo').textContent = profile.income;
-    
-    const skillsList = document.getElementById('skillsList');
-    profile.skills.forEach(skill => {
-        const div = document.createElement('div');
-        div.className = 'skill-item';
-        div.innerHTML = `<i class="fas fa-check-circle mr-2" style="color:#6366F1"></i> ${skill}`;
-        skillsList.appendChild(div);
-    });
-    
-    const scoreDisplay = document.getElementById('scoreDisplay');
-    const names = { criativo: 'Criativo', analitico: 'Dados', social: 'Social', tech: 'Tech' };
-    for (let key in scores) {
-        if (key !== 'neutro' && scores[key] > 0) {
-            const div = document.createElement('div');
-            div.className = 'score-bar';
-            div.innerHTML = `
-                <div class="score-label">${names[key]}</div>
-                <div class="score-progress"><div class="score-fill" style="width: ${scores[key]*10}%"></div></div>
-                <div class="score-value">${scores[key]}</div>`;
-            scoreDisplay.appendChild(div);
-        }
-    }
-};
-</script>
 </body>
 </html>

@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>IA na Prática: Playbook de Prompts</title>
+    <title>Slide 35 - O Texto que Converte</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
-        
-        .bg-tech {
-            background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #f1f5f9;
         }
 
         .slide-wrapper {
@@ -26,44 +27,42 @@
 
         .slide-container {
             width: 1280px; height: 720px;
-            position: relative; overflow: hidden; 
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
             display: flex; flex-direction: column;
-            padding: 40px 80px; /* Padding padrão */
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
         }
 
-        /* Syntax Highlighting */
-        .syntax-keyword { color: #c084fc; font-weight: 800; } 
-        .syntax-string { color: #4ade80; } 
-        .syntax-variable { color: #38bdf8; font-weight: 800; } 
-        .syntax-comment { color: #64748b; font-style: italic; }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+        .prompt-box-green {
+            background: #000000;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 8px solid #10b981;
+            box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.1);
         }
 
-        .prompt-window {
-            background: #0b0f1a;
-            border: 1px solid #1e293b;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-        }
-
-        .tool-category {
-            border-left: 4px solid;
-            background: rgba(15, 23, 42, 0.8);
-            padding: 8px 14px; /* Mais compacto para não vazar */
+        .checklist-item {
+            background: #f8fafc;
+            padding: 15px;
             border-radius: 10px;
-            margin-bottom: 8px;
+            border-left: 4px solid #10b981;
+            transition: all 0.3s ease;
         }
 
-        .glow-cyan { text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
-        .code-font { font-family: 'Fira Code', monospace; }
-        
-        /* AJUSTE PARA O MENU DE NOTAS */
-        .main-content {
-            margin-bottom: 110px; /* Espaço obrigatório para o menu não sobrepor */
+        .checklist-item:hover {
+            transform: translateX(10px);
+            background: #ecfdf5;
+        }
+
+        .step-badge-green {
+            background: #10b981;
+            color: white;
+            padding: 4px 15px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
     </style>
 
@@ -185,96 +184,64 @@
     </style>
 
 </head>
-<body class="bg-tech text-white">
+<body>
 
 <div class="slide-wrapper">
     <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-2 bg-cyan-500 z-30 shadow-[5px_0_20px_rgba(34,211,238,0.4)]"></div>
+        <div class="absolute left-0 top-0 h-full w-3 bg-green-500 z-30 shadow-[5px_0_15px_rgba(16,185,129,0.3)]"></div>
 
-        <div class="flex-none z-20 mb-4">
-            <div class="flex items-center mb-1">
-                <span class="bg-cyan-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg">Engenharia de Prompt</span>
-                <span class="text-cyan-400 text-[10px] font-bold ml-4 tracking-widest uppercase opacity-70"></span>
+        <div class="w-full h-full flex flex-col justify-center px-24 z-20">
+            <div class="flex items-center mb-4">
+                <span class="step-badge-green">Passo 3: Copywriting de Elite</span>
+                <span class="text-gray-400 text-xs font-bold ml-4 tracking-[0.3em] uppercase">Fechamento de Venda</span>
             </div>
-            <h1 class="text-5xl font-black uppercase tracking-tighter glow-cyan">
-                IA NA PRÁTICA: <span class="text-cyan-400">COMANDOS</span>
+
+            <h1 class="text-[#1e293b] text-6xl font-black uppercase leading-none mb-4">
+                O TEXTO <br><span class="text-green-600">QUE CONVERTE</span>
             </h1>
-        </div>
+            <p class="text-gray-400 text-2xl font-bold italic mb-10 border-l-4 border-green-600 pl-6">
+                A imagem atrai, mas é a sua palavra que faz o cliente pagar.
+            </p>
 
-        <div class="flex flex-1 gap-8 z-10 items-stretch overflow-hidden main-content">
-            
-            <div class="w-7/12 flex flex-col gap-3">
-                <div class="glass-card p-3 border-l-4 border-red-500 bg-red-500/5">
-                    <p class="text-red-500 font-black uppercase text-[10px] tracking-widest mb-1 flex items-center">
-                        <i class="fas fa-ban mr-2"></i> Prompt Genérico (Fraco)
-                    </p>
-                    <div class="bg-black/50 p-2 rounded-lg code-font text-xs text-gray-500 italic">
-                        "Faça um post sobre vendas."
-                    </div>
-                </div>
-
-                <div class="prompt-window rounded-xl p-5 flex-1 border-t-4 border-cyan-500">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-cyan-400 font-black uppercase text-[10px] tracking-widest flex items-center">
-                            <i class="fas fa-terminal mr-2"></i> Estrutura Mestre (Copia e Cola)
-                        </span>
-                        <div class="flex gap-1">
-                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">CONTEXTO</span>
-                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">FORMATO</span>
-                        </div>
-                    </div>
-                    
-                    <div class="code-font text-base leading-snug text-gray-200">
-                        <p>
-                            <span class="syntax-keyword">Atue como</span> um <span class="syntax-variable">copywriter sênior</span>...<br/><br/>
-                            <span class="syntax-keyword">Tarefa:</span> Crie um post carrossel para Instagram.<br/>
-                            <span class="syntax-keyword">Público:</span> Microempreendedores iniciantes.<br/>
-                            <span class="syntax-keyword">Tom:</span> Prático e direto.<br/>
-                            <span class="syntax-keyword">Requisitos:</span><br/>
-                            &nbsp;&nbsp;1. Inclua CTA para "Link na Bio".<br/>
-                            &nbsp;&nbsp;2. Gere 3 variações de Headlines.<br/><br/>
-                            <span class="syntax-comment">// Evite clichês corporativos.</span>
+            <div class="grid grid-cols-2 gap-10">
+                <div class="bg-[#f8fafc] p-8 rounded-2xl border-2 border-gray-100 shadow-xl">
+                    <p class="text-gray-500 font-black mb-4 uppercase text-xs tracking-widest">O Comando para a IA:</p>
+                    <div class="prompt-box-green">
+                        <p class="text-green-400 font-mono text-sm leading-relaxed italic">
+                            "Você é um Copywriter de elite. Escreva uma legenda irresistível para vender meu [MODELO DO CELULAR] atual. Foque no estado impecável do aparelho, no custo-benefício para quem quer um upgrade e termine com uma chamada para ação urgente para o meu WhatsApp."
                         </p>
                     </div>
                 </div>
-            </div>
 
-            <div class="w-5/12 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-white font-black uppercase text-[10px] mb-2 flex items-center tracking-widest text-cyan-500">
-                        <i class="fas fa-robot mr-2"></i> Ecossistema 2026
-                    </h3>
-                    
-                    <div class="tool-category border-blue-500">
-                        <h4 class="text-white font-black text-xs uppercase">Texto: <span class="text-blue-400">ChatGPT & Claude</span></h4>
-                        <p class="text-gray-400 text-[9px]">Raciocínio e escrita de elite.</p>
-                    </div>
-
-                    <div class="tool-category border-pink-500">
-                        <h4 class="text-white font-black text-xs uppercase">Imagem: <span class="text-pink-400">Midjourney & Firefly</span></h4>
-                        <p class="text-gray-400 text-[9px]">Visuais realistas e publicitários.</p>
-                    </div>
-
-                    <div class="tool-category border-purple-500">
-                        <h4 class="text-white font-black text-xs uppercase">Vídeo: <span class="text-purple-400">Runway & ElevenLabs</span></h4>
-                        <p class="text-gray-400 text-[9px]">Vídeos e vozes profissionais.</p>
-                    </div>
-
-                    <div class="tool-category border-yellow-500">
-                        <h4 class="text-white font-black text-xs uppercase">Automação: <span class="text-yellow-500">Make & Zapier</span></h4>
-                        <p class="text-gray-400 text-[9px]">IA executando tarefas sozinha.</p>
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-[#1e293b] font-black text-2xl mb-6 uppercase">Checklist da Venda:</h3>
+                    <div class="space-y-3">
+                        <div class="checklist-item">
+                            <p class="text-gray-700 font-bold text-sm"><i class="fas fa-bolt text-green-500 mr-2"></i> Gatilho de Urgência (Só hoje!)</p>
+                        </div>
+                        <div class="checklist-item">
+                            <p class="text-gray-700 font-bold text-sm"><i class="fas fa-star text-green-500 mr-2"></i> Benefício Real (Fotos Incríveis)</p>
+                        </div>
+                        <div class="checklist-item">
+                            <p class="text-gray-700 font-bold text-sm"><i class="fas fa-link text-green-500 mr-2"></i> Link de Contato (WhatsApp)</p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="glass-card p-4 border-cyan-500/30">
-                    <p class="text-cyan-400 text-[9px] font-black uppercase mb-1 flex items-center">
-                        <i class="fas fa-lightbulb mr-2"></i> Dica de Ouro
-                    </p>
-                    <p class="text-gray-200 text-[11px] leading-tight italic">
-                        Não use IA para "pensar" por você. Use para <strong>executar</strong> e acelerar suas ideias originais.
-                    </p>
+            <div class="mt-10 bg-[#1e293b] p-5 rounded-xl flex items-center justify-between shadow-2xl">
+                <p class="text-white text-lg font-bold">
+                    <i class="fas fa-check-double text-green-500 mr-3"></i> Agora junte a imagem do Passo 2 com este texto e poste!
+                </p>
+                <div class="flex gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-green-500 font-black text-[10px] uppercase">Ação em Tempo Real</span>
                 </div>
             </div>
+        </div>
+
+        <div class="absolute bottom-4 right-20 text-gray-400 font-black text-[10px] uppercase tracking-widest">
+           
         </div>
     </div>
 </div>

@@ -3,37 +3,67 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Creator Economy no Brasil</title>
+    <title>IA na Prática: Playbook de Prompts</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .card-kpi {
-            background-color: #1E293B;
-            border-top: 4px solid transparent;
-            height: 235px; /* Altura fixa para segurança no telão */
-            transition: all 0.3s ease;
-        }
-        .card-kpi:hover {
-            transform: translateY(-5px);
-            background-color: #27354d;
-        }
-        .border-t-green { border-top-color: #10B981; }
-        .border-t-blue { border-top-color: #3B82F6; }
-        .border-t-purple { border-top-color: #8B5CF6; }
-        .border-t-yellow { border-top-color: #F59E0B; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
         
-        .bg-pattern {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.05;
-            background-image: url("https://page.gensparksite.com/slides_images/020c795e10a55e0d2410d5451b759c4d.png");
-            z-index: 0;
+        .bg-tech {
+            background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
+        }
+
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            position: relative; overflow: hidden; 
+            display: flex; flex-direction: column;
+            padding: 40px 80px; /* Padding padrão */
+        }
+
+        /* Syntax Highlighting */
+        .syntax-keyword { color: #c084fc; font-weight: 800; } 
+        .syntax-string { color: #4ade80; } 
+        .syntax-variable { color: #38bdf8; font-weight: 800; } 
+        .syntax-comment { color: #64748b; font-style: italic; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .prompt-window {
+            background: #0b0f1a;
+            border: 1px solid #1e293b;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .tool-category {
+            border-left: 4px solid;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 8px 14px; /* Mais compacto para não vazar */
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .glow-cyan { text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
+        .code-font { font-family: 'Fira Code', monospace; }
+        
+        /* AJUSTE PARA O MENU DE NOTAS */
+        .main-content {
+            margin-bottom: 110px; /* Espaço obrigatório para o menu não sobrepor */
         }
     </style>
 
@@ -155,100 +185,95 @@
     </style>
 
 </head>
-<body>
+<body class="bg-tech text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col">
-        <div class="bg-pattern"></div>
-        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+    <div class="slide-container">
+        <div class="absolute left-0 top-0 h-full w-2 bg-cyan-500 z-30 shadow-[5px_0_20px_rgba(34,211,238,0.4)]"></div>
 
-        <div class="p-12 pl-20 pb-6 z-10">
-            <div class="flex items-center mb-4">
-                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Ecossistema Digital</span>
-                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Brasil 2026</span>
+        <div class="flex-none z-20 mb-4">
+            <div class="flex items-center mb-1">
+                <span class="bg-cyan-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-full shadow-lg">Engenharia de Prompt</span>
+                <span class="text-cyan-400 text-[10px] font-bold ml-4 tracking-widest uppercase opacity-70"></span>
             </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
-                Creator Economy <span class="text-yellow-500">Brasil</span>
+            <h1 class="text-5xl font-black uppercase tracking-tighter glow-cyan">
+                IA NA PRÁTICA: <span class="text-cyan-400">COMANDOS</span>
             </h1>
-            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4">
-                A profissionalização dos criadores de conteúdo e o impacto real nos negócios.
-            </p>
         </div>
 
-        <div class="px-20 z-10 grid grid-cols-2 gap-8">
-            <div class="card-kpi border-t-green rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-users text-8xl text-green-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 mr-4">
-                        <i class="fas fa-user-plus text-lg"></i>
+        <div class="flex flex-1 gap-8 z-10 items-stretch overflow-hidden main-content">
+            
+            <div class="w-7/12 flex flex-col gap-3">
+                <div class="glass-card p-3 border-l-4 border-red-500 bg-red-500/5">
+                    <p class="text-red-500 font-black uppercase text-[10px] tracking-widest mb-1 flex items-center">
+                        <i class="fas fa-ban mr-2"></i> Prompt Genérico (Fraco)
+                    </p>
+                    <div class="bg-black/50 p-2 rounded-lg code-font text-xs text-gray-500 italic">
+                        "Faça um post sobre vendas."
                     </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Base de Criadores</p>
                 </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">14 <span class="text-3xl text-gray-500 font-bold">Milhões</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-green-500 h-full w-full"></div>
+
+                <div class="prompt-window rounded-xl p-5 flex-1 border-t-4 border-cyan-500">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-cyan-400 font-black uppercase text-[10px] tracking-widest flex items-center">
+                            <i class="fas fa-terminal mr-2"></i> Estrutura Mestre (Copia e Cola)
+                        </span>
+                        <div class="flex gap-1">
+                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">CONTEXTO</span>
+                            <span class="px-2 py-0.5 bg-cyan-900/40 text-cyan-300 text-[8px] font-black rounded border border-cyan-500/20">FORMATO</span>
+                        </div>
+                    </div>
+                    
+                    <div class="code-font text-base leading-snug text-gray-200">
+                        <p>
+                            <span class="syntax-keyword">Atue como</span> um <span class="syntax-variable">copywriter sênior</span>...<br/><br/>
+                            <span class="syntax-keyword">Tarefa:</span> Crie um post carrossel para Instagram.<br/>
+                            <span class="syntax-keyword">Público:</span> Microempreendedores iniciantes.<br/>
+                            <span class="syntax-keyword">Tom:</span> Prático e direto.<br/>
+                            <span class="syntax-keyword">Requisitos:</span><br/>
+                            &nbsp;&nbsp;1. Inclua CTA para "Link na Bio".<br/>
+                            &nbsp;&nbsp;2. Gere 3 variações de Headlines.<br/><br/>
+                            <span class="syntax-comment">// Evite clichês corporativos.</span>
+                        </p>
+                    </div>
                 </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Brasileiros produzindo conteúdo ativamente, liderando a influência digital global.</p>
             </div>
 
-            <div class="card-kpi border-t-blue rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-bullhorn text-8xl text-blue-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-4">
-                        <i class="fas fa-chart-pie text-lg"></i>
+            <div class="w-5/12 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-white font-black uppercase text-[10px] mb-2 flex items-center tracking-widest text-cyan-500">
+                        <i class="fas fa-robot mr-2"></i> Ecossistema 2026
+                    </h3>
+                    
+                    <div class="tool-category border-blue-500">
+                        <h4 class="text-white font-black text-xs uppercase">Texto: <span class="text-blue-400">ChatGPT & Claude</span></h4>
+                        <p class="text-gray-400 text-[9px]">Raciocínio e escrita de elite.</p>
                     </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Microinfluenciadores</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">83 <span class="text-3xl text-gray-500 font-bold">%</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-blue-500 h-full w-10/12"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Criadores com até 100k seguidores detêm o maior engajamento e conversão.</p>
-            </div>
 
-            <div class="card-kpi border-t-purple rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-wallet text-8xl text-purple-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-4">
-                        <i class="fas fa-money-bill-trend-up text-lg"></i>
+                    <div class="tool-category border-pink-500">
+                        <h4 class="text-white font-black text-xs uppercase">Imagem: <span class="text-pink-400">Midjourney & Firefly</span></h4>
+                        <p class="text-gray-400 text-[9px]">Visuais realistas e publicitários.</p>
                     </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Mercado Nacional</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">R$ 4 <span class="text-3xl text-gray-500 font-bold">bi</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-purple-500 h-full w-3/4"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Movimentação anual estimada em publicidade e infoprodutos no Brasil.</p>
-            </div>
 
-            <div class="card-kpi border-t-yellow rounded-lg p-8 shadow-xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fas fa-earth-americas text-8xl text-yellow-500"></i>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 mr-4">
-                        <i class="fas fa-rocket text-lg"></i>
+                    <div class="tool-category border-purple-500">
+                        <h4 class="text-white font-black text-xs uppercase">Vídeo: <span class="text-purple-400">Runway & ElevenLabs</span></h4>
+                        <p class="text-gray-400 text-[9px]">Vídeos e vozes profissionais.</p>
                     </div>
-                    <p class="text-gray-400 font-bold uppercase text-xs tracking-wider">Projeção Global 2027</p>
-                </div>
-                <p class="text-white text-6xl font-black tracking-tight mb-2">US$ 480 <span class="text-3xl text-gray-500 font-bold">bi</span></p>
-                <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden mb-4">
-                    <div class="bg-yellow-500 h-full w-full"></div>
-                </div>
-                <p class="text-gray-300 text-xs font-['Open_Sans'] leading-relaxed">Estimativa do Goldman Sachs para o crescimento do setor no mundo.</p>
-            </div>
-        </div>
 
-        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3 z-20">
-            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans'] uppercase tracking-widest">
-                <i class="fas fa-info-circle mr-2"></i>
-                <span>Fonte: Wake Creators, Goldman Sachs, Forbes (Censo 2025)</span>
+                    <div class="tool-category border-yellow-500">
+                        <h4 class="text-white font-black text-xs uppercase">Automação: <span class="text-yellow-500">Make & Zapier</span></h4>
+                        <p class="text-gray-400 text-[9px]">IA executando tarefas sozinha.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 border-cyan-500/30">
+                    <p class="text-cyan-400 text-[9px] font-black uppercase mb-1 flex items-center">
+                        <i class="fas fa-lightbulb mr-2"></i> Dica de Ouro
+                    </p>
+                    <p class="text-gray-200 text-[11px] leading-tight italic">
+                        Não use IA para "pensar" por você. Use para <strong>executar</strong> e acelerar suas ideias originais.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

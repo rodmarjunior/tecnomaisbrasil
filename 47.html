@@ -3,49 +3,69 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Desafio Prático - Criação</title>
+    <title>Onde está o Dinheiro Agora? - Projeto Tecno Mais Brasil</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; background: #0F172A; padding: 15px; color: white; padding-bottom: 100px; }
-        .card { background: white; color: #1e293b; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .topic-box { 
-            background: #f1f5f9; 
-            border: 2px dashed #6366f1; 
-            padding: 20px; 
-            border-radius: 12px; 
-            font-weight: 800; 
-            text-align: center; 
-            margin: 15px 0;
-            color: #4338ca;
-            font-size: 1.1rem;
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #f1f5f9;
         }
-        textarea { 
-            width: 100%; 
-            height: 180px; 
-            border: 2px solid #e2e8f0; 
-            border-radius: 12px; 
-            padding: 15px; 
-            margin-top: 10px; 
-            font-weight: 600;
-            color: #1e293b;
-            font-family: sans-serif;
+
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
         }
-        .btn-main { 
-            background: #6366f1; 
-            color: white; 
-            width: 100%; 
-            padding: 18px; 
-            border-radius: 12px; 
-            font-weight: 900; 
-            margin-top: 15px; 
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            padding-top: 40px; /* Desce o título para não cortar no topo */
+            padding-bottom: 110px; /* Espaço de segurança para o menu inferior */
+        }
+
+        .opportunity-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .opportunity-card:hover {
+            transform: translateX(10px);
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .map-placeholder {
+            background: #1e293b;
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .red-badge {
+            background: #ef4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
     </style>
 
@@ -168,60 +188,73 @@
 
 </head>
 <body>
-    <div class="card">
-        <h1 class="text-2xl font-black mb-1 uppercase text-center">🎯 Missão Criativa</h1>
-        <p class="text-gray-400 text-[10px] text-center mb-4 uppercase font-bold tracking-widest">PROJETO TECNO MAIS BRASIL</p>
-        
-        <div class="topic-box" id="topic">Clique para sortear seu desafio</div>
-        
-        <button onclick="sortear()" class="text-xs font-black uppercase text-indigo-600 w-full mb-6 flex items-center justify-center gap-2">
-            <i class="fas fa-random"></i> TROCAR TEMA
-        </button>
 
-        <label class="text-xs font-black uppercase text-gray-400 ml-1">Sua Legenda de Alta Conversão:</label>
-        <textarea id="texto" placeholder="Dica: Use os gatilhos que aprendemos..."></textarea>
-        
-        <button onclick="enviar()" class="btn-main shadow-lg">Finalizar e Ver Gabarito</button>
-        
-        <div id="feedback" class="hidden mt-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-800 text-xs font-bold">
-            <i class="fas fa-check-circle mr-2"></i> Missão concluída! Redirecionando...
+<div class="slide-wrapper">
+    <div class="slide-container">
+        <div class="absolute left-0 top-0 h-full w-3 bg-red-600 z-30 shadow-[5px_0_15px_rgba(239,68,68,0.3)]"></div>
+
+        <div class="w-full h-full flex flex-col justify-center px-24 z-20">
+            <div class="flex items-center mb-2">
+                <span class="red-badge">Prospecção de Ouro</span>
+                <span class="text-gray-400 text-xs font-bold ml-4 tracking-[0.3em] uppercase">Oportunidades Locais</span>
+            </div>
+
+            <h1 class="text-[#1e293b] text-5xl font-black uppercase leading-tight mb-2">
+                ONDE ESTÁ O <br><span class="text-red-600">DINHEIRO AGORA?</span>
+            </h1>
+            <p class="text-gray-500 text-xl font-bold italic mb-6 border-l-4 border-red-600 pl-6">
+                O lucro está escondido nos problemas que você já sabe resolver.
+            </p>
+
+            <div class="flex gap-8 items-stretch flex-1">
+                <div class="w-1/2 flex flex-col justify-center">
+                    <p class="text-[#1e293b] text-lg leading-relaxed mb-6">
+                        Abra o <span class="text-red-600 font-black">Google Maps</span> e pesquise na sua rua. Seu cliente é quem tem um perfil abandonado:
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="opportunity-card shadow-sm">
+                            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mr-4 shadow-inner">
+                                <i class="fas fa-camera-retro"></i>
+                            </div>
+                            <p class="text-gray-700 font-bold text-sm">Sem fotos profissionais?</p>
+                        </div>
+                        
+                        <div class="opportunity-card shadow-sm">
+                            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mr-4 shadow-inner">
+                                <i class="fas fa-calendar-times"></i>
+                            </div>
+                            <p class="text-gray-700 font-bold text-sm">Postagens paradas há meses?</p>
+                        </div>
+                        
+                        <div class="opportunity-card shadow-sm">
+                            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mr-4 shadow-inner">
+                                <i class="fas fa-comment-slash"></i>
+                            </div>
+                            <p class="text-gray-700 font-bold text-sm">Clientes sem resposta?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-1/2 map-placeholder rounded-2xl shadow-2xl border-4 border-white flex flex-col items-center justify-center p-6 relative">
+                    <i class="fas fa-location-dot text-red-500 text-6xl mb-4 animate-bounce"></i>
+                    <h4 class="text-white font-black text-center text-lg uppercase leading-tight">
+                        PESQUISE POR:<br>
+                        <span class="text-red-400">"RESTAURANTES", "PETSHOPS" OU "ACADEMIAS"</span>
+                    </h4>
+                    <p class="text-gray-500 text-[10px] mt-4 font-bold uppercase tracking-widest text-center">Encontre os pontos cegos do Google Meu Negócio</p>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-gray-900 p-4 rounded-xl flex items-center justify-between border-l-4 border-green-500">
+                <p class="text-white text-base font-bold">
+                    <i class="fas fa-money-bill-wave text-green-500 mr-3"></i> Oportunidade: Venda sua Gestão por R$ 300 - R$ 800/mês.
+                </p>
+                <span class="text-green-500 font-black text-[10px] uppercase">Geração de Renda</span>
+            </div>
         </div>
     </div>
+</div>
 
-    <script>
-        const temas = [
-            "Por que um jovem de 16 anos precisa entender de IA hoje?",
-            "Como eu faria meus primeiros R$ 1.000 no digital se começasse do zero",
-            "A habilidade que a escola não ensina, mas o mercado paga muito bem",
-            "3 ferramentas de IA que economizam 5 horas do meu dia",
-            "O erro que faz 90% dos iniciantes desistirem do digital",
-            "Trabalhar para o mundo: como ganhar em dólar sem sair de casa"
-        ];
-
-        function sortear() { 
-            const box = document.getElementById('topic');
-            const novoTema = temas[Math.floor(Math.random() * temas.length)];
-            box.style.opacity = 0;
-            setTimeout(() => {
-                box.innerText = novoTema;
-                box.style.opacity = 1;
-            }, 200);
-        }
-
-        function enviar() {
-            const texto = document.getElementById('texto').value;
-            if(texto.length < 20) {
-                alert('Sua legenda está muito curta! Desenvolva um pouco mais a ideia.');
-                return;
-            }
-            
-            document.getElementById('feedback').classList.remove('hidden');
-            
-            // Redireciona para o Gabarito (Slide 45) após 2 segundos
-            setTimeout(() => { 
-                window.location.href = '45.html'; 
-            }, 2000);
-        }
-    </script>
 </body>
 </html>

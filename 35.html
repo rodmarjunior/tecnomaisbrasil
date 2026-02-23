@@ -3,17 +3,48 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Social: Renda com Conexão</title>
+    <title>Quiz: Seu Perfil Digital</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
+
     <style>
-        .social-bg { background: radial-gradient(circle at bottom right, #7c2d12, #0f172a); }
-        .social-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease; }
-        .social-card:hover { transform: scale(1.03); border-color: #f59e0b; box-shadow: 0 0 30px rgba(245, 158, 11, 0.2); }
-        .badge-orange { background: #f59e0b; color: #000; padding: 2px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; }
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .question { display: none; animation: fadeIn 0.5s; }
+        .question.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .progress-bar { height: 6px; background: #e5e7eb; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #6366F1, #8B5CF6); transition: width 0.3s; }
+        
+        .option {
+            background: #F8FAFC; border: 2px solid #E2E8F0;
+            padding: 12px 15px; margin: 8px 0; border-radius: 12px;
+            cursor: pointer; transition: all 0.3s;
+            font-weight: 600; color: #1E293B; font-size: 0.9rem;
+        }
+        .option:hover { background: #EEF2FF; border-color: #6366F1; transform: translateX(5px); }
+        .option.selected { background: #6366F1; color: white; border-color: #6366F1; }
+        
+        .btn-next {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            color: white; padding: 12px 30px; border-radius: 10px;
+            font-weight: 700; cursor: pointer; margin-top: 15px; width: 100%;
+            opacity: 0.5; pointer-events: none; transition: all 0.3s;
+        }
+        .btn-next.active { opacity: 1; pointer-events: all; }
     </style>
 
     <style>
@@ -135,48 +166,141 @@
 
 </head>
 <body>
+
 <div class="slide-wrapper">
-    <div class="slide-container social-bg flex flex-col">
-        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30 shadow-[0_0_15px_rgba(245,158,11,0.5)]"></div>
-        
-        <div class="px-20 pt-12 pb-6 z-20">
-            <span class="bg-yellow-500 text-black text-xs font-black px-3 py-1 uppercase rounded-sm">Persuasão & Relacionamento</span>
-            <h1 class="text-white text-5xl font-black uppercase mt-2">SOCIAL: <span class="text-yellow-500">Poder de Influência</span></h1>
-            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-yellow-500 pl-4 mt-2">Monetizando sua habilidade de se conectar com seres humanos.</p>
-        </div>
-
-        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
-            <div class="social-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-comments text-xl"></i></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Closer de Vendas (Whats)</h3>
-                    <span class="badge-orange">Comissão</span>
-                </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Empresas e infoprodutores geram leads mas não dão conta de responder. Você recupera vendas e fecha boletos pelo WhatsApp.</p>
-                <div class="mt-auto text-[10px] text-yellow-500 font-black uppercase tracking-widest">Foco: Persuasão + WhatsApp</div>
+    <div class="slide-container flex items-center justify-center bg-[#0F172A]">
+        <div class="quiz-card">
+            <h1 class="text-2xl font-black text-[#1E293B] mb-1">🎯 Seu Perfil Digital</h1>
+            <p class="text-gray-500 text-xs mb-4 font-['Open_Sans'] text-center">Responda e descubra sua carreira ideal!</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 10%"></div>
             </div>
 
-            <div class="social-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-users text-xl"></i></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Moderador de Grupos</h3>
-                    <span class="badge-orange">Recorrência</span>
+            <div id="quiz-flow">
+                <div class="question active" data-question="1">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 1/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Você gosta de criar conteúdo visual?</div>
+                    <div class="option" data-value="criativo">Sim, adoro criar vídeos e designs</div>
+                    <div class="option" data-value="neutro">Gosto um pouco</div>
+                    <div class="option" data-value="analitico">Não, prefiro dados</div>
                 </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Gerencia comunidades de alunos ou clientes no Discord, Telegram ou WhatsApp. Mantém o engajamento e remove spans.</p>
-                <div class="mt-auto text-[10px] text-yellow-500 font-black uppercase tracking-widest">Ferramenta: Discord / Telegram</div>
+                <div class="question" data-question="2">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 2/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Como se sente com números e planilhas?</div>
+                    <div class="option" data-value="analitico">Amo analisar dados</div>
+                    <div class="option" data-value="neutro">Consigo trabalhar</div>
+                    <div class="option" data-value="criativo">Prefiro evitar</div>
+                </div>
+                <div class="question" data-question="3">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 3/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Você se considera mais:</div>
+                    <div class="option" data-value="criativo">Artística e Criativa</div>
+                    <div class="option" data-value="analitico">Lógica e Analítica</div>
+                    <div class="option" data-value="social">Social e Comunicativa</div>
+                </div>
+                <div class="question" data-question="4">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 4/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Atividade no tempo livre:</div>
+                    <div class="option" data-value="criativo">Fotografia / Desenho</div>
+                    <div class="option" data-value="tech">Programar / Tech</div>
+                    <div class="option" data-value="social">Redes Sociais</div>
+                </div>
+                <div class="question" data-question="5">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 5/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Identifica tendências com facilidade?</div>
+                    <div class="option" data-value="analitico">Sim, percebo padrões</div>
+                    <div class="option" data-value="neutro">Normal</div>
+                    <div class="option" data-value="criativo">Não, foco na arte</div>
+                </div>
+                <div class="question" data-question="6">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 6/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Como prefere se expressar?</div>
+                    <div class="option" data-value="criativo">Imagens e Vídeos</div>
+                    <div class="option" data-value="social">Palavras e Textos</div>
+                    <div class="option" data-value="analitico">Dados e Gráficos</div>
+                </div>
+                <div class="question" data-question="7">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 7/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Gosta de softwares de edição?</div>
+                    <div class="option" data-value="criativo">Sim, já uso ou quero aprender</div>
+                    <div class="option" data-value="tech">Prefiro ferramentas técnicas</div>
+                    <div class="option" data-value="neutro">Não tenho certeza</div>
+                </div>
+                <div class="question" data-question="8">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 8/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Tarefa mais interessante:</div>
+                    <div class="option" data-value="criativo">Vídeo Viral</div>
+                    <div class="option" data-value="analitico">Análise de Métricas</div>
+                    <div class="option" data-value="social">Gerir Comunidades</div>
+                </div>
+                <div class="question" data-question="9">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 9/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">Interesse em Storytelling?</div>
+                    <div class="option" data-value="criativo">Sim, via imagens</div>
+                    <div class="option" data-value="social">Sim, via textos</div>
+                    <div class="option" data-value="analitico">Não, prefiro dados</div>
+                </div>
+                <div class="question" data-question="10">
+                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 10/10</div>
+                    <div class="text-[#1E293B] font-bold text-base mb-3">O que valoriza no trabalho?</div>
+                    <div class="option" data-value="criativo">Liberdade Criativa</div>
+                    <div class="option" data-value="analitico">Lógica e Problemas</div>
+                    <div class="option" data-value="tech">Inovação e Código</div>
+                </div>
             </div>
 
-            <div class="social-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-pen-fancy text-xl"></i></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Ghostwriter de LinkedIn</h3>
-                    <span class="badge-orange">R$ 500+ /mês</span>
-                </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Escreve posts para executivos que querem ter autoridade mas não têm tempo de escrever. Você é a voz por trás do perfil.</p>
-                <div class="mt-auto text-[10px] text-yellow-500 font-black uppercase tracking-widest">Habilidade: Escrita Criativa</div>
-            </div>
+            <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Próxima Pergunta</button>
         </div>
     </div>
 </div>
+
+<script>
+    let currentQuestion = 1;
+    let answers = { criativo: 0, analitico: 0, social: 0, tech: 0, neutro: 0 };
+
+    document.querySelectorAll('.option').forEach(option => {
+        option.addEventListener('click', function() {
+            const question = this.closest('.question');
+            question.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('nextBtn').classList.add('active');
+        });
+    });
+
+    function nextQuestion() {
+        const currentQ = document.querySelector('.question.active');
+        const selected = currentQ.querySelector('.option.selected');
+        if (!selected) return;
+
+        const value = selected.getAttribute('data-value');
+        answers[value]++;
+        currentQ.classList.remove('active');
+        currentQuestion++;
+        document.getElementById('progressBar').style.width = (currentQuestion * 10) + '%';
+        
+        if (currentQuestion <= 10) {
+            document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+            document.getElementById('nextBtn').classList.remove('active');
+            if (currentQuestion === 10) document.getElementById('nextBtn').textContent = 'Ver Resultado';
+        } else {
+            calcularResultado();
+        }
+    }
+
+    function calcularResultado() {
+        let maxScore = 0;
+        let perfil = '';
+        for (let key in answers) {
+            if (answers[key] > maxScore && key !== 'neutro') {
+                maxScore = answers[key];
+                perfil = key;
+            }
+        }
+        localStorage.setItem('perfilDigital', perfil);
+        localStorage.setItem('scores', JSON.stringify(answers));
+        window.location.href = '28.html'; 
+    }
+</script>
 </body>
 </html>

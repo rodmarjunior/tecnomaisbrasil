@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Atividade Prática - Mão na Massa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Slide 40 - O Chamado à Ação</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
@@ -13,43 +13,58 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #0F172A; }
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding-top: 40px;
-            padding-bottom: 100px;
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #020617;
         }
 
-        .qr-giant {
-            background: white; padding: 25px; border-radius: 30px;
-            box-shadow: 0 0 60px rgba(99, 102, 241, 0.4);
-            border: 10px solid #6366F1;
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .timer-display {
-            background: #1e293b; color: #ef4444;
-            padding: 10px 30px; border-radius: 999px;
-            font-family: 'Courier New', monospace; font-weight: 900;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        .slide-container {
+            width: 1280px; height: 720px;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
         }
 
-        .music-btn {
-            position: fixed; top: 30px; right: 30px; z-index: 100;
-            background: #6366F1; color: white; width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); transition: 0.3s;
+        .hero-text {
+            font-size: 5.5rem;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
         }
 
-        /* Ajustes para Mobile */
-        @media (max-width: 1024px) {
-            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
-            .flex-mobile-col { flex-direction: column !important; gap: 40px !important; }
-            h1 { font-size: 3rem !important; }
-            .qr-giant img { width: 250px; height: 250px; }
-            .timer-display { font-size: 3rem !important; }
+        .highlight-text {
+            color: #6366f1;
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .floating-icon {
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+            position: absolute;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 40px;
+            border-radius: 30px;
+            margin-top: 50px;
         }
     </style>
 
@@ -173,63 +188,48 @@
 </head>
 <body>
 
-<audio id="audioAtividade" src="musica3.mp3" preload="auto" loop></audio>
-
-<div class="music-btn" onclick="toggleMusica()">
-    <i id="musicIcon" class="fas fa-play"></i>
-</div>
-
 <div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-600 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.5)]"></div>
+    <div class="slide-container px-24 text-center">
+        <i class="fas fa-rocket floating-icon text-[200px]" style="top: 10%; left: 5%;"></i>
+        <i class="fas fa-brain floating-icon text-[180px]" style="bottom: 10%; right: 5%; animation-delay: 2s;"></i>
 
-        <div class="text-center mb-10 z-10 w-full px-4">
-            <h1 class="text-white text-4xl md:text-6xl font-black uppercase mb-4 leading-tight">MÃO NA <span class="text-indigo-500">MASSA</span></h1>
-            <p class="text-gray-400 text-lg md:text-2xl italic font-bold">Atividade: Criando Conteúdo que Vende</p>
-        </div>
+        <div class="z-10">
+            <span class="text-indigo-400 font-black uppercase tracking-[0.6em] text-sm mb-8 block animate-pulse">
+                A jornada apenas começou
+            </span>
+            
+            <h1 class="hero-text text-white font-black uppercase mb-10">
+                O SEU <span class="highlight-text italic">LEGADO</span> <br> NÃO SERÁ <br> AUTOMATIZADO.
+            </h1>
 
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 z-10 w-full flex-mobile-col">
-            <div class="qr-giant">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=https://rodmarjunior.github.io/tecnomaisbrasil/47.html" 
-                     alt="QR Code Atividade" 
-                     class="w-56 h-56 md:w-80 md:h-80">
-            </div>
-
-            <div class="max-w-md w-full space-y-8 px-4">
-                <div class="bg-indigo-900/30 p-6 md:p-8 rounded-2xl border border-indigo-500/50 backdrop-blur-sm">
-                    <h3 class="text-indigo-400 font-black text-xl md:text-2xl mb-4 uppercase text-center md:text-left">REGRAS:</h3>
-                    <ul class="text-gray-300 space-y-4 text-lg md:text-xl font-bold">
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Escaneie o código</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Sorteie seu tema</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Mostre sua criatividade</li>
-                    </ul>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="timer-display text-4xl md:text-6xl">10:00</div>
+            <div class="max-w-3xl mx-auto cta-box">
+                <p class="text-gray-300 text-2xl font-medium leading-relaxed italic">
+                    "A inteligência artificial pode gerar o código, o texto e a imagem. Mas ela jamais terá a sua <span class="text-white font-bold">visão</span>, a sua <span class="text-white font-bold">vontade</span> e a sua <span class="text-white font-bold">humanidade</span>."
+                </p>
+                
+                <div class="mt-8 flex justify-center items-center gap-4">
+                    <div class="h-px w-16 bg-indigo-500"></div>
+                    <span class="text-white font-black uppercase tracking-widest text-lg">
+                        Dê o primeiro passo agora
+                    </span>
+                    <div class="h-px w-16 bg-indigo-500"></div>
                 </div>
             </div>
+
+            <div class="mt-12">
+                <p class="text-gray-500 font-bold text-xl">
+                    Prepare-se. O futuro não é algo que acontece, é algo que você <span class="text-indigo-400">constrói</span>.
+                </p>
+            </div>
         </div>
 
-        <div class="mt-12 text-white font-black text-lg md:text-xl animate-bounce z-10 text-center w-full">
-            <i class="fas fa-arrow-up mr-3 text-indigo-500"></i> ESCANEIE PARA COMEÇAR
+        <div class="absolute bottom-10 left-0 w-full text-center">
+            <p class="text-gray-600 text-xs font-black uppercase tracking-[0.4em]">
+      
+            </p>
         </div>
     </div>
 </div>
-
-<script>
-    const player = document.getElementById('audioAtividade');
-    const icon = document.getElementById('musicIcon');
-
-    function toggleMusica() {
-        if (player.paused) {
-            player.play();
-            icon.classList.replace('fa-play', 'fa-pause');
-        } else {
-            player.pause();
-            icon.classList.replace('fa-pause', 'fa-play');
-        }
-    }
-</script>
 
 </body>
 </html>

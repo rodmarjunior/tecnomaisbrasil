@@ -2,58 +2,42 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Atividade: Seu Perfil Digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Freelancer Digital 2026</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        /* Estilos globais mantidos */
-        html, body { background-color: #0f172a; }
+        /* Restaurando a profundidade visual original */
+        .platform-tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .platform-tag:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
         
-        .qr-container {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
-            border: 8px solid #6366F1;
+        .demand-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
-        .pulse-text {
-            animation: pulse 2s infinite;
+        .demand-item:hover {
+            background-color: #1E293B;
+            border-left-color: #3B82F6;
+            transform: translateX(5px);
         }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .bg-animate {
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-        }
-        .music-control {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: #6366F1;
-            color: white;
-            width: 50px; height: 50px;
+        
+        .accent-circle {
+            position: absolute;
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
-        }
-
-        /* Ajuste para Mobile */
-        @media (max-width: 1024px) {
-            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
-            h1 { font-size: 2.5rem !important; }
-            .flex-mobile-center { flex-direction: column; text-align: center; }
-            .qr-link-text { font-size: 1rem !important; word-break: break-all; }
+            filter: blur(80px);
+            z-index: 0;
         }
     </style>
 
@@ -177,64 +161,126 @@
 </head>
 <body>
 
-<audio id="trilhaAtividade" src="musica2.mp3" preload="auto" loop></audio>
-
-<div class="music-control" onclick="toggleMusica()">
-    <i id="musicIcon" class="fas fa-play"></i>
-</div>
-
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-animate">
-        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+    <div class="slide-container flex flex-col overflow-hidden">
+        <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 z-30"></div>
+        
+        <div class="accent-circle w-96 h-96 bg-blue-600 opacity-10 top-0 right-0"></div>
+        <div class="accent-circle w-64 h-64 bg-purple-600 opacity-10 bottom-0 left-20"></div>
 
-        <div class="flex-none px-6 md:px-20 pt-16 pb-6 z-20 text-center">
-            <div class="flex items-center justify-center mb-4">
-                <span class="bg-indigo-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full">Autoconhecimento</span>
+        <div class="flex-none px-20 pt-12 pb-6 z-20">
+            <div class="flex items-center mb-4">
+                <span class="bg-blue-500 text-white text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Carreira Digital</span>
+                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Renda & Portfólio</span>
             </div>
-            <h1 class="text-white text-4xl md:text-5xl font-black uppercase leading-tight tracking-tight mb-4">
-                DESCUBRA SEU <span class="text-indigo-400">PERFIL DIGITAL</span>
+            <h1 class="text-white text-4xl font-black uppercase tracking-tight leading-none">
+                Freelancer <span class="text-blue-500">Digital</span>
             </h1>
-            <p class="text-gray-300 text-lg md:text-xl font-['Open_Sans'] max-w-3xl mx-auto">
-                Aponte a câmera do seu celular para o QR Code abaixo e descubra qual dessas carreiras mais combina com seus talentos.
+            <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-3xl leading-snug">
+                A porta de entrada mais rápida para monetizar habilidades sem vínculo empregatício.
             </p>
         </div>
 
-        <div class="flex-1 flex flex-col items-center justify-center z-10 pb-10">
-            <div class="qr-container mb-6">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://rodmarjunior.github.io/tecnomaisbrasil/30.html" 
-                     alt="QR Code Quiz" 
-                     class="w-48 h-48 md:w-64 md:h-64">
-            </div>
+        <div class="flex-1 px-20 pb-12 grid grid-cols-12 gap-8 z-10 items-center">
             
-            <div class="flex items-center gap-4 text-white font-black text-lg md:text-2xl uppercase tracking-widest pulse-text qr-link-text">
-                <i class="fas fa-mobile-screen-button"></i>
-                <span>rodmarjunior.github.io/tecnomaisbrasil/30.html</span>
+            <div class="col-span-5 flex flex-col gap-5">
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-blue-500 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-blue-400 text-lg mr-3"></i>
+                        <h3 class="text-white font-bold text-sm uppercase">Onde Encontrar Jobs?</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="platform-tag p-3 rounded border border-gray-700 flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mr-2 text-[10px] font-bold">W</div>
+                            <p class="text-gray-300 text-xs font-bold">Workana</p>
+                        </div>
+                        <div class="platform-tag p-3 rounded border border-gray-700 flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 mr-2 text-[10px] font-bold">UP</div>
+                            <p class="text-gray-300 text-xs font-bold">Upwork</p>
+                        </div>
+                        <div class="platform-tag p-3 rounded border border-gray-700 flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 mr-2 text-[10px] font-bold">99</div>
+                            <p class="text-gray-300 text-xs font-bold">99Freelas</p>
+                        </div>
+                        <div class="platform-tag p-3 rounded border border-gray-700 flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mr-2 text-[10px] font-bold">Fi</div>
+                            <p class="text-gray-300 text-xs font-bold">Fiverr</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-purple-500 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-briefcase text-purple-400 text-lg mr-3"></i>
+                        <h3 class="text-white font-bold text-sm uppercase">Modelo de Negócio</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-sm"></i>
+                            <div>
+                                <p class="text-white font-bold text-xs">Pacotes Mensais</p>
+                                <p class="text-gray-400 text-[10px]">Jobs pontuais em renda recorrente.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-sm"></i>
+                            <div>
+                                <p class="text-white font-bold text-xs">Portfólio & Resultados</p>
+                                <p class="text-gray-400 text-[10px]">Venda o resultado, não o serviço.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-7 bg-[#0F172A] border border-gray-800 p-8 rounded-xl relative overflow-hidden h-full flex flex-col justify-center">
+                <div class="absolute top-0 right-0 p-6 opacity-5">
+                    <i class="fas fa-chart-line text-9xl text-white"></i>
+                </div>
+                <h3 class="text-white text-2xl font-black uppercase mb-6 border-b border-gray-800 pb-4 relative z-10">
+                    <span class="text-yellow-500">Alta Demanda</span> 2026
+                </h3>
+                <div class="space-y-3 relative z-10">
+                    <div class="demand-item p-4 rounded bg-[#1E293B]/50 flex items-center">
+                        <div class="w-10 h-10 rounded bg-blue-600 flex items-center justify-center text-white text-lg mr-4 shadow-lg"><i class="fas fa-pen-fancy"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-base">Conteúdo com IA & Copy</p>
+                            <p class="text-gray-400 text-xs">Roteiros e posts usando IA como copiloto.</p>
+                        </div>
+                    </div>
+                    <div class="demand-item p-4 rounded bg-[#1E293B]/50 flex items-center">
+                        <div class="w-10 h-10 rounded bg-green-600 flex items-center justify-center text-white text-lg mr-4 shadow-lg"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-base">Automação No-Code</p>
+                            <p class="text-gray-400 text-xs">Integração de sistemas para PMEs (Zapier/Make).</p>
+                        </div>
+                    </div>
+                    <div class="demand-item p-4 rounded bg-[#1E293B]/50 flex items-center">
+                        <div class="w-10 h-10 rounded bg-pink-600 flex items-center justify-center text-white text-lg mr-4 shadow-lg"><i class="fas fa-bullseye"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-base">Tráfego & Performance</p>
+                            <p class="text-gray-400 text-xs">Gestão de anúncios focada em ROI.</p>
+                        </div>
+                    </div>
+                    <div class="demand-item p-4 rounded bg-[#1E293B]/50 flex items-center">
+                        <div class="w-10 h-10 rounded bg-purple-600 flex items-center justify-center text-white text-lg mr-4 shadow-lg"><i class="fas fa-video"></i></div>
+                        <div>
+                            <p class="text-white font-bold text-base">Edição (Short Form)</p>
+                            <p class="text-gray-400 text-xs">Cortes dinâmicos para Reels/TikTok.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="absolute bottom-6 left-10 right-10 border-t border-gray-800 pt-3 z-20">
-            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest gap-2">
-                <span><i class="fas fa-clock mr-2 text-indigo-500"></i> Tempo estimado: 2 minutos</span>
-                <span>Rodmar Junior • Projeto Tecno Mais Brasil</span>
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
+            <div class="flex items-center text-gray-500 text-[10px] font-['Open_Sans'] uppercase tracking-widest">
+                <i class="fas fa-info-circle mr-2"></i>
+                <span>Dica: Especialize-se em um nicho para cobrar valores mais altos.</span>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    const musica = document.getElementById('trilhaAtividade');
-    const icon = document.getElementById('musicIcon');
-
-    function toggleMusica() {
-        if (musica.paused) {
-            musica.play();
-            icon.classList.replace('fa-play', 'fa-pause');
-        } else {
-            musica.pause();
-            icon.classList.replace('fa-pause', 'fa-play');
-        }
-    }
-</script>
 
 </body>
 </html>

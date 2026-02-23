@@ -3,78 +3,89 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>A Arte do Contorno - Projeto Tecno Mais Brasil</title>
+    <title>Slide 39 - Missão: Upgrade Real</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        /* Fundo mais vibrante e moderno */
-        .strategy-bg { 
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); 
-        }
-        
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; 
-            justify-content: center; padding: 40px 60px 100px 60px;
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #f1f5f9;
         }
 
-        /* Estilo Glassmorphism para os cards */
-        .obj-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(10px);
-            border-radius: 24px; 
-            padding: 25px; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background-color: #ffffff;
             position: relative;
             overflow: hidden;
+            display: flex; flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+
+        .mission-bg {
+            background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1280');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
-            height: 230px;
+            height: 250px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .obj-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.2);
         }
 
-        .obj-card::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-color: #10b981;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1);
         }
 
-        /* Cores das barras de topo */
-        .bar-red::before { background: #ef4444; }
-        .bar-orange::before { background: #f97316; }
-        .bar-yellow::before { background: #facc15; }
-        .bar-blue::before { background: #3b82f6; }
-
-        /* Box de resposta com melhor contraste */
-        .ans-box { 
-            background: rgba(15, 23, 42, 0.6); 
-            padding: 12px 15px; 
-            border-radius: 12px; 
-            border-left: 4px solid currentColor;
-            margin-top: 10px;
-        }
-
-        .label-obj {
-            font-size: 10px;
+        .timer-badge {
+            background: #1e293b;
+            color: #10b981;
+            padding: 10px 25px;
+            border-radius: 999px;
             font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+        }
+
+        .pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(16, 185, 129, 0.7)); }
+            70% { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(16, 185, 129, 0)); }
+        }
+
+        /* Correção para o box de destaque inferior */
+        .highlight-quote-box {
+            background-color: #0f172a !important; /* Azul marinho muito escuro */
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
     </style>
 
@@ -196,80 +207,83 @@
     </style>
 
 </head>
-<body class="strategy-bg text-white overflow-hidden">
+<body>
 
 <div class="slide-wrapper">
-    <div class="slide-container">
-        
-        <div class="text-center mb-10">
-            <h1 class="text-white text-6xl font-black uppercase leading-tight drop-shadow-lg">
-                COMO VIRAR <span class="text-red-500">O JOGO?</span>
+    <div class="slide-container mission-bg">
+        <div class="absolute left-0 top-0 h-full w-3 bg-green-500 z-30 shadow-[5px_0_15px_rgba(16,185,129,0.3)]"></div>
+
+        <div class="w-full h-full flex flex-col justify-center px-24 z-20">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center">
+                    <span class="bg-green-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-sm shadow-md">Simulação de Mercado</span>
+                    <span class="text-gray-500 text-xs font-bold ml-4 tracking-[0.3em] uppercase">Desafio: Upgrade de Ativo</span>
+                </div>
+                <div class="timer-badge">
+                    <i class="fas fa-bolt pulse-green"></i>
+                    <span>AÇÃO IMEDIATA: 10 MINUTOS</span>
+                </div>
+            </div>
+
+            <h1 class="text-[#1e293b] text-6xl font-black uppercase leading-none mb-4">
+                MISSÃO: Venda seu <br><span class="text-green-600">Celular Atual</span>
             </h1>
-            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mt-2">Transformando Objeções em Oportunidades</p>
+            <p class="text-gray-500 text-2xl font-bold italic mb-10 border-l-4 border-green-500 pl-6">
+                Objetivo: Levantar capital para comprar o modelo superior.
+            </p>
+
+            <div class="grid grid-cols-3 gap-8">
+                <div class="mission-card border-t-8 border-green-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600">
+                            <i class="fas fa-camera text-2xl"></i>
+                        </div>
+                        <h3 class="text-[#1e293b] font-black text-lg uppercase">1. O Valor</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Olhe para o seu celular agora. Identifique <strong>3 qualidades</strong> dele (ex: bateria ótima, tela sem risco, fotos boas). Ele é o seu produto.
+                    </p>
+                </div>
+
+                <div class="mission-card border-t-8 border-blue-600">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                            <i class="fas fa-brain text-2xl"></i>
+                        </div>
+                        <h3 class="text-[#1e293b] font-black text-lg uppercase">2. O Gancho</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Use a IA para criar um texto de venda: <br><em>"Atue como vendedor elite, crie um anúncio de desapego honesto, mas irresistível."</em>
+                    </p>
+                </div>
+
+                <div class="mission-card border-t-8 border-purple-600">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
+                            <i class="fas fa-paper-plane text-2xl"></i>
+                        </div>
+                        <h3 class="text-[#1e293b] font-black text-lg uppercase">3. O Pitch</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Monte um <strong>Story no Instagram</strong> ou <strong>Status no Whats</strong>. Use uma foto real e a oferta que a IA gerou. 
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 highlight-quote-box flex items-center justify-between">
+                <p class="text-white text-xl font-bold italic">
+                    "O primeiro passo para ser um profissional digital é aprender a vender o que você já tem."
+                </p>
+                <div class="flex items-center gap-3 text-green-400 font-black">
+                    <i class="fas fa-check-double"></i>
+                    <span class="uppercase tracking-tighter">Valide sua Oferta</span>
+                </div>
+            </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-6 max-w-6xl mx-auto">
-            
-            <div class="obj-card bar-red">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-red-400">Objeção 01</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Está caro!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">O cliente ainda não percebeu o lucro que você gera.</p>
-                </div>
-                <div class="ans-box text-red-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Quanto custa para sua empresa continuar com imagens que não vendem e perder clientes para o vizinho?"
-                    </p>
-                </div>
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-200 pt-3 z-20">
+            <div class="flex justify-between items-center text-gray-400 text-[10px] font-black uppercase tracking-widest">
             </div>
-
-            <div class="obj-card bar-orange">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-orange-400">Objeção 02</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Já tenho quem faça!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está apenas confortável com o básico.</p>
-                </div>
-                <div class="ans-box text-orange-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Ótimo! Posso te enviar uma arte teste com IA sem custo? Se o resultado for superior ao atual, conversamos."
-                    </p>
-                </div>
-            </div>
-
-            <div class="obj-card bar-yellow">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-yellow-400">Objeção 03</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Não preciso disso!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele ainda não entendeu que o jogo mudou.</p>
-                </div>
-                <div class="ans-box text-yellow-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Entendo. Mas hoje 80% das vendas começam no celular. Posso te mostrar como seus concorrentes estão atraindo seu público?"
-                    </p>
-                </div>
-            </div>
-
-            <div class="obj-card bar-blue">
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="label-obj text-blue-400">Objeção 04</span>
-                        <h4 class="text-white font-black text-xl uppercase">"Manda no WhatsApp!"</h4>
-                    </div>
-                    <p class="text-gray-400 text-xs italic leading-relaxed">Ele está tentando fugir da decisão agora.</p>
-                </div>
-                <div class="ans-box text-blue-400">
-                    <p class="text-gray-200 font-bold text-sm leading-snug">
-                        <i class="fas fa-comment-dots mr-2"></i> "Com certeza! Já enviei. Podemos marcar uma conversa de 2 minutos amanhã às 14h para eu tirar suas dúvidas?"
-                    </p>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

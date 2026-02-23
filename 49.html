@@ -2,199 +2,134 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Ponte de Aprendizado - Projeto Tecno Mais Brasil</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>O Painel que Vende</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
-
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #0F172A; }
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
-            position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center;
-        }
-        .hook-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 40px;
-            padding: 60px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .icon-pulse {
-            animation: pulse-indigo 2s infinite;
-        }
-        @keyframes pulse-indigo {
-            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(99, 102, 241, 0.4)); }
-            70% { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(99, 102, 241, 0)); }
-        }
-    </style>
-
-    <style>
+        /* Blindagem Mobile Segura e Ajustes Globais */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            
             .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
+                width: 100% !important; height: auto !important; min-height: 100vh !important; 
+                display: flex !important; flex-direction: column !important; transform: none !important; 
+                padding: 40px 20px 100px 20px !important; /* Respiro para o footer no celular */
             }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
+            .w-1\/2 { width: 100% !important; height: auto !important; }
+            .flex-mobile-col { flex-direction: column !important; gap: 30px !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; text-align: left; }
         }
+        .glass-box { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Classe para imagens clicáveis com Zoom */
+        .zoomable-image { cursor: zoom-in; transition: transform 0.3s ease; }
+        .zoomable-image:hover { transform: scale(1.03); }
     </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
-            .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
-            .custom-footer { flex-direction: row !important; }
-            .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-        }
-    </style>
-
 </head>
-<body class="overflow-hidden">
+<body class="bg-[#0B1120] overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-500 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.3)]"></div>
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-green-500 z-30 shadow-[5px_0_15px_rgba(34,197,94,0.3)]"></div>
 
-        <div class="hook-card z-20">
-            <div class="w-24 h-24 bg-indigo-600/20 rounded-3xl flex items-center justify-center text-indigo-400 text-5xl mx-auto mb-8 icon-pulse">
-                <i class="fas fa-chart-line"></i>
-            </div>
+        <div class="flex items-center gap-12 flex-mobile-col z-20">
             
-            <h1 class="text-white text-5xl font-black uppercase mb-6 leading-tight">
-                CRIAR É SÓ <span class="text-indigo-500">METADE DO JOGO.</span>
-            </h1>
-            
-            <p class="text-gray-300 text-2xl font-medium leading-relaxed mb-10 italic">
-                "No digital, o conteúdo atrai o olhar, mas os <span class="text-indigo-400 font-bold">dados</span> dizem se o dinheiro entrou no bolso."
-            </p>
-
-            <div class="flex justify-center gap-12">
-                <div class="text-left">
-                    <span class="text-indigo-500 font-black text-xs uppercase tracking-widest block mb-2">O que já fizemos:</span>
-                    <p class="text-white font-bold text-lg"><i class="fas fa-check-circle text-green-500 mr-2"></i> Criamos a Oferta</p>
-                </div>
-                <div class="h-12 w-px bg-gray-700"></div>
-                <div class="text-left">
-                    <span class="text-indigo-500 font-black text-xs uppercase tracking-widest block mb-2">O que faremos agora:</span>
-                    <p class="text-white font-bold text-lg"><i class="fas fa-arrow-circle-right text-indigo-500 mr-2"></i> Analisaremos o Resultado</p>
+            <div class="w-1/2 flex justify-center">
+                <div class="relative w-full rounded-2xl overflow-hidden border border-gray-700 shadow-[0_15px_40px_rgba(34,197,94,0.2)]">
+                    <div class="absolute top-4 left-4 bg-green-500 text-black text-xs font-bold px-3 py-1 rounded shadow z-10 pointer-events-none">
+                        +1.542 Visualizações este mês
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Painel de Resultados" class="w-full h-[400px] object-cover opacity-90 zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
                 </div>
             </div>
+
+            <div class="w-1/2">
+                <h1 class="text-white text-5xl font-black uppercase tracking-tight mb-8">
+                    Como Executar e <span class="text-green-500">Cobrar</span>
+                </h1>
+                
+                <div class="space-y-5">
+                    <div class="glass-box p-5 rounded-xl flex items-start gap-4 border-l-4 border-green-500">
+                        <div class="bg-green-500/20 text-green-400 text-xl font-black w-10 h-10 rounded-full flex items-center justify-center shrink-0">1</div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg uppercase mb-1">Criação & Otimização (Taxa Única)</h3>
+                            <p class="text-gray-400 text-sm">Otimizar título, preencher categorias corretas, adicionar fotos profissionais e usar o ChatGPT para criar uma descrição focada em SEO local.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-box p-5 rounded-xl flex items-start gap-4 border-l-4 border-green-500">
+                        <div class="bg-green-500/20 text-green-400 text-xl font-black w-10 h-10 rounded-full flex items-center justify-center shrink-0">2</div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg uppercase mb-1">A Prova Social (Avaliações)</h3>
+                            <p class="text-gray-400 text-sm">Criar um link direto e um QR Code para o dono da loja colocar no balcão e pedir 5 estrelas aos clientes felizes.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-box p-5 rounded-xl flex items-start gap-4 border-l-4 border-green-500">
+                        <div class="bg-green-500/20 text-green-400 text-xl font-black w-10 h-10 rounded-full flex items-center justify-center shrink-0">3</div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg uppercase mb-1">A Manutenção (Recorrência)</h3>
+                            <p class="text-gray-400 text-sm">Cobrar uma mensalidade para responder comentários usando IA, postar atualizações semanais e enviar o relatório de visualizações (o painel ao lado).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="absolute bottom-10 left-0 w-full text-center">
-            <p class="text-gray-600 text-xs font-black uppercase tracking-[0.4em]">Prepare-se para a Atividade de Análise</p>
+        <div class="absolute bottom-6 right-20 text-gray-600 text-[10px] uppercase tracking-widest hidden md:block font-bold">
+            Rodmar Junior • Projeto Tecno Mais Brasil • Fev 2026
         </div>
+
     </div>
 </div>
+
+<div id="image-modal" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-zoom-out" onclick="closeZoom()">
+    <img id="zoomed-image" src="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300">
+    <div class="absolute top-6 right-8 text-gray-400 hover:text-white text-4xl cursor-pointer">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<script>
+    function openZoom(src) {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        img.src = src;
+        
+        // Remove 'hidden' para o display block funcionar
+        modal.classList.remove('hidden');
+        
+        // Pequeno delay para a transição do CSS acontecer de forma suave
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            img.classList.remove('scale-95');
+            img.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeZoom() {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        
+        // Inicia a animação de saída
+        modal.classList.add('opacity-0');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        
+        // Esconde o elemento depois da animação terminar
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            img.src = ''; // Limpa a fonte
+        }, 300);
+    }
+</script>
 
 </body>
 </html>

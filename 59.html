@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Slide 40 - O Chamado à Ação</title>
-    
+    <title>Desafio Prático - Criação</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -13,58 +12,40 @@
     <script src="navegacao.js" defer></script>
 
     <style>
-        html, body {
-            margin: 0; padding: 0;
-            width: 100%; height: 100%;
-            overflow: hidden;
-            background-color: #020617;
+        body { font-family: 'Montserrat', sans-serif; background: #0F172A; padding: 15px; color: white; padding-bottom: 100px; }
+        .card { background: white; color: #1e293b; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .topic-box { 
+            background: #f1f5f9; 
+            border: 2px dashed #6366f1; 
+            padding: 20px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            text-align: center; 
+            margin: 15px 0;
+            color: #4338ca;
+            font-size: 1.1rem;
         }
-
-        .slide-wrapper {
-            width: 100vw; height: 100vh;
-            display: flex; align-items: center; justify-content: center;
+        textarea { 
+            width: 100%; 
+            height: 180px; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin-top: 10px; 
+            font-weight: 600;
+            color: #1e293b;
+            font-family: sans-serif;
         }
-
-        .slide-container {
-            width: 1280px; height: 720px;
-            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex; flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 0 100px rgba(0,0,0,0.8);
-        }
-
-        .hero-text {
-            font-size: 5.5rem;
-            line-height: 0.9;
-            letter-spacing: -0.05em;
-        }
-
-        .highlight-text {
-            color: #6366f1;
-            text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
-        }
-
-        .floating-icon {
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.1;
-            position: absolute;
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-        }
-
-        .cta-box {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 40px;
-            border-radius: 30px;
-            margin-top: 50px;
+        .btn-main { 
+            background: #6366f1; 
+            color: white; 
+            width: 100%; 
+            padding: 18px; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            margin-top: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 
@@ -187,49 +168,60 @@
 
 </head>
 <body>
+    <div class="card">
+        <h1 class="text-2xl font-black mb-1 uppercase text-center">🎯 Missão Criativa</h1>
+        <p class="text-gray-400 text-[10px] text-center mb-4 uppercase font-bold tracking-widest">PROJETO TECNO MAIS BRASIL</p>
+        
+        <div class="topic-box" id="topic">Clique para sortear seu desafio</div>
+        
+        <button onclick="sortear()" class="text-xs font-black uppercase text-indigo-600 w-full mb-6 flex items-center justify-center gap-2">
+            <i class="fas fa-random"></i> TROCAR TEMA
+        </button>
 
-<div class="slide-wrapper">
-    <div class="slide-container px-24 text-center">
-        <i class="fas fa-rocket floating-icon text-[200px]" style="top: 10%; left: 5%;"></i>
-        <i class="fas fa-brain floating-icon text-[180px]" style="bottom: 10%; right: 5%; animation-delay: 2s;"></i>
-
-        <div class="z-10">
-            <span class="text-indigo-400 font-black uppercase tracking-[0.6em] text-sm mb-8 block animate-pulse">
-                A jornada apenas começou
-            </span>
-            
-            <h1 class="hero-text text-white font-black uppercase mb-10">
-                O SEU <span class="highlight-text italic">LEGADO</span> <br> NÃO SERÁ <br> AUTOMATIZADO.
-            </h1>
-
-            <div class="max-w-3xl mx-auto cta-box">
-                <p class="text-gray-300 text-2xl font-medium leading-relaxed italic">
-                    "A inteligência artificial pode gerar o código, o texto e a imagem. Mas ela jamais terá a sua <span class="text-white font-bold">visão</span>, a sua <span class="text-white font-bold">vontade</span> e a sua <span class="text-white font-bold">humanidade</span>."
-                </p>
-                
-                <div class="mt-8 flex justify-center items-center gap-4">
-                    <div class="h-px w-16 bg-indigo-500"></div>
-                    <span class="text-white font-black uppercase tracking-widest text-lg">
-                        Dê o primeiro passo agora
-                    </span>
-                    <div class="h-px w-16 bg-indigo-500"></div>
-                </div>
-            </div>
-
-            <div class="mt-12">
-                <p class="text-gray-500 font-bold text-xl">
-                    Prepare-se. O futuro não é algo que acontece, é algo que você <span class="text-indigo-400">constrói</span>.
-                </p>
-            </div>
-        </div>
-
-        <div class="absolute bottom-10 left-0 w-full text-center">
-            <p class="text-gray-600 text-xs font-black uppercase tracking-[0.4em]">
-      
-            </p>
+        <label class="text-xs font-black uppercase text-gray-400 ml-1">Sua Legenda de Alta Conversão:</label>
+        <textarea id="texto" placeholder="Dica: Use os gatilhos que aprendemos..."></textarea>
+        
+        <button onclick="enviar()" class="btn-main shadow-lg">Finalizar e Ver Gabarito</button>
+        
+        <div id="feedback" class="hidden mt-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-800 text-xs font-bold">
+            <i class="fas fa-check-circle mr-2"></i> Missão concluída! Redirecionando...
         </div>
     </div>
-</div>
 
+    <script>
+        const temas = [
+            "Por que um jovem de 16 anos precisa entender de IA hoje?",
+            "Como eu faria meus primeiros R$ 1.000 no digital se começasse do zero",
+            "A habilidade que a escola não ensina, mas o mercado paga muito bem",
+            "3 ferramentas de IA que economizam 5 horas do meu dia",
+            "O erro que faz 90% dos iniciantes desistirem do digital",
+            "Trabalhar para o mundo: como ganhar em dólar sem sair de casa"
+        ];
+
+        function sortear() { 
+            const box = document.getElementById('topic');
+            const novoTema = temas[Math.floor(Math.random() * temas.length)];
+            box.style.opacity = 0;
+            setTimeout(() => {
+                box.innerText = novoTema;
+                box.style.opacity = 1;
+            }, 200);
+        }
+
+        function enviar() {
+            const texto = document.getElementById('texto').value;
+            if(texto.length < 20) {
+                alert('Sua legenda está muito curta! Desenvolva um pouco mais a ideia.');
+                return;
+            }
+            
+            document.getElementById('feedback').classList.remove('hidden');
+            
+            // Redireciona para o Gabarito (Slide 45) após 2 segundos
+            setTimeout(() => { 
+                window.location.href = '45.html'; 
+            }, 2000);
+        }
+    </script>
 </body>
 </html>

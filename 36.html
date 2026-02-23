@@ -3,17 +3,32 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Tech: Renda com Automação</title>
+    <title>Seu Perfil Digital: Resultado</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
+
     <style>
-        .tech-bg { background: radial-gradient(circle at top right, #064e3b, #0f172a); }
-        .tech-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); backdrop-filter: blur(10px); transition: all 0.3s ease; }
-        .tech-card:hover { transform: scale(1.03); border-color: #10b981; box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); }
-        .badge-green { background: #10b981; color: #000; padding: 2px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; }
+        .result-container {
+            background: white; border-radius: 20px; padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            width: 90%; max-width: 850px; height: 600px; overflow-y: auto;
+        }
+        .profile-badge {
+            text-align: center; padding: 20px; border-radius: 15px; margin-bottom: 20px;
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); color: white;
+        }
+        .section-title { color: #1E293B; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 5px; }
+        .skill-item { background: #F1F5F9; padding: 10px 15px; border-radius: 8px; border-left: 4px solid #6366F1; font-weight: 600; font-size: 0.8rem; }
+        .score-bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; }
+        .score-label { min-width: 100px; font-weight: 600; font-size: 0.75rem; color: #475569; }
+        .score-progress { flex: 1; height: 8px; background: #E2E8F0; border-radius: 10px; overflow: hidden; }
+        .score-fill { height: 100%; background: #6366F1; transition: width 1s; }
+        .score-value { font-weight: 700; color: #6366F1; font-size: 0.75rem; }
     </style>
 
     <style>
@@ -135,48 +150,106 @@
 
 </head>
 <body>
+
 <div class="slide-wrapper">
-    <div class="slide-container tech-bg flex flex-col">
-        <div class="absolute left-0 top-0 h-full w-2 bg-green-500 z-30 shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
-        
-        <div class="px-20 pt-12 pb-6 z-20">
-            <span class="bg-green-600 text-white text-xs font-black px-3 py-1 uppercase rounded-sm">Lógica & Escala</span>
-            <h1 class="text-white text-5xl font-black uppercase mt-2">TECH: <span class="text-green-500">Arquiteto de Soluções</span></h1>
-            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-green-500 pl-4 mt-2">Criando máquinas invisíveis que trabalham por você.</p>
-        </div>
-
-        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
-            <div class="tech-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-robot text-xl"></i></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Configurador de Chatbots</h3>
-                    <span class="badge-green">R$ 500+ /projeto</span>
-                </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Muitos negócios perdem vendas por demora no atendimento. Você cria fluxos automáticos no <strong>ManyChat</strong> ou <strong>Typebot</strong> direto pelo navegador do celular.</p>
-                <div class="mt-auto text-[10px] text-green-400 font-black uppercase tracking-widest">Ferramenta: ManyChat / Typebot</div>
+    <div class="slide-container flex items-center justify-center bg-[#0F172A]">
+        <div class="result-container">
+            <div class="profile-badge" id="profileBadge">
+                <div class="text-4xl mb-2" id="profileIcon">🎬</div>
+                <div class="text-3xl font-black mb-1" id="profileTitle">Carregando...</div>
+                <div class="text-sm opacity-90" id="profileSubtitle">Aguarde um momento</div>
             </div>
 
-            <div class="tech-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-plug text-xl"></i></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Mestre de Integrações</h3>
-                    <span class="badge-green">Freelance</span>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="section">
+                    <div class="section-title text-base"><i class="fas fa-chart-bar"></i> Seus Pontos</div>
+                    <div id="scoreDisplay"></div>
+                    
+                    <div class="section-title text-base mt-4"><i class="fas fa-rocket"></i> Próximos Passos</div>
+                    <p class="text-gray-600 text-xs leading-relaxed italic" id="careerPath"></p>
                 </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Conecta ferramentas (Ex: Planilha que envia e-mail automático). Use o <strong>Make (antigo Integromat)</strong> para criar essas pontes sem digitar código.</p>
-                <div class="mt-auto text-[10px] text-green-400 font-black uppercase tracking-widest">Plataforma: Make / Zapier</div>
-            </div>
 
-            <div class="tech-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-black mb-4 shadow-lg"><i class="fas fa-mobile-alt text-xl"></i></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Criador de Apps No-Code</h3>
-                    <span class="badge-green">R$ 1.5k+ /app</span>
+                <div class="section">
+                    <div class="section-title text-base"><i class="fas fa-star"></i> Skills de Ouro</div>
+                    <div class="grid grid-cols-1 gap-2" id="skillsList"></div>
+                    
+                    <div class="section-title text-base mt-4"><i class="fas fa-dollar-sign"></i> Renda 2026</div>
+                    <p class="text-gray-600 text-xs font-bold" id="incomeInfo"></p>
                 </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Cria aplicativos simples para controle de estoque ou agendamento de barbearias usando o <strong>Glide</strong> ou <strong>AppSheet</strong>. O código é visual e intuitivo.</p>
-                <div class="mt-auto text-[10px] text-green-400 font-black uppercase tracking-widest">Ferramenta: Glide / FlutterFlow</div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+const profiles = {
+    criativo: {
+        title: 'Videomaker / Designer',
+        subtitle: 'Criador de Conteúdo Visual',
+        icon: '🎬',
+        skills: ['Edição de vídeo', 'Motion graphics', 'Storytelling visual', 'Design gráfico'],
+        careerPath: '1. Aprenda ferramentas (CapCut, Canva) → 2. Crie portfólio no Instagram → 3. Ofereça serviços para negócios locais.',
+        income: 'R$ 3.000 a R$ 15.000+ conforme especialização.'
+    },
+    analitico: {
+        title: 'Analista de Dados',
+        subtitle: 'Especialista em Insights',
+        icon: '📊',
+        skills: ['Excel avançado', 'Power BI / Tableau', 'SQL', 'Google Analytics'],
+        careerPath: '1. Domine Excel → 2. Aprenda Power BI → 3. Ofereça dashboards para e-commerces.',
+        income: 'R$ 4.000 a R$ 20.000+ em cargos sênior.'
+    },
+    social: {
+        title: 'Social Media / Copy',
+        subtitle: 'Especialista em Conteúdo',
+        icon: '✍️',
+        skills: ['Copy persuasivo', 'Gestão de redes', 'Community management', 'Escrita'],
+        careerPath: '1. Estude escrita persuasiva → 2. Gerencie redes de parceiros → 3. Monte portfólio de resultados.',
+        income: 'R$ 3.000 a R$ 12.000+ com agência própria.'
+    },
+    tech: {
+        title: 'Desenvolvedor / Tech',
+        subtitle: 'Especialista em Soluções',
+        icon: '💻',
+        skills: ['HTML, CSS, JS', 'Python', 'Lógica de programação', 'Git'],
+        careerPath: '1. Aprenda fundamentos → 2. Construa projetos no GitHub → 3. Busque freelances.',
+        income: 'R$ 5.000 a R$ 35.000+ no mercado global.'
+    }
+};
+
+window.onload = function() {
+    const perfil = localStorage.getItem('perfilDigital') || 'criativo';
+    const scores = JSON.parse(localStorage.getItem('scores') || '{"criativo":5}');
+    const profile = profiles[perfil];
+    
+    document.getElementById('profileIcon').textContent = profile.icon;
+    document.getElementById('profileTitle').textContent = profile.title;
+    document.getElementById('profileSubtitle').textContent = profile.subtitle;
+    document.getElementById('careerPath').textContent = profile.careerPath;
+    document.getElementById('incomeInfo').textContent = profile.income;
+    
+    const skillsList = document.getElementById('skillsList');
+    profile.skills.forEach(skill => {
+        const div = document.createElement('div');
+        div.className = 'skill-item';
+        div.innerHTML = `<i class="fas fa-check-circle mr-2" style="color:#6366F1"></i> ${skill}`;
+        skillsList.appendChild(div);
+    });
+    
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const names = { criativo: 'Criativo', analitico: 'Dados', social: 'Social', tech: 'Tech' };
+    for (let key in scores) {
+        if (key !== 'neutro' && scores[key] > 0) {
+            const div = document.createElement('div');
+            div.className = 'score-bar';
+            div.innerHTML = `
+                <div class="score-label">${names[key]}</div>
+                <div class="score-progress"><div class="score-fill" style="width: ${scores[key]*10}%"></div></div>
+                <div class="score-value">${scores[key]}</div>`;
+            scoreDisplay.appendChild(div);
+        }
+    }
+};
+</script>
 </body>
 </html>

@@ -3,48 +3,41 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Quiz: Seu Perfil Digital</title>
+    <title>Dropshipping em 2026</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .quiz-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            width: 90%;
-            max-width: 600px;
-            margin: 0 auto;
+        /* Restaurando a "Vida" do Style Original */
+        .bg-grid-decor {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         }
-        .question { display: none; animation: fadeIn 0.5s; }
-        .question.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .progress-bar { height: 6px; background: #e5e7eb; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #6366F1, #8B5CF6); transition: width 0.3s; }
+        .step-card { transition: all 0.3s ease; height: 260px; }
+        .step-card:hover { transform: translateY(-10px); background-color: #263349; }
         
-        .option {
-            background: #F8FAFC; border: 2px solid #E2E8F0;
-            padding: 12px 15px; margin: 8px 0; border-radius: 12px;
-            cursor: pointer; transition: all 0.3s;
-            font-weight: 600; color: #1E293B; font-size: 0.9rem;
+        .step-number-ring { box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2); }
+        
+        .step-connector {
+            position: absolute;
+            top: 24px; left: 50px; right: 50px;
+            height: 2px; background-color: #334155; z-index: 0;
         }
-        .option:hover { background: #EEF2FF; border-color: #6366F1; transform: translateX(5px); }
-        .option.selected { background: #6366F1; color: white; border-color: #6366F1; }
-        
-        .btn-next {
-            background: linear-gradient(135deg, #6366F1, #8B5CF6);
-            color: white; padding: 12px 30px; border-radius: 10px;
-            font-weight: 700; cursor: pointer; margin-top: 15px; width: 100%;
-            opacity: 0.5; pointer-events: none; transition: all 0.3s;
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
-        .btn-next.active { opacity: 1; pointer-events: all; }
+        .market-pulse { animation: pulse-border 2s infinite; }
     </style>
 
     <style>
@@ -168,139 +161,100 @@
 <body>
 
 <div class="slide-wrapper">
-    <div class="slide-container flex items-center justify-center bg-[#0F172A]">
-        <div class="quiz-card">
-            <h1 class="text-2xl font-black text-[#1E293B] mb-1">🎯 Seu Perfil Digital</h1>
-            <p class="text-gray-500 text-xs mb-4 font-['Open_Sans'] text-center">Responda e descubra sua carreira ideal!</p>
-            
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressBar" style="width: 10%"></div>
+    <div class="slide-container flex flex-col">
+        <div class="absolute inset-0 bg-grid-decor z-0"></div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-[#1E293B] opacity-50 skew-x-12 transform origin-top-right z-0"></div>
+
+        <div class="flex-none px-20 pt-12 pb-6 z-10 flex justify-between items-end">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Modelo de Negócio</span>
+                    <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Estratégia 2026</span>
+                </div>
+                <h1 class="text-white text-4xl font-black uppercase tracking-tight">
+                    Dropshipping <span class="text-yellow-500">2026</span>
+                </h1>
+                <p class="text-gray-400 text-lg mt-2 font-['Open_Sans'] border-l-4 border-gray-600 pl-4 max-w-xl leading-snug">
+                    O fim do amadorismo: mercado sem estoque com profissionalismo e visão de longo prazo.
+                </p>
             </div>
 
-            <div id="quiz-flow">
-                <div class="question active" data-question="1">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 1/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Você gosta de criar conteúdo visual?</div>
-                    <div class="option" data-value="criativo">Sim, adoro criar vídeos e designs</div>
-                    <div class="option" data-value="neutro">Gosto um pouco</div>
-                    <div class="option" data-value="analitico">Não, prefiro dados</div>
+            <div class="bg-[#1E293B] border border-gray-700 p-5 rounded-lg shadow-xl flex items-center gap-6 relative market-pulse">
+                <div class="text-center border-r border-gray-600 pr-6">
+                    <p class="text-gray-400 text-[10px] font-bold uppercase mb-1">Mercado Global</p>
+                    <p class="text-green-400 text-3xl font-black">US$ 445 <span class="text-sm text-gray-400">bi</span></p>
                 </div>
-                <div class="question" data-question="2">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 2/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Como se sente com números e planilhas?</div>
-                    <div class="option" data-value="analitico">Amo analisar dados</div>
-                    <div class="option" data-value="neutro">Consigo trabalhar</div>
-                    <div class="option" data-value="criativo">Prefiro evitar</div>
-                </div>
-                <div class="question" data-question="3">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 3/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Você se considera mais:</div>
-                    <div class="option" data-value="criativo">Artística e Criativa</div>
-                    <div class="option" data-value="analitico">Lógica e Analítica</div>
-                    <div class="option" data-value="social">Social e Comunicativa</div>
-                </div>
-                <div class="question" data-question="4">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 4/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Atividade no tempo livre:</div>
-                    <div class="option" data-value="criativo">Fotografia / Desenho</div>
-                    <div class="option" data-value="tech">Programar / Tech</div>
-                    <div class="option" data-value="social">Redes Sociais</div>
-                </div>
-                <div class="question" data-question="5">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 5/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Identifica tendências com facilidade?</div>
-                    <div class="option" data-value="analitico">Sim, percebo padrões</div>
-                    <div class="option" data-value="neutro">Normal</div>
-                    <div class="option" data-value="criativo">Não, foco na arte</div>
-                </div>
-                <div class="question" data-question="6">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 6/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Como prefere se expressar?</div>
-                    <div class="option" data-value="criativo">Imagens e Vídeos</div>
-                    <div class="option" data-value="social">Palavras e Textos</div>
-                    <div class="option" data-value="analitico">Dados e Gráficos</div>
-                </div>
-                <div class="question" data-question="7">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 7/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Gosta de softwares de edição?</div>
-                    <div class="option" data-value="criativo">Sim, já uso ou quero aprender</div>
-                    <div class="option" data-value="tech">Prefiro ferramentas técnicas</div>
-                    <div class="option" data-value="neutro">Não tenho certeza</div>
-                </div>
-                <div class="question" data-question="8">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 8/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Tarefa mais interessante:</div>
-                    <div class="option" data-value="criativo">Vídeo Viral</div>
-                    <div class="option" data-value="analitico">Análise de Métricas</div>
-                    <div class="option" data-value="social">Gerir Comunidades</div>
-                </div>
-                <div class="question" data-question="9">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 9/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">Interesse em Storytelling?</div>
-                    <div class="option" data-value="criativo">Sim, via imagens</div>
-                    <div class="option" data-value="social">Sim, via textos</div>
-                    <div class="option" data-value="analitico">Não, prefiro dados</div>
-                </div>
-                <div class="question" data-question="10">
-                    <div class="text-[#6366F1] font-bold text-xs mb-1 uppercase">Pergunta 10/10</div>
-                    <div class="text-[#1E293B] font-bold text-base mb-3">O que valoriza no trabalho?</div>
-                    <div class="option" data-value="criativo">Liberdade Criativa</div>
-                    <div class="option" data-value="analitico">Lógica e Problemas</div>
-                    <div class="option" data-value="tech">Inovação e Código</div>
+                <div class="text-center">
+                    <p class="text-gray-400 text-[10px] font-bold uppercase mb-1">Crescimento</p>
+                    <div class="flex items-center justify-center text-green-400">
+                        <i class="fas fa-arrow-trend-up mr-2 text-sm"></i>
+                        <p class="text-2xl font-black">22%</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Próxima Pergunta</button>
+        <div class="flex-1 px-16 relative z-10 flex flex-col justify-center">
+            <div class="relative w-full">
+                <div class="step-connector"></div>
+                
+                <div class="grid grid-cols-5 gap-4 relative z-10">
+                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-yellow-500 shadow-lg flex flex-col items-center text-center justify-between group">
+                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-yellow-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-yellow-500 group-hover:text-black transition-colors">1</div>
+                        <i class="fas fa-bullseye text-yellow-500 text-3xl mb-2"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-xs uppercase mb-1">Nicho & PMF</h3>
+                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Defina um público específico e um problema claro para resolver.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-blue-500 shadow-lg flex flex-col items-center text-center justify-between group">
+                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-blue-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-blue-500 group-hover:text-black transition-colors">2</div>
+                        <i class="fas fa-truck-fast text-blue-500 text-3xl mb-2"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-xs uppercase mb-1">Fornecedores BR</h3>
+                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Priorize estoque nacional para entrega rápida e SLA rigoroso.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-purple-500 shadow-lg flex flex-col items-center text-center justify-between group">
+                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-purple-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-purple-500 group-hover:text-black transition-colors">3</div>
+                        <i class="fas fa-desktop text-purple-500 text-3xl mb-2"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-xs uppercase mb-1">Oferta & Loja</h3>
+                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Landing page de alta conversão com prova social e vídeos.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-green-500 shadow-lg flex flex-col items-center text-center justify-between group">
+                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-green-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-green-500 group-hover:text-black transition-colors">4</div>
+                        <i class="fas fa-chart-pie text-green-500 text-3xl mb-2"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-xs uppercase mb-1">Margem & CAC</h3>
+                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Monitore o Custo de Aquisição (CAC) e garanta margem saudável.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-[#1E293B] p-5 rounded-lg border-b-4 border-red-500 shadow-lg flex flex-col items-center text-center justify-between group">
+                        <div class="w-12 h-12 rounded-full bg-[#0F172A] border-2 border-red-500 flex items-center justify-center text-white font-black text-xl step-number-ring mb-2 group-hover:bg-red-500 group-hover:text-black transition-colors">5</div>
+                        <i class="fas fa-scale-balanced text-red-500 text-3xl mb-2"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-xs uppercase mb-1">Compliance</h3>
+                            <p class="text-gray-400 text-[10px] font-['Open_Sans'] leading-tight">Emissão de nota fiscal e políticas claras de trocas e devoluções.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-20 right-20 border-t border-gray-800 pt-3 z-20">
+            <p class="text-gray-500 text-[10px] font-['Open_Sans'] uppercase tracking-widest">
+                Fonte: Statista 2025 - Global Dropshipping Market Report
+            </p>
         </div>
     </div>
 </div>
 
-<script>
-    let currentQuestion = 1;
-    let answers = { criativo: 0, analitico: 0, social: 0, tech: 0, neutro: 0 };
-
-    document.querySelectorAll('.option').forEach(option => {
-        option.addEventListener('click', function() {
-            const question = this.closest('.question');
-            question.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
-            this.classList.add('selected');
-            document.getElementById('nextBtn').classList.add('active');
-        });
-    });
-
-    function nextQuestion() {
-        const currentQ = document.querySelector('.question.active');
-        const selected = currentQ.querySelector('.option.selected');
-        if (!selected) return;
-
-        const value = selected.getAttribute('data-value');
-        answers[value]++;
-        currentQ.classList.remove('active');
-        currentQuestion++;
-        document.getElementById('progressBar').style.width = (currentQuestion * 10) + '%';
-        
-        if (currentQuestion <= 10) {
-            document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
-            document.getElementById('nextBtn').classList.remove('active');
-            if (currentQuestion === 10) document.getElementById('nextBtn').textContent = 'Ver Resultado';
-        } else {
-            calcularResultado();
-        }
-    }
-
-    function calcularResultado() {
-        let maxScore = 0;
-        let perfil = '';
-        for (let key in answers) {
-            if (answers[key] > maxScore && key !== 'neutro') {
-                maxScore = answers[key];
-                perfil = key;
-            }
-        }
-        localStorage.setItem('perfilDigital', perfil);
-        localStorage.setItem('scores', JSON.stringify(answers));
-        window.location.href = '28.html'; 
-    }
-</script>
 </body>
 </html>

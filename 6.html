@@ -2,55 +2,38 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>IA: A Nova Eletricidade</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Inteligência Digital em 2026</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
-    
-    <style>
-        /* CSS Original (PC) */
-        .hero-gradient { background: radial-gradient(circle at 20% 30%, #1e293b 0%, #0f172a 100%); }
-        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; }
-        .floating { animation: floating 4s ease-in-out infinite; }
-        @keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        .glow-text { text-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-        .feature-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .feature-card:hover { transform: scale(1.05); background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; }
 
-        /* Ajustes Finos e Estáticos para Mobile */
+    <style>
+        /* BLINDAGEM MOBILE DEFINITIVA E ÚNICA */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; padding-bottom: 90px !important; }
-            
+            .slide-wrapper { height: auto !important; display: block !important; padding: 0 !important; }
             .slide-container { 
                 width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important; justify-content: flex-start !important;
-                transform: none !important; padding: 40px 20px !important;
+                display: flex !important; flex-direction: column !important;
+                transform: none !important; padding: 40px 20px 100px 20px !important;
             }
-
-            /* Reseta o preenchimento lateral excessivo do PC */
-            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-
-            /* Transforma as colunas em blocos empilhados com espaço (gap) */
-            .w-1\/2 { width: 100% !important; height: auto !important; }
-            .flex.items-center.gap-12 { flex-direction: column !important; gap: 40px !important; align-items: stretch !important; }
-            
-            /* Desativa a animação flutuante e fixa o card */
-            .floating { animation: none !important; transform: none !important; }
-            
-            /* Ajustes de Tipografia para não quebrar a tela */
-            .text-7xl { font-size: 3.2rem !important; line-height: 1.1 !important; }
-            p { font-size: 1.1rem !important; }
-            
-            /* Ajusta o grid interno de Redes Neurais/Deep Learning para 1 coluna */
-            .grid-cols-2 { grid-template-columns: 1fr !important; gap: 15px !important; }
-            
-            /* Oculta borrões absolutos de fundo que causam bugs de rolagem no celular */
-            .absolute.-top-40, .scale-150 { display: none !important; }
+            .flex-row-mobile { flex-direction: column !important; gap: 30px !important; }
+            .w-half-mobile { width: 100% !important; }
+            .grid-mobile { grid-template-columns: 1fr !important; gap: 20px !important; }
+            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+            .text-lg { font-size: 1.1rem !important; }
         }
+
+        /* EFEITOS VISUAIS PREMIUM */
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); border-color: #fbbf24; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.15); }
+        .glass-box { background: linear-gradient(145deg, rgba(30,41,59,0.9) 0%, rgba(15,23,42,0.9) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-text { text-shadow: 0 0 30px rgba(251, 191, 36, 0.3); }
     </style>
 
     <style>
@@ -84,62 +67,99 @@
     </style>
 
 </head>
-<body class="hero-gradient overflow-hidden">
-<div class="slide-wrapper">
-    <div class="slide-container flex flex-col justify-center px-20 relative">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+<body class="bg-[#0B1120] overflow-hidden">
+
+<div class="slide-wrapper w-screen h-screen flex items-center justify-center">
+    <div class="slide-container w-[1280px] h-[720px] relative flex flex-col justify-between px-16 py-12">
         
-        <div class="flex items-center gap-12 z-20">
-            <div class="w-1/2">
-                <span class="text-blue-500 font-black uppercase tracking-[0.4em] mb-4 block text-sm md:text-base">A Revolução Invisível</span>
-                <h1 class="text-white text-7xl font-black uppercase mb-8 leading-none glow-text">
-                    O QUE É <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">INTELIGÊNCIA?</span>
-                </h1>
-                <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-10 border-l-4 border-blue-600 pl-6">
-                    A IA não é "mágica". É matemática de alto nível treinada para imitar o raciocínio humano, aprendendo com trilhões de exemplos para prever o próximo passo.
-                </p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="glass-panel p-6 feature-card">
-                        <i class="fas fa-brain text-blue-500 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold mb-1">Redes Neurais</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Inspirada nas conexões do cérebro para processar dados.</p>
-                    </div>
-                    <div class="glass-panel p-6 feature-card">
-                        <i class="fas fa-database text-indigo-500 text-2xl mb-3"></i>
-                        <h4 class="text-white font-bold mb-1">Deep Learning</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Camadas de aprendizado profundo que identificam padrões.</p>
-                    </div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30 shadow-[0_0_15px_rgba(251,191,36,0.5)]"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-1/2 w-full h-64 bg-blue-500/5 rounded-full blur-3xl -z-10 transform -translate-x-1/2"></div>
+        
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 flex-row-mobile z-20">
+            <div class="w-full md:w-5/12 w-half-mobile">
+                <div class="flex items-center mb-6">
+                    <span class="bg-yellow-500 text-black text-xs font-black px-4 py-1.5 uppercase tracking-widest rounded-sm">Conceito Fundamental</span>
                 </div>
+                <h1 class="text-white text-5xl md:text-6xl font-black uppercase leading-tight tracking-tight glow-text">
+                    Inteligência <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Digital</span>
+                </h1>
+                <p class="text-gray-400 mt-6 text-lg font-['Open_Sans'] border-l-4 border-yellow-500 pl-4">
+                    Não é sobre saber usar ferramentas. É sobre construir um ecossistema.
+                </p>
             </div>
 
-            <div class="w-1/2 relative flex justify-center mt-6 md:mt-0">
-                <div class="floating z-10 w-full max-w-md">
-                    <div class="glass-panel p-8 md:p-10 border-blue-500/30">
-                        <h3 class="text-white font-black text-center mb-6 uppercase tracking-widest text-sm md:text-base">Você já usa IA no...</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
-                                <i class="fab fa-film text-red-500 text-2xl"></i>
-                                <span class="text-gray-300 font-bold text-sm md:text-base">Recomendação de Filmes</span>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
-                                <i class="fab fa-instagram text-pink-500 text-2xl"></i>
-                                <span class="text-gray-300 font-bold text-sm md:text-base">Filtros & Algoritmos</span>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
-                                <i class="fab fa-spotify text-green-500 text-2xl"></i>
-                                <span class="text-gray-300 font-bold text-sm md:text-base">Playlists Personalizadas</span>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl">
-                                <i class="fas fa-shield-halved text-blue-400 text-2xl"></i>
-                                <span class="text-gray-300 font-bold text-sm md:text-base">Desbloqueio Facial</span>
-                            </div>
-                        </div>
+            <div class="w-full md:w-7/12 w-half-mobile flex flex-col gap-6">
+                <div class="glass-box p-8 rounded-2xl border-l-4 border-yellow-500 relative overflow-hidden">
+                    <i class="fas fa-quote-right absolute top-4 right-6 text-4xl text-white/5"></i>
+                    <p class="text-gray-100 text-xl font-medium leading-relaxed font-['Open_Sans']">
+                        É a capacidade estratégica de integrar <span class="text-yellow-400 font-black">Dados, IA e Automação</span> para resolver problemas complexos, escalar operações e criar valor tangível de mercado.
+                    </p>
+                </div>
+                
+                <div class="flex items-center gap-4 bg-blue-900/20 p-4 rounded-xl border border-blue-500/30">
+                    <div class="bg-blue-500/20 p-3 rounded-full"><i class="fas fa-chart-line text-blue-400 text-xl"></i></div>
+                    <div>
+                        <p class="text-white font-bold text-sm uppercase">O Impacto Real</p>
+                        <p class="text-gray-400 text-sm">Empresas e profissionais digitalmente inteligentes crescem em média 3x mais rápido.</p>
                     </div>
                 </div>
-                <div class="absolute w-full h-full bg-blue-500/10 rounded-full blur-3xl scale-150"></div>
             </div>
         </div>
+
+        <div class="mt-8 z-20">
+            <h3 class="text-white text-xl font-black uppercase tracking-widest mb-6 flex items-center">
+                <div class="w-8 h-1 bg-yellow-500 mr-4"></div>
+                O Ecossistema de 5 Pilares
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-5 grid-mobile">
+                
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-blue-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-database text-blue-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Dados</h4>
+                    <p class="text-gray-400 text-sm mb-3">O novo petróleo. Decisões baseadas em métricas, não em "achismos".</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-blue-300 font-bold">Dashboards & BI</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-purple-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-brain text-purple-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">IA Generativa</h4>
+                    <p class="text-gray-400 text-sm mb-3">Sua equipe invisível. Criação de conteúdo, análise e atendimento 24/7.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-purple-300 font-bold">LLMs & Prompts</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-green-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-bolt text-green-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Automação</h4>
+                    <p class="text-gray-400 text-sm mb-3">Velocidade e escala. Eliminação de tarefas repetitivas e manuais.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-green-300 font-bold">Fluxos & APIs</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-red-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-shield-halved text-red-400 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Segurança</h4>
+                    <p class="text-gray-400 text-sm mb-3">A base de confiança. Proteção de dados e adequação total à LGPD.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-red-300 font-bold">Criptografia & Privacidade</div>
+                </div>
+
+                <div class="bg-[#1E293B] p-6 rounded-xl border-t-4 border-yellow-500 card-hover flex flex-col h-full">
+                    <i class="fas fa-rocket text-yellow-500 text-3xl mb-4"></i>
+                    <h4 class="text-white font-black text-base uppercase tracking-wide mb-2">Cultura Ágil</h4>
+                    <p class="text-gray-400 text-sm mb-3">A mentalidade. Validação rápida, testes contínuos e adaptação.</p>
+                    <div class="mt-auto pt-4 border-t border-white/10 text-xs text-yellow-300 font-bold">Testes A/B & MVP</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 right-16 text-gray-600 text-[10px] font-black uppercase tracking-[0.3em] z-20 hidden md:block">
+            Rodmar Junior • Projeto Tecno Mais Brasil
+        </div>
+        
     </div>
 </div>
+
 </body>
 </html>

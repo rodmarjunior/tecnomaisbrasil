@@ -2,18 +2,59 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Analítico: Renda com Estratégia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Atividade: Seu Perfil Digital</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
+
     <style>
-        .analytic-bg { background: radial-gradient(circle at top left, #1e3a8a, #0f172a); }
-        .data-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(59, 130, 246, 0.3); backdrop-filter: blur(10px); transition: all 0.3s ease; }
-        .data-card:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
-        .badge-blue { background: #3b82f6; color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 800; }
+        /* Estilos globais mantidos */
+        html, body { background-color: #0f172a; }
+        
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+            border: 8px solid #6366F1;
+        }
+        .pulse-text {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .bg-animate {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: #6366F1;
+            color: white;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Ajuste para Mobile */
+        @media (max-width: 1024px) {
+            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
+            h1 { font-size: 2.5rem !important; }
+            .flex-mobile-center { flex-direction: column; text-align: center; }
+            .qr-link-text { font-size: 1rem !important; word-break: break-all; }
+        }
     </style>
 
     <style>
@@ -135,48 +176,65 @@
 
 </head>
 <body>
+
+<audio id="trilhaAtividade" src="musica2.mp3" preload="auto" loop></audio>
+
+<div class="music-control" onclick="toggleMusica()">
+    <i id="musicIcon" class="fas fa-play"></i>
+</div>
+
 <div class="slide-wrapper">
-    <div class="slide-container analytic-bg flex flex-col">
-        <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 z-30 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-        
-        <div class="px-20 pt-12 pb-6 z-20">
-            <span class="bg-blue-600 text-white text-xs font-black px-3 py-1 uppercase rounded-sm">Estratégia & Lucro</span>
-            <h1 class="text-white text-5xl font-black uppercase mt-2">ANALÍTICO: <span class="text-blue-400">O Mestre dos Dados</span></h1>
-            <p class="text-gray-300 text-xl font-['Open_Sans'] border-l-4 border-blue-500 pl-4 mt-2">Transformando cliques e números em dinheiro real.</p>
+    <div class="slide-container flex flex-col bg-animate">
+        <div class="absolute left-0 top-0 h-full w-2 bg-indigo-500 z-30 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+
+        <div class="flex-none px-6 md:px-20 pt-16 pb-6 z-20 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <span class="bg-indigo-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full">Autoconhecimento</span>
+            </div>
+            <h1 class="text-white text-4xl md:text-5xl font-black uppercase leading-tight tracking-tight mb-4">
+                DESCUBRA SEU <span class="text-indigo-400">PERFIL DIGITAL</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl font-['Open_Sans'] max-w-3xl mx-auto">
+                Aponte a câmera do seu celular para o QR Code abaixo e descubra qual dessas carreiras mais combina com seus talentos.
+            </p>
         </div>
 
-        <div class="flex-1 px-20 pb-12 grid grid-cols-3 gap-6 z-10 items-center">
-            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-chart-line text-xl"></i></div>
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Configurador de Anúncios</h3>
-                    <span class="badge-blue">Freelance</span>
-                </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Muitas lojas de bairro não sabem usar o botão "Impulsionar" corretamente. Você configura o público certo e mede o retorno.</p>
-                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Ferramenta: Meta Ads (Celular)</div>
+        <div class="flex-1 flex flex-col items-center justify-center z-10 pb-10">
+            <div class="qr-container mb-6">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://rodmarjunior.github.io/tecnomaisbrasil/30.html" 
+                     alt="QR Code Quiz" 
+                     class="w-48 h-48 md:w-64 md:h-64">
             </div>
-
-            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-search-dollar text-xl"></i></div>
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Analista de Concorrência</h3>
-                    <span class="badge-blue">R$ 300+ /estudo</span>
-                </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Você pesquisa o que os concorrentes de um cliente estão vendendo e quais anúncios estão ativos (Biblioteca de Anúncios do Meta).</p>
-                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Foco: Inteligência de Mercado</div>
+            
+            <div class="flex items-center gap-4 text-white font-black text-lg md:text-2xl uppercase tracking-widest pulse-text qr-link-text">
+                <i class="fas fa-mobile-screen-button"></i>
+                <span>rodmarjunior.github.io/tecnomaisbrasil/30.html</span>
             </div>
+        </div>
 
-            <div class="data-card p-6 rounded-2xl h-80 flex flex-col">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-file-invoice-dollar text-xl"></i></div>
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-white font-bold text-lg leading-tight">Gestor de Orçamentos</h3>
-                    <span class="badge-blue">Mensal</span>
-                </div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Organiza as planilhas de gastos de pequenos criadores de conteúdo para garantir que eles não gastem mais do que ganham.</p>
-                <div class="mt-auto text-[10px] text-blue-400 font-black uppercase tracking-widest">Ferramenta: Google Sheets</div>
+        <div class="absolute bottom-6 left-10 right-10 border-t border-gray-800 pt-3 z-20">
+            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest gap-2">
+                <span><i class="fas fa-clock mr-2 text-indigo-500"></i> Tempo estimado: 2 minutos</span>
+                <span>Rodmar Junior • Projeto Tecno Mais Brasil</span>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    const musica = document.getElementById('trilhaAtividade');
+    const icon = document.getElementById('musicIcon');
+
+    function toggleMusica() {
+        if (musica.paused) {
+            musica.play();
+            icon.classList.replace('fa-play', 'fa-pause');
+        } else {
+            musica.pause();
+            icon.classList.replace('fa-pause', 'fa-play');
+        }
+    }
+</script>
+
 </body>
 </html>

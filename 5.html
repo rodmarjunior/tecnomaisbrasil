@@ -2,220 +2,71 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Inteligência Emocional - Projeto Tecno Mais Brasil</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>A Nova Equação</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
-
-    <style>
-        html, body { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            background-color: #0F172A; font-family: 'Montserrat', sans-serif; 
-        }
-        .slide-wrapper { 
-            width: 100vw; height: 100vh; 
-            display: flex; align-items: center; justify-content: center; 
-        }
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            background: radial-gradient(circle at top right, #1E1B4B, #0F172A);
-            position: relative; overflow: hidden; 
-            display: flex; flex-direction: column;
-            padding: 60px 80px 100px 80px;
-        }
-        .eq-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 20px;
-            padding: 24px;
-            transition: all 0.3s ease;
-        }
-        .eq-card:hover {
-            background: rgba(139, 92, 246, 0.05);
-            border-color: #8b5cf6;
-            transform: scale(1.02);
-        }
-        @media (max-width: 1024px) {
-            .slide-container { height: auto !important; min-height: 100vh; padding: 40px 20px 120px 20px !important; }
-            .mobile-grid { grid-template-columns: 1fr !important; }
-        }
-    </style>
-
     <style>
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
-            }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
+            .slide-container { width: 100% !important; height: auto !important; min-height: 100vh !important; display: flex !important; flex-direction: column !important; transform: none !important; padding: 40px 20px 100px 20px !important; }
+            .w-1\/3, .w-full { width: 100% !important; height: auto !important; }
             .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
             .custom-footer { flex-direction: row !important; }
             .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+            .px-16 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; text-align: center; }
+            .fa-chevron-right { transform: rotate(90deg); margin: 10px auto; display: block; }
         }
+        .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
     </style>
-
 </head>
-<body>
+<body class="bg-[#0B1120]">
 
-<div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 z-30"></div>
-
-        <div class="z-20">
-            <span class="bg-purple-600 text-white text-[10px] font-black px-4 py-1 uppercase tracking-widest rounded-full mb-4 inline-block">Soft Skills</span>
-            <h1 class="text-white text-5xl md:text-6xl font-black uppercase mb-2">
-                INTELIGÊNCIA <span class="text-purple-500">EMOCIONAL</span>
+<div class="slide-wrapper w-screen h-screen flex items-center justify-center">
+    <div class="slide-container w-[1280px] h-[720px] relative px-16 flex flex-col justify-center">
+        
+        <div class="text-center mb-16">
+            <h1 class="text-white text-5xl font-black uppercase tracking-tight">
+                A Equação da <span class="text-blue-500">Monetização Real</span>
             </h1>
-            <p class="text-gray-400 text-xl font-bold italic mb-10 border-l-4 border-purple-500 pl-6">
-                A única habilidade que a IA jamais poderá copiar de você.
+            <p class="text-gray-400 mt-4 text-xl">A internet só paga por duas coisas: <span class="text-white font-bold">Atenção</span> ou <span class="text-white font-bold">Solução</span>. Como combinar?</p>
+        </div>
+
+        <div class="flex items-center justify-center gap-4">
+            <div class="w-1/3 glass-box p-6 rounded-xl text-center border-t-4 border-yellow-500">
+                <i class="fas fa-brain text-4xl text-yellow-500 mb-4"></i>
+                <h3 class="text-white font-black text-xl uppercase mb-2">1. O Cérebro (Você)</h3>
+                <p class="text-gray-400 text-sm">Identifica um problema real no mercado, escolhe o nicho e define a estratégia de venda ou conteúdo.</p>
+            </div>
+
+            <i class="fas fa-chevron-right text-gray-600 text-3xl"></i>
+
+            <div class="w-1/3 glass-box p-6 rounded-xl text-center border-t-4 border-indigo-500">
+                <i class="fas fa-robot text-4xl text-indigo-500 mb-4"></i>
+                <h3 class="text-white font-black text-xl uppercase mb-2">2. A Máquina (IA)</h3>
+                <p class="text-gray-400 text-sm">Gera 50 ideias de roteiro, edita os vídeos, cria os textos de vendas e estrutura o produto digital.</p>
+            </div>
+
+            <i class="fas fa-chevron-right text-gray-600 text-3xl"></i>
+
+            <div class="w-1/3 glass-box p-6 rounded-xl text-center border-t-4 border-green-500">
+                <i class="fas fa-heart text-4xl text-green-500 mb-4"></i>
+                <h3 class="text-white font-black text-xl uppercase mb-2">3. A Alma (Você)</h3>
+                <p class="text-gray-400 text-sm">Revisa o material da IA, injeta emoção, conta uma história real e conecta com a dor do cliente.</p>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-blue-900/20 border border-blue-500/30 p-4 rounded-xl text-center mx-auto max-w-2xl">
+            <p class="text-blue-300 font-bold italic">
+                "Você é o Diretor do filme. O ChatGPT é apenas a sua câmera."
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mobile-grid z-20">
-            <div class="eq-card">
-                <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 mb-4">
-                    <i class="fas fa-user-check text-2xl"></i>
-                </div>
-                <h3 class="text-white font-black uppercase text-lg mb-2">Autoconhecimento</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Entender suas emoções e como elas afetam seu desempenho e decisões sob pressão.</p>
-            </div>
-
-            <div class="eq-card">
-                <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 mb-4">
-                    <i class="fas fa-hands-helping text-2xl"></i>
-                </div>
-                <h3 class="text-white font-black uppercase text-lg mb-2">Empatia Real</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Conectar-se com pessoas, entender dores e necessidades humanas que os dados não mostram.</p>
-            </div>
-
-            <div class="eq-card">
-                <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 mb-4">
-                    <i class="fas fa-comments text-2xl"></i>
-                </div>
-                <h3 class="text-white font-black uppercase text-lg mb-2">Gestão Humana</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">A IA resolve problemas lógicos. Você resolve impasses entre pessoas e lidera com visão.</p>
-            </div>
-        </div>
-
-        <div class="mt-auto bg-purple-900/20 border border-purple-500/30 p-6 rounded-2xl flex items-center gap-6 z-20">
-            <i class="fas fa-lightbulb text-yellow-500 text-3xl animate-pulse"></i>
-            <p class="text-gray-200 text-base md:text-lg font-medium italic">
-                "Em um mundo de algoritmos, ser profundamente humano é o seu maior diferencial competitivo."
-            </p>
-        </div>
-
-        <div class="absolute bottom-6 right-20 text-gray-600 text-[10px] font-bold uppercase tracking-[0.3em] z-10 hidden md:block">
-            Rodmar Junior • Projeto Tecno Mais Brasil
-        </div>
     </div>
 </div>
 

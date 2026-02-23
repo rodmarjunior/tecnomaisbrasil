@@ -2,267 +2,122 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Trabalho: O que sai de cena vs O que surge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Rotas de Monetização: Games</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
 
     <style>
-        .bg-pattern {
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 30px 30px;
+        /* Estilo de Impacto Gamer/Tech */
+        .tech-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.05) 1px, transparent 0);
+            background-size: 30px 30px; z-index: 0;
         }
-        .card-split { transition: all 0.3s ease; }
-        .card-split:hover { transform: translateY(-5px); }
-        .vs-badge {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 50;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        
+        .glow-accent {
+            position: absolute; width: 500px; height: 500px; border-radius: 50%;
+            filter: blur(120px); opacity: 0.15; z-index: 0;
         }
-    </style>
 
-    <style>
+        .money-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .money-card:hover {
+            transform: translateY(-10px);
+            border-color: #10b981;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Blindagem Mobile */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            
             .slide-container { 
                 width: 100% !important; height: auto !important; min-height: 100vh !important;
                 display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
+                transform: none !important; padding: 40px 20px 100px 20px !important;
             }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
+            .grid-cols-3 { grid-template-columns: 1fr !important; gap: 20px !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; }
+            .text-5xl { font-size: 2.5rem !important; }
         }
     </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
-            .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
-            .custom-footer { flex-direction: row !important; }
-            .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-        }
-    </style>
-
 </head>
-<body>
+<body class="bg-[#0b0f1a] overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container">
-        <div class="absolute inset-0 bg-pattern z-0 opacity-30"></div>
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="tech-bg"></div>
+        <div class="glow-accent top-[-100px] right-[-100px] bg-emerald-500"></div>
+        <div class="glow-accent bottom-[-100px] left-[-100px] bg-blue-600"></div>
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-emerald-500 z-30 shadow-[5px_0_15px_rgba(16,185,129,0.4)]"></div>
 
-        <div class="flex-none p-12 pl-20 pb-4 z-10">
+        <div class="flex-none z-20 relative mb-12">
             <div class="flex items-center mb-4">
-                <span class="bg-yellow-500 text-black text-xs font-extrabold px-3 py-1 uppercase tracking-wider rounded-sm shadow-md">Mercado 2026</span>
-                <span class="text-gray-400 text-xs font-bold ml-3 tracking-[0.2em] uppercase">Transformação do Trabalho</span>
+                <span class="bg-blue-600 text-white text-xs font-black px-4 py-1 uppercase tracking-widest rounded-full">Execução</span>
+                <span class="text-gray-400 text-xs font-bold ml-4 tracking-widest uppercase border-l border-gray-700 pl-4">A Lei na Prática</span>
             </div>
-            <h1 class="text-white text-4xl font-black uppercase leading-none tracking-tight">
-                O Que Sai de Cena <span class="text-gray-500 mx-2 font-light">vs</span> <span class="text-green-500">O Que Surge</span>
+            <h1 class="text-white text-5xl font-black uppercase leading-tight tracking-tighter">
+                Como Fazer Dinheiro com a <br/><span class="text-emerald-400">Nova Lei dos Games?</span>
             </h1>
-            <div class="w-32 h-1 bg-gray-700 mt-6"></div>
-        </div>
-
-        <div class="flex-1 flex px-20 pb-16 gap-12 relative z-10 items-center h-[520px]">
-            <div class="vs-badge bg-gray-900 rounded-full w-20 h-20 flex items-center justify-center border-4 border-gray-700">
-                <span class="text-white font-black text-xl italic">VS</span>
-            </div>
-
-            <div class="w-1/2 h-full flex flex-col">
-                <div class="bg-[#1E293B] border-l-8 border-red-500 rounded-r-xl h-full p-8 flex flex-col relative overflow-hidden card-split">
-                    <div class="absolute -right-10 -bottom-10 text-red-900 opacity-20 text-9xl">
-                        <i class="fas fa-arrow-trend-down"></i>
-                    </div>
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <h2 class="text-red-500 text-2xl font-black uppercase tracking-wide mb-1">Em Declínio</h2>
-                            <p class="text-gray-400 text-sm font-['Open_Sans']">Tarefas repetitivas e operacionais</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-6 relative z-10">
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-phone-slash"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Telefonista & Atendimento Básico</p>
-                                <p class="text-gray-500 text-xs">Substituído por Chatbots & IA de Voz</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-cash-register"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Caixa & Cobrador</p>
-                                <p class="text-gray-500 text-xs">Pagamentos invisíveis e Self-checkout</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-file-invoice"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Administrativo Repetitivo</p>
-                                <p class="text-gray-500 text-xs">Automação de processos (RPA)</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center">
-                            <div class="w-10 h-10 rounded bg-red-900/30 flex items-center justify-center mr-4 text-red-400"><i class="fas fa-taxi"></i></div>
-                            <div>
-                                <p class="text-gray-300 font-bold text-lg">Motorista Operacional</p>
-                                <p class="text-gray-500 text-xs">Avanço dos veículos autônomos</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="w-1/2 h-full flex flex-col">
-                <div class="bg-[#1E293B] border-r-8 border-green-500 rounded-l-xl h-full p-8 flex flex-col relative overflow-hidden card-split">
-                    <div class="absolute -left-10 -bottom-10 text-green-900 opacity-20 text-9xl">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="flex justify-between items-start mb-8 text-right">
-                        <div class="w-full">
-                            <h2 class="text-green-400 text-2xl font-black uppercase tracking-wide mb-1">Em Alta</h2>
-                            <p class="text-gray-400 text-sm font-['Open_Sans']">Criatividade, Dados e Estratégia</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-6 relative z-10">
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-video"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Criadores de Conteúdo</p>
-                                <p class="text-gray-400 text-xs">Humanização de marcas e influência</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-robot"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Operadores de IA (AI Ops)</p>
-                                <p class="text-gray-400 text-xs">Engenharia de Prompt e curadoria</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-users-gear"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Gestores de Comunidade</p>
-                                <p class="text-gray-400 text-xs">Engajamento real e retenção</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center flex-row-reverse text-right">
-                            <div class="w-10 h-10 rounded bg-green-900/30 flex items-center justify-center ml-4 text-green-400"><i class="fas fa-code-branch"></i></div>
-                            <div>
-                                <p class="text-white font-bold text-lg">Especialistas No-Code</p>
-                                <p class="text-gray-400 text-xs">Automação acessível e ágil</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-6 left-20 right-20 flex justify-between items-center border-t border-gray-800 pt-3">
-            <p class="text-gray-500 text-[10px] font-['Open_Sans'] uppercase">
-                Fonte: Future of Jobs Report 2025 - World Economic Forum
+            <p class="text-gray-300 text-lg mt-4 font-['Open_Sans'] border-l-4 border-emerald-500 pl-4 max-w-3xl">
+                O Marco Legal não é apenas sobre jogar. É sobre abrir os cofres de fomento, reduzir impostos e focar no mercado corporativo e educacional.
             </p>
         </div>
+
+        <div class="grid grid-cols-3 gap-8 z-20">
+            
+            <div class="money-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                <i class="fas fa-file-invoice-dollar text-4xl text-blue-400 mb-6"></i>
+                <h3 class="text-white font-black text-xl uppercase mb-3">Leis de Incentivo</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    A lei equipara games a produções audiovisuais. Agora, desenvolvedores podem captar recursos financeiros através da <strong>Lei Rouanet</strong> e <strong>Lei do Audiovisual</strong> para bancar a criação de novos projetos.
+                </p>
+                <div class="mt-auto border-t border-white/10 pt-4">
+                    <span class="text-blue-400 text-xs font-bold uppercase tracking-widest"><i class="fas fa-arrow-right mr-2"></i>Editais Governamentais</span>
+                </div>
+            </div>
+
+            <div class="money-card p-8 rounded-2xl relative overflow-hidden group border-t-4 border-emerald-500">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                <div class="absolute -top-3 right-6 bg-emerald-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">Maior Oportunidade</div>
+                <i class="fas fa-graduation-cap text-4xl text-emerald-400 mb-6"></i>
+                <h3 class="text-white font-black text-xl uppercase mb-3">Serious Games</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    O Marco Legal incentiva o uso de jogos na <strong>educação pública</strong>, em <strong>treinamentos corporativos</strong> e na <strong>saúde</strong> (terapias). Vender jogos educativos para escolas e prefeituras virou um mercado gigante.
+                </p>
+                <div class="mt-auto border-t border-white/10 pt-4">
+                    <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest"><i class="fas fa-arrow-right mr-2"></i>Contratos B2B e B2G</span>
+                </div>
+            </div>
+
+            <div class="money-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                <i class="fas fa-building text-4xl text-purple-400 mb-6"></i>
+                <h3 class="text-white font-black text-xl uppercase mb-3">Redução de Custos</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Se você abrir um estúdio, a lei permite que o setor de games acesse os benefícios da <strong>Lei do Bem</strong> e da <strong>Lei de Informática</strong>. Isso significa redução drástica de impostos na compra de equipamentos e hardwares.
+                </p>
+                <div class="mt-auto border-t border-white/10 pt-4">
+                    <span class="text-purple-400 text-xs font-bold uppercase tracking-widest"><i class="fas fa-arrow-right mr-2"></i>Abertura de Estúdios Indie</span>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </div>
 

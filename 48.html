@@ -2,214 +2,116 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Gabarito da IA - Projeto Tecno Mais Brasil</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Habilidade 1: Dominando o Bairro</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
-
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f1f5f9; }
-        .slide-wrapper { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .slide-container { 
-            width: 1280px; height: 720px; 
-            background-color: #ffffff; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; 
-            box-shadow: 0 0 50px rgba(0,0,0,0.1); 
-        }
-        .gabarito-card { 
-            background: white; 
-            border-radius: 20px; 
-            padding: 30px; 
-            border-left: 8px solid #6366f1; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .pill { background: #e0e7ff; color: #4338ca; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
-        .stats-box { background: #1e293b; border-radius: 24px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-    </style>
-
-    <style>
+        /* Blindagem Mobile Segura e Ajustes Globais */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            
             .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 0 !important;
+                width: 100% !important; height: auto !important; min-height: 100vh !important; 
+                display: flex !important; flex-direction: column !important; transform: none !important; 
+                padding: 40px 20px 100px 20px !important; /* Respiro para o footer no celular */
             }
-
-            /* Seção de Texto */
-            .w-7\/12, .w-1\/2, .w-full, .text-section { 
-                width: 100% !important; padding: 40px 25px !important; order: 2;
-            }
-
-            /* Seção de Imagem/Destaque */
-            .w-5\/12, .image-section, .w-1\/2 { 
-                width: 100% !important; height: 300px !important; order: 1; position: relative;
-            }
-
-            .flex { flex-direction: column !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens negativas ou flutuantes */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
-            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
-            
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
+            .w-1\/2 { width: 100% !important; height: auto !important; }
+            .flex-mobile-col { flex-direction: column !important; gap: 30px !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; }
         }
+        .glass-box { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-text { text-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        
+        /* Classe para imagens clicáveis */
+        .zoomable-image { cursor: zoom-in; transition: transform 0.3s ease; }
+        .zoomable-image:hover { transform: scale(1.03); }
     </style>
-
-
-    <style>
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 20px 0 100px 0 !important;
-            }
-
-            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
-            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
-                width: 100% !important; height: auto !important; padding: 15px 25px !important;
-            }
-
-            /* Garante que os elementos empilhem com espaço para respirar */
-            .flex { flex-direction: column !important; gap: 30px !important; }
-            
-            /* Títulos e Textos */
-            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
-            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
-            
-            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
-            img.object-cover { 
-                position: absolute !important; height: 100% !important; 
-                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            }
-
-            /* Reset de margens e posições que quebram o mobile */
-            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
-            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
-            
-            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
-            .grid-cols-2 { grid-template-columns: 1fr !important; }
-
-            /* Menu de navegação (Footer) no celular */
-            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
-        }
-    </style>
-
-
-    <style>
-        /* Blindagem Mobile Simples */
-        @media (max-width: 1024px) {
-            html, body { overflow-y: auto !important; height: auto !important; }
-            .slide-wrapper { height: auto !important; display: block !important; }
-            
-            .slide-container { 
-                width: 100% !important; height: auto !important; min-height: 100vh !important;
-                display: flex !important; flex-direction: column !important;
-                transform: none !important; padding: 30px 20px 100px 20px !important;
-            }
-
-            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
-            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
-                width: 100% !important; height: auto !important; 
-            }
-            
-            /* Empilha os elementos com um respiro leve */
-            .flex { flex-direction: column !important; gap: 20px !important; }
-            
-            /* Preserva o menu de navegação (Footer) na horizontal */
-            .custom-footer { flex-direction: row !important; }
-            .custom-footer .flex { flex-direction: row !important; }
-            
-            /* Ajuste de fontes e margens exageradas do PC */
-            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
-            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-        }
-    </style>
-
 </head>
-<body>
+<body class="bg-[#0B1120] overflow-hidden text-white">
 
 <div class="slide-wrapper">
-    <div class="slide-container flex flex-col bg-[#F8FAFC]">
-        <div class="absolute left-0 top-0 h-full w-3 bg-indigo-600 z-30 shadow-[5px_0_15px_rgba(99,102,241,0.3)]"></div>
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 z-30 shadow-[5px_0_15px_rgba(59,130,246,0.3)]"></div>
 
-        <div class="px-24 pt-16 pb-8">
-            <h1 class="text-[#1e293b] text-6xl font-black uppercase leading-tight mb-2">O QUE A <span class="text-indigo-600">IA FARIA?</span></h1>
-            <p class="text-gray-500 text-2xl font-bold italic border-l-4 border-indigo-600 pl-6">Compare sua criação com padrões profissionais de alta conversão.</p>
-        </div>
-
-        <div class="flex-1 px-24 grid grid-cols-2 gap-10 items-start">
-            
-            <div class="gabarito-card">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="pill">TEMA: CARREIRA AOS 16 ANOS</span>
-                    <i class="fas fa-robot text-indigo-400 text-xl"></i>
+        <div class="flex items-center gap-12 flex-mobile-col z-20">
+            <div class="w-1/2">
+                <span class="bg-blue-500 text-white text-xs font-black px-4 py-1.5 uppercase tracking-widest rounded-sm mb-4 inline-block">Habilidade 1: Google Meu Negócio</span>
+                <h1 class="text-white text-5xl font-black uppercase tracking-tight mb-6 glow-text">
+                    Dominando o <br/><span class="text-blue-500">Seu Bairro</span>
+                </h1>
+                
+                <div class="glass-box p-6 rounded-xl border-l-4 border-blue-500 mb-6">
+                    <p class="text-gray-200 text-lg font-['Open_Sans'] leading-relaxed">
+                        A padaria, a oficina e a clínica da esquina perdem milhares de reais todo mês por um único motivo: <span class="text-white font-bold uppercase">Invisibilidade Digital</span>.
+                    </p>
                 </div>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-semibold">
-                    "O mercado não quer mais o seu diploma, ele quer a sua solução. Enquanto muitos esperam a faculdade, quem domina IA hoje já está no jogo. Você é passageiro ou piloto? 🚀"
-                </p>
+
+                <ul class="space-y-4 text-gray-400 font-medium">
+                    <li class="flex items-center gap-3"><i class="fas fa-search-location text-blue-500 text-xl"></i> 80% das buscas locais viram visitas no mesmo dia.</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-store-slash text-red-400 text-xl"></i> Quem não está nos 3 primeiros resultados do mapa, não existe.</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-hand-holding-dollar text-green-400 text-xl"></i> É o serviço mais fácil de vender para comércios locais.</li>
+                </ul>
             </div>
 
-            <div class="gabarito-card">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="pill">TEMA: MEUS PRIMEIROS R$ 1.000</span>
-                    <i class="fas fa-robot text-indigo-400 text-xl"></i>
-                </div>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-semibold">
-                    "Para ganhar R$ 1.000 no digital você não precisa de sorte, precisa de 1 ferramenta e 1 problema para resolver. O segredo é começar pequeno, mas começar HOJE. 🔥"
-                </p>
-            </div>
-
-            <div class="col-span-2 stats-box flex justify-around items-center text-white mt-4">
-                <div class="text-center">
-                    <div class="text-indigo-400 text-5xl font-black mb-1">PROMPT</div>
-                    <div class="text-xs uppercase font-bold tracking-[0.2em] text-gray-400">Contexto Claro</div>
-                </div>
-                <div class="h-12 w-px bg-gray-700"></div>
-                <div class="text-center">
-                    <div class="text-indigo-400 text-5xl font-black mb-1">GATILHO</div>
-                    <div class="text-xs uppercase font-bold tracking-[0.2em] text-gray-400">Curiosidade + Desejo</div>
-                </div>
-                <div class="h-12 w-px bg-gray-700"></div>
-                <div class="text-center">
-                    <div class="text-indigo-400 text-5xl font-black mb-1">CTA</div>
-                    <div class="text-xs uppercase font-bold tracking-[0.2em] text-gray-400">Chamada para Ação</div>
+            <div class="w-1/2 flex justify-center">
+                <div class="relative w-full max-w-sm rounded-3xl overflow-hidden border-8 border-gray-800 shadow-[0_20px_50px_rgba(59,130,246,0.3)]">
+                    <div class="absolute top-0 w-full h-6 bg-gray-800 flex justify-center items-center rounded-t-2xl z-10">
+                        <div class="w-16 h-1 bg-gray-600 rounded-full"></div>
+                    </div>
+                    <img src="gmn_busca.png" alt="Busca no Google Maps" class="w-full h-[500px] object-cover mt-2 zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
                 </div>
             </div>
         </div>
 
-        <div class="py-10 text-gray-400 text-[10px] font-black uppercase text-center tracking-[0.4em]">
-            Análise de Padrões de Inteligência Digital 2026
-        </div>
     </div>
 </div>
+
+<div id="image-modal" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-zoom-out" onclick="closeZoom()">
+    <img id="zoomed-image" src="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300">
+    <div class="absolute top-6 right-8 text-gray-400 hover:text-white text-4xl cursor-pointer">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<script>
+    function openZoom(src) {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        img.src = src;
+        
+        // Remove 'hidden' para o display block funcionar
+        modal.classList.remove('hidden');
+        
+        // Pequeno delay para a transição do CSS acontecer de forma suave
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            img.classList.remove('scale-95');
+            img.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeZoom() {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        
+        // Inicia a animação de saída
+        modal.classList.add('opacity-0');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        
+        // Esconde o elemento depois da animação terminar
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            img.src = ''; // Limpa a fonte
+        }, 300);
+    }
+</script>
 
 </body>
 </html>
