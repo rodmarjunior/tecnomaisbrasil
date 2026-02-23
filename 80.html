@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Habilidade 1: Dominando o Bairro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+    <style>
+        /* Blindagem Mobile Segura */
+        @media (max-width: 1024px) {
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
+            .slide-wrapper { height: auto !important; display: block !important; }
+            .slide-container { width: 100% !important; height: auto !important; min-height: 100vh !important; display: flex !important; flex-direction: column !important; transform: none !important; padding: 40px 20px 100px 20px !important; }
+            .w-1\/2 { width: 100% !important; height: auto !important; }
+            .flex { flex-direction: column !important; gap: 30px !important; }
+            .custom-footer { flex-direction: row !important; }
+            .custom-footer .flex { flex-direction: row !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; }
+        }
+        .glass-box { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-text { text-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+    </style>
+</head>
+<body class="bg-[#0B1120]">
+
+<div class="slide-wrapper w-screen h-screen flex items-center justify-center">
+    <div class="slide-container w-[1280px] h-[720px] relative px-20 flex flex-col justify-center">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-blue-500 z-30"></div>
+
+        <div class="flex items-center gap-12">
+            <div class="w-1/2">
+                <span class="bg-blue-500 text-white text-xs font-black px-4 py-1.5 uppercase tracking-widest rounded-sm mb-4 inline-block">Habilidade 1: Google Meu Negócio</span>
+                <h1 class="text-white text-5xl font-black uppercase tracking-tight mb-6 glow-text">
+                    Dominando o <br/><span class="text-blue-500">Seu Bairro</span>
+                </h1>
+                
+                <div class="glass-box p-6 rounded-xl border-l-4 border-blue-500 mb-6">
+                    <p class="text-gray-200 text-lg font-['Open_Sans'] leading-relaxed">
+                        A padaria, a oficina e a clínica da esquina perdem milhares de reais todo mês por um único motivo: <span class="text-white font-bold uppercase">Invisibilidade Digital</span>.
+                    </p>
+                </div>
+
+                <ul class="space-y-4 text-gray-400 font-medium">
+                    <li class="flex items-center gap-3"><i class="fas fa-search-location text-blue-500 text-xl"></i> 80% das buscas locais viram visitas no mesmo dia.</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-store-slash text-red-400 text-xl"></i> Quem não está nos 3 primeiros resultados do mapa, não existe.</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-hand-holding-dollar text-green-400 text-xl"></i> É o serviço mais fácil de vender para comércios locais.</li>
+                </ul>
+            </div>
+
+            <div class="w-1/2 flex justify-center">
+                <div class="relative w-full max-w-sm rounded-3xl overflow-hidden border-8 border-gray-800 shadow-[0_20px_50px_rgba(59,130,246,0.3)] transform transition hover:scale-105 duration-300">
+                    <div class="absolute top-0 w-full h-6 bg-gray-800 flex justify-center items-center rounded-t-2xl z-10">
+                        <div class="w-16 h-1 bg-gray-600 rounded-full"></div>
+                    </div>
+                    <img src="gmn_busca.png" alt="Busca no Google Maps" class="w-full h-[500px] object-cover mt-2">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
