@@ -10,13 +10,17 @@
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
     <style>
-        /* Blindagem Mobile Segura */
+        /* Blindagem Mobile Segura e Ajustes Globais */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            .slide-container { width: 100% !important; height: auto !important; min-height: 100vh !important; display: flex !important; flex-direction: column !important; transform: none !important; padding: 40px 20px 100px 20px !important; }
+            .slide-container { 
+                width: 100% !important; height: auto !important; min-height: 100vh !important; 
+                display: flex !important; flex-direction: column !important; transform: none !important; 
+                padding: 40px 20px 100px 20px !important; /* Respiro para o footer */
+            }
             .w-1\/2 { width: 100% !important; height: auto !important; }
-            .flex { flex-direction: column !important; gap: 30px !important; }
+            .flex-mobile-col { flex-direction: column !important; gap: 30px !important; }
             .custom-footer { flex-direction: row !important; }
             .custom-footer .flex { flex-direction: row !important; }
             .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
@@ -24,25 +28,29 @@
         }
         .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
         .glow-text { text-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        
+        /* Classe para imagens clicáveis com Zoom */
+        .zoomable-image { cursor: zoom-in; transition: transform 0.3s ease; }
+        .zoomable-image:hover { transform: scale(1.03); z-index: 10; relative; }
     </style>
 </head>
-<body class="bg-[#0B1120]">
+<body class="bg-[#0B1120] overflow-hidden text-white">
 
-<div class="slide-wrapper w-screen h-screen flex items-center justify-center">
-    <div class="slide-container w-[1280px] h-[720px] relative px-20 flex flex-col justify-center">
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
         
-        <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 z-30"></div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-purple-500 z-30 shadow-[5px_0_15px_rgba(168,85,247,0.3)]"></div>
 
-        <div class="text-center mb-10">
+        <div class="text-center mb-10 z-20">
             <h1 class="text-white text-5xl font-black uppercase tracking-tight mb-4 glow-text">
                 A Fábrica de <span class="text-purple-400">Sites IA</span>
             </h1>
-            <a href="https://gamma.app" target="_blank" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+            <a href="https://gamma.app" target="_blank" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-6 rounded-full transition duration-300 shadow-lg">
                 <i class="fas fa-link"></i> Acessar Gamma.app (Gratuito)
             </a>
         </div>
 
-        <div class="flex gap-10 items-stretch">
+        <div class="flex gap-10 items-stretch flex-mobile-col z-20">
             
             <div class="w-1/2 glass-box p-6 rounded-2xl flex flex-col border-t-4 border-blue-500">
                 <div class="flex items-center gap-4 mb-4">
@@ -50,7 +58,7 @@
                     <h3 class="text-white font-bold text-xl uppercase">O Comando (Prompt)</h3>
                 </div>
                 <div class="flex-1 rounded-xl overflow-hidden border border-gray-600 bg-gray-900 flex items-center justify-center">
-                    <img src="processogama.png" alt="Passo 1 Gamma" class="w-full h-full object-contain">
+                    <img src="processogama.png" alt="Passo 1 Gamma" class="w-full h-full object-contain zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
                 </div>
                 <p class="text-gray-400 text-sm mt-4 text-center font-medium">Basta descrever o negócio e o objetivo da página.</p>
             </div>
@@ -61,7 +69,7 @@
                     <h3 class="text-white font-bold text-xl uppercase">A Geração</h3>
                 </div>
                 <div class="flex-1 rounded-xl overflow-hidden border border-gray-600 bg-gray-900 flex items-center justify-center">
-                    <img src="processogama2.png" alt="Passo 2 Gamma" class="w-full h-full object-contain">
+                    <img src="processogama2.png" alt="Passo 2 Gamma" class="w-full h-full object-contain zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
                 </div>
                 <p class="text-gray-400 text-sm mt-4 text-center font-medium">A IA estrutura as seções, escreve os textos e escolhe imagens.</p>
             </div>
@@ -69,6 +77,47 @@
         </div>
     </div>
 </div>
+
+<div id="image-modal" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-zoom-out" onclick="closeZoom()">
+    <img id="zoomed-image" src="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300">
+    <div class="absolute top-6 right-8 text-gray-400 hover:text-white text-4xl cursor-pointer">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<script>
+    function openZoom(src) {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        img.src = src;
+        
+        // Remove 'hidden' para o display block funcionar
+        modal.classList.remove('hidden');
+        
+        // Pequeno delay para a transição do CSS acontecer de forma suave
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            img.classList.remove('scale-95');
+            img.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeZoom() {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        
+        // Inicia a animação de saída
+        modal.classList.add('opacity-0');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        
+        // Esconde o elemento depois da animação terminar
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            img.src = ''; // Limpa a fonte
+        }, 300);
+    }
+</script>
 
 </body>
 </html>
