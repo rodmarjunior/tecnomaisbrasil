@@ -10,44 +10,52 @@
     <link rel="stylesheet" href="style.css">
     <script src="navegacao.js" defer></script>
     <style>
-        /* Blindagem Mobile Segura */
+        /* Blindagem Mobile Segura e Ajustes Globais */
         @media (max-width: 1024px) {
             html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
             .slide-wrapper { height: auto !important; display: block !important; }
-            .slide-container { width: 100% !important; height: auto !important; min-height: 100vh !important; display: flex !important; flex-direction: column !important; transform: none !important; padding: 40px 20px 100px 20px !important; }
+            .slide-container { 
+                width: 100% !important; height: auto !important; min-height: 100vh !important; 
+                display: flex !important; flex-direction: column !important; transform: none !important; 
+                padding: 40px 20px 100px 20px !important; /* Respiro para o footer */
+            }
             .w-1\/2 { width: 100% !important; height: auto !important; }
-            .flex { flex-direction: column !important; gap: 40px !important; }
+            .flex-mobile-col { flex-direction: column !important; gap: 40px !important; }
             .custom-footer { flex-direction: row !important; }
             .custom-footer .flex { flex-direction: row !important; }
             .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
             h1 { font-size: 2.2rem !important; line-height: 1.1 !important; text-align: center; }
         }
         .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Classe para imagens clicáveis com Zoom */
+        .zoomable-image { cursor: zoom-in; transition: transform 0.3s ease; }
+        .zoomable-image:hover { transform: scale(1.03); z-index: 10; position: relative; }
     </style>
 </head>
-<body class="bg-[#0B1120]">
+<body class="bg-[#0B1120] overflow-hidden text-white">
 
-<div class="slide-wrapper w-screen h-screen flex items-center justify-center">
-    <div class="slide-container w-[1280px] h-[720px] relative px-20 flex flex-col justify-center">
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
         
-        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30"></div>
+        <div class="absolute left-0 top-0 h-full w-2 bg-yellow-500 z-30 shadow-[5px_0_15px_rgba(234,179,8,0.3)]"></div>
 
-        <div class="text-center mb-8">
+        <div class="text-center mb-8 z-20">
             <h1 class="text-white text-5xl font-black uppercase tracking-tight">
                 O Efeito <span class="text-yellow-500">Antes e Depois</span>
             </h1>
             <p class="text-gray-400 mt-2 text-xl font-medium">Estudo de Caso: Clínica do Carro (Brasília - DF)</p>
         </div>
 
-        <div class="flex gap-12 items-center">
+        <div class="flex gap-12 items-center flex-mobile-col z-20">
             
             <div class="w-1/2 flex flex-col items-center">
-                <div class="bg-red-500 text-white font-black uppercase tracking-widest px-6 py-2 rounded-t-xl w-full text-center">
+                <div class="bg-red-500 text-white font-black uppercase tracking-widest px-6 py-2 rounded-t-xl w-full text-center shadow-lg">
                     <i class="fas fa-times-circle mr-2"></i> Antes: Perfil Básico
                 </div>
                 <div class="glass-box p-4 rounded-b-xl w-full flex flex-col items-center border-b-4 border-red-500">
                     <div class="w-full h-[380px] bg-gray-900 rounded-lg overflow-hidden border border-gray-700 flex items-center justify-center">
-                        <img src="site_clinicadocarro.png" alt="Antes" class="w-full h-full object-contain">
+                        <img src="site_clinicadocarro.png" alt="Antes" class="w-full h-full object-contain zoomable-image" onclick="openZoom(this.src)" title="Clique para ampliar">
                     </div>
                     <p class="text-gray-400 text-sm mt-4 text-center font-semibold">Sem site. Apenas um link para o WhatsApp.</p>
                 </div>
@@ -58,14 +66,14 @@
             </div>
 
             <div class="w-1/2 flex flex-col items-center">
-                <div class="bg-green-500 text-black font-black uppercase tracking-widest px-6 py-2 rounded-t-xl w-full text-center">
+                <div class="bg-green-500 text-black font-black uppercase tracking-widest px-6 py-2 rounded-t-xl w-full text-center shadow-lg">
                     <i class="fas fa-check-circle mr-2"></i> Depois: Máquina de Vendas
                 </div>
                 <div class="glass-box p-4 rounded-b-xl w-full flex flex-col items-center border-b-4 border-green-500">
-                    <div class="w-full h-[380px] bg-gray-900 rounded-lg overflow-hidden border border-gray-700 flex items-center justify-center relative group">
+                    <div class="w-full h-[380px] bg-gray-900 rounded-lg overflow-hidden border border-gray-700 flex items-center justify-center relative group zoomable-image" onclick="openZoom('novositeoficina.png')" title="Clique para ampliar">
                         <img src="novositeoficina.png" alt="Depois" class="w-full h-full object-cover object-top">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <i class="fas fa-mouse-pointer text-white text-4xl"></i>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                            <i class="fas fa-search-plus text-white text-5xl"></i>
                         </div>
                     </div>
                     
@@ -80,6 +88,47 @@
         </div>
     </div>
 </div>
+
+<div id="image-modal" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-zoom-out" onclick="closeZoom()">
+    <img id="zoomed-image" src="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300">
+    <div class="absolute top-6 right-8 text-gray-400 hover:text-white text-4xl cursor-pointer">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<script>
+    function openZoom(src) {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        img.src = src;
+        
+        // Remove 'hidden' para o display block funcionar
+        modal.classList.remove('hidden');
+        
+        // Pequeno delay para a transição do CSS acontecer de forma suave
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            img.classList.remove('scale-95');
+            img.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeZoom() {
+        const modal = document.getElementById('image-modal');
+        const img = document.getElementById('zoomed-image');
+        
+        // Inicia a animação de saída
+        modal.classList.add('opacity-0');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        
+        // Esconde o elemento depois da animação terminar
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            img.src = ''; // Limpa a fonte
+        }, 300);
+    }
+</script>
 
 </body>
 </html>
