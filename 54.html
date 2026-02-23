@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Resultado: O Porta-Voz Virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+    <style>
+        /* Blindagem Mobile Segura e Ajustes Globais */
+        @media (max-width: 1024px) {
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
+            .slide-wrapper { height: auto !important; display: block !important; }
+            .slide-container { 
+                width: 100% !important; height: auto !important; min-height: 100vh !important; 
+                display: flex !important; flex-direction: column !important; transform: none !important; 
+                padding: 40px 20px 100px 20px !important; /* Respiro para o footer */
+            }
+            .w-1\/2 { width: 100% !important; height: auto !important; }
+            .flex-mobile-col { flex-direction: column !important; gap: 40px !important; }
+            .custom-footer { flex-direction: row !important; }
+            .custom-footer .flex { flex-direction: row !important; }
+            .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; text-align: center; }
+        }
+        .glass-box { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-[#0B1120] overflow-hidden text-white">
+
+<div class="slide-wrapper">
+    <div class="slide-container flex flex-col justify-center px-20 relative min-h-screen pb-24 pt-10">
+        
+        <div class="absolute left-0 top-0 h-full w-2 bg-amber-500 z-30 shadow-[5px_0_15px_rgba(245,158,11,0.3)]"></div>
+
+        <div class="text-center mb-8 z-20">
+            <h1 class="text-white text-5xl font-black uppercase tracking-tight">
+                O Seu Vendedor <span class="text-amber-500">24 Horas</span>
+            </h1>
+            <p class="text-gray-400 mt-2 text-xl font-medium">De uma foto estática para um vídeo institucional de alta conversão.</p>
+        </div>
+
+        <div class="flex gap-12 items-center flex-mobile-col z-20">
+            
+            <div class="w-1/2 flex flex-col items-center relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-amber-500 text-black font-black uppercase tracking-widest px-6 py-1 rounded-full text-sm shadow-[0_0_15px_rgba(245,158,11,0.5)] z-40">
+                    <i class="fas fa-play mr-2"></i> Resultado Final
+                </div>
+                
+                <div class="glass-box p-3 rounded-2xl w-full flex flex-col items-center border-2 border-amber-500/50 shadow-2xl relative z-10">
+                    <div class="relative w-full rounded-xl overflow-hidden bg-black border border-gray-700 group">
+                        <video src="mecanico.mp4" controls class="w-full max-h-[400px] object-cover"></video>
+                        
+                        <button onclick="openZoom('mecanico.mp4')" class="absolute top-3 right-3 bg-black/80 hover:bg-amber-500 text-white hover:text-black font-bold py-2 px-4 rounded-lg transition duration-300 z-20 text-sm shadow-lg opacity-90 md:opacity-0 group-hover:opacity-100 flex items-center gap-2">
+                            <i class="fas fa-expand-arrows-alt"></i> Ampliar Vídeo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 flex flex-col justify-center">
+                <div class="glass-box p-8 rounded-2xl border-l-4 border-amber-500">
+                    <h3 class="text-white text-2xl font-black uppercase mb-6 flex items-center gap-3">
+                        <i class="fas fa-money-bill-wave text-amber-500"></i> Como Monetizar?
+                    </h3>
+                    
+                    <ul class="space-y-6 text-gray-300">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-gray-800 p-3 rounded-lg text-amber-400 mt-1"><i class="fas fa-video text-xl"></i></div>
+                            <div>
+                                <strong class="text-white block text-lg mb-1">Vídeos Institucionais</strong>
+                                <span class="text-sm">Ofereça um "Porta-voz" para apresentar a empresa no site do cliente ou no WhatsApp. Cobre R$ 300 a R$ 500 por vídeo.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-gray-800 p-3 rounded-lg text-amber-400 mt-1"><i class="fas fa-ad text-xl"></i></div>
+                            <div>
+                                <strong class="text-white block text-lg mb-1">Anúncios (Tráfego Pago)</strong>
+                                <span class="text-sm">Venda pacotes mensais de vídeos curtos e dinâmicos (formato Reels/TikTok) para comércios locais impulsionarem ofertas.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-gray-800 p-3 rounded-lg text-amber-400 mt-1"><i class="fas fa-bolt text-xl"></i></div>
+                            <div>
+                                <strong class="text-white block text-lg mb-1">Zero Barreira de Entrada</strong>
+                                <span class="text-sm">Sem precisar comprar câmera, microfone, iluminação ou pagar cachê para atores. Você resolve tudo no seu notebook.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="video-modal" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeZoom(event)">
+    <video id="zoomed-video" src="" controls class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300"></video>
+    
+    <div class="absolute top-6 right-8 text-gray-400 hover:text-white text-4xl cursor-pointer" onclick="closeZoom(event, true)">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<script>
+    function openZoom(src) {
+        const modal = document.getElementById('video-modal');
+        const video = document.getElementById('zoomed-video');
+        video.src = src;
+        
+        modal.classList.remove('hidden');
+        
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            video.classList.remove('scale-95');
+            video.classList.add('scale-100');
+            video.play(); // Auto-play quando o zoom abrir
+        }, 10);
+    }
+
+    function closeZoom(e, forceClose = false) {
+        // Se clicar no vídeo em si (controles), não fecha. Só fecha se clicar fora ou no X
+        if (!forceClose && e.target.tagName === 'VIDEO') return;
+
+        const modal = document.getElementById('video-modal');
+        const video = document.getElementById('zoomed-video');
+        
+        modal.classList.add('opacity-0');
+        video.classList.remove('scale-100');
+        video.classList.add('scale-95');
+        video.pause(); // Pausa o vídeo ao fechar
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            video.src = ''; 
+        }, 300);
+    }
+</script>
+
+</body>
+</html>
