@@ -1,6 +1,6 @@
 ﻿/**
  * Script de Controle da Apresentação com Bloco de Notas Integrado
- * Rodmar Junior 2026 - Ajustado para o fluxo total de 61 slides (0 a 60)
+ * Rodmar Junior 2026 - Ajustado para o fluxo total da Masterclass (index.html + 73 slides)
  */
 
 function configurarApresentacao() {
@@ -18,44 +18,44 @@ function configurarApresentacao() {
     window.addEventListener('resize', ajustar);
     ajustar();
 
-    // Obtém o número da página atual a partir da URL (ex: 5.html -> 5)
+    // Obtém o número da página atual a partir da URL (ex: 5.html -> 5). Se for index.html, vira 0.
     const pathParts = window.location.pathname.split('/');
     const fileName = pathParts.pop();
-    const pag = parseInt(fileName) || 0;
+    const pag = parseInt(fileName) || 0; 
     
     // Criação do Menu de Navegação (Footer)
     const footer = document.createElement('footer');
     footer.className = 'custom-footer';
-    footer.style.cssText = "position: fixed; bottom: 0; width: 100%; height: 80px; background: #111827; display: flex; align-items: center; justify-content: space-around; z-index: 1000; padding: 0 10px; border-top: 2px solid #374151;";
+    footer.style.cssText = "position: fixed; bottom: 0; left: 0; width: 100%; height: 80px; background: #111827; display: flex; align-items: center; justify-content: space-around; z-index: 1000; padding: 0 10px; border-top: 2px solid #374151;";
     
     footer.innerHTML = `
-        <button onclick="mudar(-1)" style="background:#374151; color:white; padding:12px; border:none; border-radius:10px; cursor:pointer;"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="mudar(-1)" style="background:#374151; color:white; padding:12px; border:none; border-radius:10px; cursor:pointer; transition: 0.3s;"><i class="fas fa-chevron-left"></i></button>
         
-        <button onclick="abrirNotas()" style="background:#6366F1; color:white; padding:12px 20px; border:none; border-radius:10px; font-weight:bold; display:flex; align-items:center; gap:8px;">
+        <button onclick="abrirNotas()" style="background:#6366F1; color:white; padding:12px 20px; border:none; border-radius:10px; font-weight:bold; display:flex; align-items:center; gap:8px; cursor:pointer; transition: 0.3s;">
             <i class="fas fa-edit"></i> <span class="hidden-mobile">NOTAS</span>
         </button>
 
         <div style="display:flex; align-items:center; gap:5px;">
-            <input type="number" id="goto" value="${pag}" min="0" max="60" style="width:45px; text-align:center; background:#1f2937; color:#F59E0B; border:1px solid #4B5563; border-radius:5px; font-weight:bold; padding:8px 0;">
-            <button onclick="irPara()" style="background:#F59E0B; color:black; padding:8px 12px; border:none; border-radius:3px; font-weight:bold; cursor:pointer;">IR</button>
+            <input type="number" id="goto" value="${pag}" min="0" max="73" style="width:45px; text-align:center; background:#1f2937; color:#F59E0B; border:1px solid #4B5563; border-radius:5px; font-weight:bold; padding:8px 0; outline: none;">
+            <button onclick="irPara()" style="background:#F59E0B; color:black; padding:8px 12px; border:none; border-radius:3px; font-weight:bold; cursor:pointer; transition: 0.3s;">IR</button>
         </div>
         
-        <button onclick="mudar(1)" style="background:#F59E0B; color:black; padding:12px; border:none; border-radius:10px; cursor:pointer;"><i class="fas fa-chevron-right"></i></button>
+        <button onclick="mudar(1)" style="background:#F59E0B; color:black; padding:12px; border:none; border-radius:10px; cursor:pointer; transition: 0.3s;"><i class="fas fa-chevron-right"></i></button>
     `;
     document.body.appendChild(footer);
 
     // Criar o Modal de Anotações (escondido por padrão)
     const modal = document.createElement('div');
     modal.id = 'modalNotas';
-    modal.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center; padding:20px;";
+    modal.style.cssText = "display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center; padding:20px; backdrop-filter: blur(5px);";
     modal.innerHTML = `
-        <div style="background:white; width:100%; max-width:500px; border-radius:20px; padding:20px; display:flex; flex-direction:column; gap:15px;">
+        <div style="background:white; width:100%; max-width:500px; border-radius:20px; padding:20px; display:flex; flex-direction:column; gap:15px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             <div style="display:flex; justify-content:space-between; align-items:center;">
-                <h3 style="margin:0; font-family:Montserrat; font-weight:900; color:#1e293b;">MINHAS NOTAS 📝</h3>
-                <button onclick="fecharNotas()" style="background:none; border:none; font-size:24px; color:#ef4444; cursor:pointer;">&times;</button>
+                <h3 style="margin:0; font-family:Montserrat; font-weight:900; color:#1e293b; font-size: 1.2rem;">MINHAS NOTAS 📝</h3>
+                <button onclick="fecharNotas()" style="background:none; border:none; font-size:28px; color:#ef4444; cursor:pointer; line-height: 1;">&times;</button>
             </div>
-            <textarea id="textoNotas" style="width:100%; height:300px; border:2px solid #e2e8f0; border-radius:12px; padding:15px; font-family:sans-serif; font-size:16px; outline:none;" placeholder="Anote seus insights aqui..."></textarea>
-            <button onclick="baixarNotas()" style="background:#1e293b; color:white; width:100%; padding:12px; border:none; border-radius:10px; font-weight:bold;">BAIXAR ANOTAÇÕES (.TXT)</button>
+            <textarea id="textoNotas" style="width:100%; height:300px; border:2px solid #e2e8f0; border-radius:12px; padding:15px; font-family:sans-serif; font-size:16px; outline:none; resize: none;" placeholder="Anote seus insights aqui..."></textarea>
+            <button onclick="baixarNotas()" style="background:#1e293b; color:white; width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size: 1rem; cursor:pointer;">BAIXAR ANOTAÇÕES (.TXT)</button>
         </div>
     `;
     document.body.appendChild(modal);
@@ -88,21 +88,28 @@ window.mudar = (n) => {
     const pag = parseInt(fileName) || 0;
     let destino = pag + n;
     
-    // Limite de 61 slides (0 a 60)
-    if (destino >= 0 && destino <= 60) {
+    // Limite da Masterclass: 0 (index.html) a 73 (Último Slide)
+    if (destino === 0) {
+        window.location.href = 'index.html';
+    } else if (destino >= 1 && destino <= 73) {
         window.location.href = destino + '.html';
     }
 };
 
 window.irPara = () => {
     const d = parseInt(document.getElementById('goto').value);
-    if (d >= 0 && d <= 60) {
+    if (d === 0) {
+        window.location.href = 'index.html';
+    } else if (d >= 1 && d <= 73) {
         window.location.href = d + '.html';
+    } else {
+        alert("Página inválida. Escolha entre 0 e 73.");
     }
 };
 
 // Atalhos de teclado (Setas e Barra de Espaço)
 document.addEventListener('keydown', (e) => {
+    // Ignora atalhos se o usuário estiver digitando no bloco de notas ou campo de input
     if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
     
     if (e.key === "ArrowRight" || e.key === " ") {
