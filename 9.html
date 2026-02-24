@@ -191,15 +191,14 @@
             </p>
         </div>
 
-        <div class="video-wrapper z-10">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@orodolfosouza/video/7608219977480424712" data-video-id="7608219977480424712" style="max-width: 605px;min-width: 325px;" > 
-                <section> 
-                    <a target="_blank" title="@orodolfosouza" href="https://www.tiktok.com/@orodolfosouza?refer=embed">@orodolfosouza</a> 
-                    <a title="chatgpt" target="_blank" href="https://www.tiktok.com/tag/chatgpt?refer=embed">#chatgpt</a> 
-                    <a target="_blank" title="♬ som original - Rodolfo Souza" href="https://www.tiktok.com/music/som-original-7608220152949803777?refer=embed">♬ som original - Rodolfo Souza</a> 
-                </section> 
-            </blockquote> 
-            <script async src="https://www.tiktok.com/embed.js"></script>
+        <div class="video-wrapper z-10 relative group">
+            <video src="video_ia.mp4" controls class="w-full h-full object-cover"></video>
+            
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                <div class="bg-black/60 rounded-full w-16 h-16 flex items-center justify-center">
+                    <i class="fas fa-play text-white text-2xl ml-1"></i>
+                </div>
+            </div>
         </div>
 
         <div class="absolute bottom-6 right-20 text-gray-600 text-[10px] font-bold uppercase tracking-[0.3em] z-20 hidden md:block">

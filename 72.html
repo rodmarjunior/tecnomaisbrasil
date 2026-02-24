@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Slide 40 - O Chamado à Ação</title>
+    <title>Slide 41 - O Começo de Tudo</title>
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
     
     <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
             margin: 0; padding: 0;
             width: 100%; height: 100%;
             overflow: hidden;
-            background-color: #020617;
+            background-color: #0F172A;
         }
 
         .slide-wrapper {
@@ -27,44 +27,43 @@
 
         .slide-container {
             width: 1280px; height: 720px;
-            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
             position: relative;
             overflow: hidden;
             display: flex; flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
-        .hero-text {
-            font-size: 5.5rem;
-            line-height: 0.9;
-            letter-spacing: -0.05em;
+        .final-quote {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .highlight-text {
-            color: #6366f1;
-            text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        .contact-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 999px;
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .floating-icon {
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.1;
+        .contact-pill:hover {
+            background: #6366f1;
+            transform: translateY(-3px);
+        }
+
+        .glow-effect {
             position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
             z-index: 1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-        }
-
-        .cta-box {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 40px;
-            border-radius: 30px;
-            margin-top: 50px;
         }
     </style>
 
@@ -189,43 +188,42 @@
 <body>
 
 <div class="slide-wrapper">
-    <div class="slide-container px-24 text-center">
-        <i class="fas fa-rocket floating-icon text-[200px]" style="top: 10%; left: 5%;"></i>
-        <i class="fas fa-brain floating-icon text-[180px]" style="bottom: 10%; right: 5%; animation-delay: 2s;"></i>
+    <div class="slide-container items-center justify-center text-center">
+        <div class="glow-effect" style="top: -100px; right: -100px;"></div>
+        <div class="glow-effect" style="bottom: -100px; left: -100px;"></div>
 
-        <div class="z-10">
-            <span class="text-indigo-400 font-black uppercase tracking-[0.6em] text-sm mb-8 block animate-pulse">
-                A jornada apenas começou
-            </span>
+        <div class="z-10 px-24">
+            <span class="text-indigo-500 font-black uppercase tracking-[0.5em] text-sm mb-6 block">O futuro pertence aos que executam</span>
             
-            <h1 class="hero-text text-white font-black uppercase mb-10">
-                O SEU <span class="highlight-text italic">LEGADO</span> <br> NÃO SERÁ <br> AUTOMATIZADO.
+            <h1 class="text-white text-7xl font-black mb-12 leading-tight">
+                OBRIGADO POR <br><span class="text-indigo-500">ACREDITAR.</span>
             </h1>
 
-            <div class="max-w-3xl mx-auto cta-box">
-                <p class="text-gray-300 text-2xl font-medium leading-relaxed italic">
-                    "A inteligência artificial pode gerar o código, o texto e a imagem. Mas ela jamais terá a sua <span class="text-white font-bold">visão</span>, a sua <span class="text-white font-bold">vontade</span> e a sua <span class="text-white font-bold">humanidade</span>."
+            <div class="max-w-4xl mx-auto mb-16">
+                <p class="final-quote font-black italic">
+                    "O medo de começar é o único obstáculo real entre você e a liberdade. A inteligência artificial já te deu as ferramentas, agora só falta a sua coragem."
                 </p>
-                
-                <div class="mt-8 flex justify-center items-center gap-4">
-                    <div class="h-px w-16 bg-indigo-500"></div>
-                    <span class="text-white font-black uppercase tracking-widest text-lg">
-                        Dê o primeiro passo agora
-                    </span>
-                    <div class="h-px w-16 bg-indigo-500"></div>
-                </div>
             </div>
 
-            <div class="mt-12">
-                <p class="text-gray-500 font-bold text-xl">
-                    Prepare-se. O futuro não é algo que acontece, é algo que você <span class="text-indigo-400">constrói</span>.
-                </p>
+            <div class="flex justify-center gap-6">
+                <div class="contact-pill flex items-center gap-3">
+                    <i class="fab fa-instagram text-pink-500"></i>
+                    <span></span>
+                </div>
+                <div class="contact-pill flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-green-500"></i>
+                    <span></span>
+                </div>
+                <div class="contact-pill flex items-center gap-3">
+                    <i class="fas fa-globe text-blue-500"></i>
+                    <span></span>
+                </div>
             </div>
         </div>
 
         <div class="absolute bottom-10 left-0 w-full text-center">
-            <p class="text-gray-600 text-xs font-black uppercase tracking-[0.4em]">
-      
+            <p class="text-gray-500 text-xs font-black uppercase tracking-[0.4em]">
+                Projeto Tecno Mais Brasil • O Começo é Hoje
             </p>
         </div>
     </div>

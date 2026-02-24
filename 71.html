@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Slide 40 - O Chamado à Ação</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="navegacao.js" defer></script>
+
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: #020617;
+        }
+
+        .slide-wrapper {
+            width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+        }
+
+        .hero-text {
+            font-size: 5.5rem;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+
+        .highlight-text {
+            color: #6366f1;
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .floating-icon {
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+            position: absolute;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 40px;
+            border-radius: 30px;
+            margin-top: 50px;
+        }
+    </style>
+
+    <style>
+        @media (max-width: 1024px) {
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
+            .slide-wrapper { height: auto !important; display: block !important; }
+            
+            .slide-container { 
+                width: 100% !important; height: auto !important; min-height: 100vh !important;
+                display: flex !important; flex-direction: column !important;
+                transform: none !important; padding: 0 !important;
+            }
+
+            /* Seção de Texto */
+            .w-7\/12, .w-1\/2, .w-full, .text-section { 
+                width: 100% !important; padding: 40px 25px !important; order: 2;
+            }
+
+            /* Seção de Imagem/Destaque */
+            .w-5\/12, .image-section, .w-1\/2 { 
+                width: 100% !important; height: 300px !important; order: 1; position: relative;
+            }
+
+            .flex { flex-direction: column !important; }
+            
+            /* Títulos e Textos */
+            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left; }
+            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
+            
+            /* Ajuste de imagens de fundo */
+            img.object-cover { 
+                position: absolute !important; height: 100% !important; 
+                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            }
+
+            /* Reset de margens negativas ou flutuantes */
+            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 20px !important; }
+            .absolute.bottom-20 { position: relative !important; bottom: 0 !important; margin-top: 20px !important; width: 100% !important; }
+            
+            /* Menu de navegação (Footer) no celular */
+            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
+        }
+    </style>
+
+
+    <style>
+        @media (max-width: 1024px) {
+            html, body { overflow-y: auto !important; height: auto !important; background-color: #0F172A !important; }
+            .slide-wrapper { height: auto !important; display: block !important; }
+            
+            .slide-container { 
+                width: 100% !important; height: auto !important; min-height: 100vh !important;
+                display: flex !important; flex-direction: column !important;
+                transform: none !important; padding: 20px 0 100px 0 !important;
+            }
+
+            /* Libera a altura e largura de TODAS as colunas para não esmagar o conteúdo */
+            .w-7\/12, .w-5\/12, .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-full { 
+                width: 100% !important; height: auto !important; padding: 15px 25px !important;
+            }
+
+            /* Garante que os elementos empilhem com espaço para respirar */
+            .flex { flex-direction: column !important; gap: 30px !important; }
+            
+            /* Títulos e Textos */
+            h1 { font-size: 2.2rem !important; line-height: 1.2 !important; text-align: left !important; }
+            p { font-size: 1.1rem !important; line-height: 1.6 !important; }
+            
+            /* Ajuste de imagens de fundo (apenas para as que cobrem a tela) */
+            img.object-cover { 
+                position: absolute !important; height: 100% !important; 
+                mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            }
+
+            /* Reset de margens e posições que quebram o mobile */
+            .-left-20, .ml-20, .pl-20 { left: 0 !important; margin-left: 0 !important; padding-left: 0 !important; }
+            .absolute.bottom-20, .absolute.-top-40 { position: relative !important; bottom: 0 !important; top: 0 !important; width: 100% !important; }
+            
+            /* Ajuste do grid de 2 colunas para 1 coluna no celular */
+            .grid-cols-2 { grid-template-columns: 1fr !important; }
+
+            /* Menu de navegação (Footer) no celular */
+            .custom-footer { height: 70px !important; padding-bottom: 10px !important; }
+        }
+    </style>
+
+
+    <style>
+        /* Blindagem Mobile Simples */
+        @media (max-width: 1024px) {
+            html, body { overflow-y: auto !important; height: auto !important; }
+            .slide-wrapper { height: auto !important; display: block !important; }
+            
+            .slide-container { 
+                width: 100% !important; height: auto !important; min-height: 100vh !important;
+                display: flex !important; flex-direction: column !important;
+                transform: none !important; padding: 30px 20px 100px 20px !important;
+            }
+
+            /* Libera as colunas para ocuparem 100% da tela sem forçar altura */
+            .w-1\/2, .w-1\/3, .w-2\/3, .w-1\/4, .w-3\/4, .w-7\/12, .w-5\/12 { 
+                width: 100% !important; height: auto !important; 
+            }
+            
+            /* Empilha os elementos com um respiro leve */
+            .flex { flex-direction: column !important; gap: 20px !important; }
+            
+            /* Preserva o menu de navegação (Footer) na horizontal */
+            .custom-footer { flex-direction: row !important; }
+            .custom-footer .flex { flex-direction: row !important; }
+            
+            /* Ajuste de fontes e margens exageradas do PC */
+            .pl-20, .pr-12, .px-20 { padding-left: 0 !important; padding-right: 0 !important; }
+            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="slide-wrapper">
+    <div class="slide-container px-24 text-center">
+        <i class="fas fa-rocket floating-icon text-[200px]" style="top: 10%; left: 5%;"></i>
+        <i class="fas fa-brain floating-icon text-[180px]" style="bottom: 10%; right: 5%; animation-delay: 2s;"></i>
+
+        <div class="z-10">
+            <span class="text-indigo-400 font-black uppercase tracking-[0.6em] text-sm mb-8 block animate-pulse">
+                A jornada apenas começou
+            </span>
+            
+            <h1 class="hero-text text-white font-black uppercase mb-10">
+                O SEU <span class="highlight-text italic">LEGADO</span> <br> NÃO SERÁ <br> AUTOMATIZADO.
+            </h1>
+
+            <div class="max-w-3xl mx-auto cta-box">
+                <p class="text-gray-300 text-2xl font-medium leading-relaxed italic">
+                    "A inteligência artificial pode gerar o código, o texto e a imagem. Mas ela jamais terá a sua <span class="text-white font-bold">visão</span>, a sua <span class="text-white font-bold">vontade</span> e a sua <span class="text-white font-bold">humanidade</span>."
+                </p>
+                
+                <div class="mt-8 flex justify-center items-center gap-4">
+                    <div class="h-px w-16 bg-indigo-500"></div>
+                    <span class="text-white font-black uppercase tracking-widest text-lg">
+                        Dê o primeiro passo agora
+                    </span>
+                    <div class="h-px w-16 bg-indigo-500"></div>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <p class="text-gray-500 font-bold text-xl">
+                    Prepare-se. O futuro não é algo que acontece, é algo que você <span class="text-indigo-400">constrói</span>.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-0 w-full text-center">
+            <p class="text-gray-600 text-xs font-black uppercase tracking-[0.4em]">
+      
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
